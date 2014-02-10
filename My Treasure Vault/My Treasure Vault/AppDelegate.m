@@ -1,3 +1,8 @@
+// Elijah Freestone
+// ADP1 1402
+// My Treasure Vault
+// February 10th, 2014
+
 //
 //  AppDelegate.m
 //  My Treasure Vault
