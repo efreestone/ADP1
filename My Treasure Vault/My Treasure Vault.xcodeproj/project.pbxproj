@@ -23,6 +23,7 @@
 		B82A350B18A96C45009DB638 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82A34E718A96C45009DB638 /* UIKit.framework */; };
 		B82A351318A96C45009DB638 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B82A351118A96C45009DB638 /* InfoPlist.strings */; };
 		B82A351518A96C45009DB638 /* My_Treasure_VaultTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B82A351418A96C45009DB638 /* My_Treasure_VaultTests.m */; };
+		B8E5265818A976E5001332AD /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E5265718A976E5001332AD /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		B82A351018A96C45009DB638 /* My Treasure VaultTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "My Treasure VaultTests-Info.plist"; sourceTree = "<group>"; };
 		B82A351218A96C45009DB638 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B82A351418A96C45009DB638 /* My_Treasure_VaultTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = My_Treasure_VaultTests.m; sourceTree = "<group>"; };
+		B8E5265618A976E5001332AD /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		B8E5265718A976E5001332AD /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +130,8 @@
 				B82A34FF18A96C45009DB638 /* SecondViewController.m */,
 				B82A350118A96C45009DB638 /* Images.xcassets */,
 				B82A34EA18A96C45009DB638 /* Supporting Files */,
+				B8E5265618A976E5001332AD /* SettingsViewController.h */,
+				B8E5265718A976E5001332AD /* SettingsViewController.m */,
 			);
 			path = "My Treasure Vault";
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 			files = (
 				B82A350018A96C45009DB638 /* SecondViewController.m in Sources */,
 				B82A34F418A96C45009DB638 /* AppDelegate.m in Sources */,
+				B8E5265818A976E5001332AD /* SettingsViewController.m in Sources */,
 				B82A34FD18A96C45009DB638 /* FirstViewController.m in Sources */,
 				B82A34F018A96C45009DB638 /* main.m in Sources */,
 			);
@@ -480,6 +486,7 @@
 				B82A351A18A96C45009DB638 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B82A351B18A96C45009DB638 /* Build configuration list for PBXNativeTarget "My Treasure VaultTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +495,7 @@
 				B82A351D18A96C45009DB638 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
