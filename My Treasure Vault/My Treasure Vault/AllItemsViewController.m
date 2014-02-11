@@ -11,7 +11,7 @@
 //  Copyright (c) 2014 Elijah Freestone. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "AllItemsViewController.h"
 
 @interface SecondViewController ()
 
