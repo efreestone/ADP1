@@ -1,3 +1,8 @@
+// Elijah Freestone
+// ADP1 1402
+// My Treasure Vault
+// February 10th, 2014
+
 //
 //  FirstViewController.m
 //  MyTreasureVault
@@ -6,7 +11,7 @@
 //  Copyright (c) 2014 Elijah Freestone. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "RecentViewController.h"
 
 @interface FirstViewController ()
 
