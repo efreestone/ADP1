@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B82A34DF18A96C45009DB638"
-               BuildableName = "My Treasure Vault.app"
-               BlueprintName = "My Treasure Vault"
-               ReferencedContainer = "container:My Treasure Vault.xcodeproj">
+               BuildableName = "MyTreasureVault.app"
+               BlueprintName = "MyTreasureVault"
+               ReferencedContainer = "container:MyTreasureVault.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B82A350618A96C45009DB638"
-               BuildableName = "My Treasure VaultTests.xctest"
-               BlueprintName = "My Treasure VaultTests"
-               ReferencedContainer = "container:My Treasure Vault.xcodeproj">
+               BuildableName = "MyTreasureVaultTests.xctest"
+               BlueprintName = "MyTreasureVaultTests"
+               ReferencedContainer = "container:MyTreasureVault.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B82A34DF18A96C45009DB638"
-            BuildableName = "My Treasure Vault.app"
-            BlueprintName = "My Treasure Vault"
-            ReferencedContainer = "container:My Treasure Vault.xcodeproj">
+            BuildableName = "MyTreasureVault.app"
+            BlueprintName = "MyTreasureVault"
+            ReferencedContainer = "container:MyTreasureVault.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B82A34DF18A96C45009DB638"
-            BuildableName = "My Treasure Vault.app"
-            BlueprintName = "My Treasure Vault"
-            ReferencedContainer = "container:My Treasure Vault.xcodeproj">
+            BuildableName = "MyTreasureVault.app"
+            BlueprintName = "MyTreasureVault"
+            ReferencedContainer = "container:MyTreasureVault.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B82A34DF18A96C45009DB638"
-            BuildableName = "My Treasure Vault.app"
-            BlueprintName = "My Treasure Vault"
-            ReferencedContainer = "container:My Treasure Vault.xcodeproj">
+            BuildableName = "MyTreasureVault.app"
+            BlueprintName = "MyTreasureVault"
+            ReferencedContainer = "container:MyTreasureVault.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

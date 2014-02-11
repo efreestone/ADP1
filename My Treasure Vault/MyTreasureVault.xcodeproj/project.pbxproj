@@ -24,6 +24,7 @@
 		B82A351318A96C45009DB638 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B82A351118A96C45009DB638 /* InfoPlist.strings */; };
 		B82A351518A96C45009DB638 /* My_Treasure_VaultTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B82A351418A96C45009DB638 /* My_Treasure_VaultTests.m */; };
 		B85A191418AACFD700BCBEE6 /* Default-Portrait~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B85A191318AACFD700BCBEE6 /* Default-Portrait~iPad.png */; };
+		B85A191618AAD35800BCBEE6 /* Default-Landscape@2x~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B85A191518AAD35800BCBEE6 /* Default-Landscape@2x~iPad.png */; };
 		B893B92118AAC99D007195C0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B893B91E18AAC99D007195C0 /* Default-568h@2x.png */; };
 		B893B92218AAC99D007195C0 /* Default-Portrait@2x~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B893B91F18AAC99D007195C0 /* Default-Portrait@2x~iPad.png */; };
 		B893B92318AAC99D007195C0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B893B92018AAC99D007195C0 /* Default@2x.png */; };
@@ -41,14 +42,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B82A34E018A96C45009DB638 /* My Treasure Vault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Treasure Vault.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B82A34E018A96C45009DB638 /* MyTreasureVault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTreasureVault.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82A34E318A96C45009DB638 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B82A34E518A96C45009DB638 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B82A34E718A96C45009DB638 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		B82A34EB18A96C45009DB638 /* My Treasure Vault-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "My Treasure Vault-Info.plist"; sourceTree = "<group>"; };
+		B82A34EB18A96C45009DB638 /* MyTreasureVault-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyTreasureVault-Info.plist"; sourceTree = "<group>"; };
 		B82A34ED18A96C45009DB638 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B82A34EF18A96C45009DB638 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B82A34F118A96C45009DB638 /* My Treasure Vault-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "My Treasure Vault-Prefix.pch"; sourceTree = "<group>"; };
+		B82A34F118A96C45009DB638 /* MyTreasureVault-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyTreasureVault-Prefix.pch"; sourceTree = "<group>"; };
 		B82A34F218A96C45009DB638 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B82A34F318A96C45009DB638 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B82A34F618A96C45009DB638 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
@@ -58,12 +59,13 @@
 		B82A34FE18A96C45009DB638 /* AllItemsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllItemsViewController.h; sourceTree = "<group>"; };
 		B82A34FF18A96C45009DB638 /* AllItemsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllItemsViewController.m; sourceTree = "<group>"; };
 		B82A350118A96C45009DB638 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		B82A350718A96C45009DB638 /* My Treasure VaultTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My Treasure VaultTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B82A350718A96C45009DB638 /* MyTreasureVaultTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyTreasureVaultTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82A350818A96C45009DB638 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		B82A351018A96C45009DB638 /* My Treasure VaultTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "My Treasure VaultTests-Info.plist"; sourceTree = "<group>"; };
+		B82A351018A96C45009DB638 /* MyTreasureVaultTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyTreasureVaultTests-Info.plist"; sourceTree = "<group>"; };
 		B82A351218A96C45009DB638 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B82A351418A96C45009DB638 /* My_Treasure_VaultTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = My_Treasure_VaultTests.m; sourceTree = "<group>"; };
 		B85A191318AACFD700BCBEE6 /* Default-Portrait~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~iPad.png"; sourceTree = "<group>"; };
+		B85A191518AAD35800BCBEE6 /* Default-Landscape@2x~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~iPad.png"; sourceTree = "<group>"; };
 		B893B91E18AAC99D007195C0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B893B91F18AAC99D007195C0 /* Default-Portrait@2x~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~iPad.png"; sourceTree = "<group>"; };
 		B893B92018AAC99D007195C0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -98,8 +100,8 @@
 		B82A34D718A96C45009DB638 = {
 			isa = PBXGroup;
 			children = (
-				B82A34E918A96C45009DB638 /* My Treasure Vault */,
-				B82A350E18A96C45009DB638 /* My Treasure VaultTests */,
+				B82A34E918A96C45009DB638 /* MyTreasureVault */,
+				B82A350E18A96C45009DB638 /* MyTreasureVaultTests */,
 				B82A34E218A96C45009DB638 /* Frameworks */,
 				B82A34E118A96C45009DB638 /* Products */,
 			);
@@ -108,8 +110,8 @@
 		B82A34E118A96C45009DB638 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B82A34E018A96C45009DB638 /* My Treasure Vault.app */,
-				B82A350718A96C45009DB638 /* My Treasure VaultTests.xctest */,
+				B82A34E018A96C45009DB638 /* MyTreasureVault.app */,
+				B82A350718A96C45009DB638 /* MyTreasureVaultTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,7 +127,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B82A34E918A96C45009DB638 /* My Treasure Vault */ = {
+		B82A34E918A96C45009DB638 /* MyTreasureVault */ = {
 			isa = PBXGroup;
 			children = (
 				B82A34F218A96C45009DB638 /* AppDelegate.h */,
@@ -142,33 +144,35 @@
 				B8E5265718A976E5001332AD /* SettingsViewController.m */,
 				B893B91D18AAC99D007195C0 /* images */,
 			);
+			name = MyTreasureVault;
 			path = "My Treasure Vault";
 			sourceTree = "<group>";
 		};
 		B82A34EA18A96C45009DB638 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B82A34EB18A96C45009DB638 /* My Treasure Vault-Info.plist */,
+				B82A34EB18A96C45009DB638 /* MyTreasureVault-Info.plist */,
 				B82A34EC18A96C45009DB638 /* InfoPlist.strings */,
 				B82A34EF18A96C45009DB638 /* main.m */,
-				B82A34F118A96C45009DB638 /* My Treasure Vault-Prefix.pch */,
+				B82A34F118A96C45009DB638 /* MyTreasureVault-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B82A350E18A96C45009DB638 /* My Treasure VaultTests */ = {
+		B82A350E18A96C45009DB638 /* MyTreasureVaultTests */ = {
 			isa = PBXGroup;
 			children = (
 				B82A351418A96C45009DB638 /* My_Treasure_VaultTests.m */,
 				B82A350F18A96C45009DB638 /* Supporting Files */,
 			);
+			name = MyTreasureVaultTests;
 			path = "My Treasure VaultTests";
 			sourceTree = "<group>";
 		};
 		B82A350F18A96C45009DB638 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B82A351018A96C45009DB638 /* My Treasure VaultTests-Info.plist */,
+				B82A351018A96C45009DB638 /* MyTreasureVaultTests-Info.plist */,
 				B82A351118A96C45009DB638 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -177,6 +181,7 @@
 		B893B91D18AAC99D007195C0 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B85A191518AAD35800BCBEE6 /* Default-Landscape@2x~iPad.png */,
 				B85A191318AACFD700BCBEE6 /* Default-Portrait~iPad.png */,
 				B893B91E18AAC99D007195C0 /* Default-568h@2x.png */,
 				B893B91F18AAC99D007195C0 /* Default-Portrait@2x~iPad.png */,
@@ -188,9 +193,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B82A34DF18A96C45009DB638 /* My Treasure Vault */ = {
+		B82A34DF18A96C45009DB638 /* MyTreasureVault */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B82A351818A96C45009DB638 /* Build configuration list for PBXNativeTarget "My Treasure Vault" */;
+			buildConfigurationList = B82A351818A96C45009DB638 /* Build configuration list for PBXNativeTarget "MyTreasureVault" */;
 			buildPhases = (
 				B82A34DC18A96C45009DB638 /* Sources */,
 				B82A34DD18A96C45009DB638 /* Frameworks */,
@@ -200,14 +205,14 @@
 			);
 			dependencies = (
 			);
-			name = "My Treasure Vault";
+			name = MyTreasureVault;
 			productName = "My Treasure Vault";
-			productReference = B82A34E018A96C45009DB638 /* My Treasure Vault.app */;
+			productReference = B82A34E018A96C45009DB638 /* MyTreasureVault.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B82A350618A96C45009DB638 /* My Treasure VaultTests */ = {
+		B82A350618A96C45009DB638 /* MyTreasureVaultTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B82A351B18A96C45009DB638 /* Build configuration list for PBXNativeTarget "My Treasure VaultTests" */;
+			buildConfigurationList = B82A351B18A96C45009DB638 /* Build configuration list for PBXNativeTarget "MyTreasureVaultTests" */;
 			buildPhases = (
 				B82A350318A96C45009DB638 /* Sources */,
 				B82A350418A96C45009DB638 /* Frameworks */,
@@ -218,9 +223,9 @@
 			dependencies = (
 				B82A350D18A96C45009DB638 /* PBXTargetDependency */,
 			);
-			name = "My Treasure VaultTests";
+			name = MyTreasureVaultTests;
 			productName = "My Treasure VaultTests";
-			productReference = B82A350718A96C45009DB638 /* My Treasure VaultTests.xctest */;
+			productReference = B82A350718A96C45009DB638 /* MyTreasureVaultTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -237,7 +242,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B82A34DB18A96C45009DB638 /* Build configuration list for PBXProject "My Treasure Vault" */;
+			buildConfigurationList = B82A34DB18A96C45009DB638 /* Build configuration list for PBXProject "MyTreasureVault" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -250,8 +255,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B82A34DF18A96C45009DB638 /* My Treasure Vault */,
-				B82A350618A96C45009DB638 /* My Treasure VaultTests */,
+				B82A34DF18A96C45009DB638 /* MyTreasureVault */,
+				B82A350618A96C45009DB638 /* MyTreasureVaultTests */,
 			);
 		};
 /* End PBXProject section */
@@ -269,6 +274,7 @@
 				B893B92318AAC99D007195C0 /* Default@2x.png in Resources */,
 				B82A34EE18A96C45009DB638 /* InfoPlist.strings in Resources */,
 				B85A191418AACFD700BCBEE6 /* Default-Portrait~iPad.png in Resources */,
+				B85A191618AAD35800BCBEE6 /* Default-Landscape@2x~iPad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,7 +314,7 @@
 /* Begin PBXTargetDependency section */
 		B82A350D18A96C45009DB638 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B82A34DF18A96C45009DB638 /* My Treasure Vault */;
+			target = B82A34DF18A96C45009DB638 /* MyTreasureVault */;
 			targetProxy = B82A350C18A96C45009DB638 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -428,9 +434,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "My Treasure Vault/My Treasure Vault-Prefix.pch";
-				INFOPLIST_FILE = "My Treasure Vault/My Treasure Vault-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "My Treasure Vault/MyTreasureVault-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/My Treasure Vault/MyTreasureVault-Info.plist";
+				PRODUCT_NAME = MyTreasureVault;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -440,9 +446,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "My Treasure Vault/My Treasure Vault-Prefix.pch";
-				INFOPLIST_FILE = "My Treasure Vault/My Treasure Vault-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "My Treasure Vault/MyTreasureVault-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/My Treasure Vault/MyTreasureVault-Info.plist";
+				PRODUCT_NAME = MyTreasureVault;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -463,8 +469,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "My Treasure VaultTests/My Treasure VaultTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "My Treasure VaultTests/MyTreasureVaultTests-Info.plist";
+				PRODUCT_NAME = MyTreasureVaultTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -482,8 +488,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "My Treasure Vault/My Treasure Vault-Prefix.pch";
-				INFOPLIST_FILE = "My Treasure VaultTests/My Treasure VaultTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "My Treasure VaultTests/MyTreasureVaultTests-Info.plist";
+				PRODUCT_NAME = MyTreasureVaultTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -492,7 +498,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B82A34DB18A96C45009DB638 /* Build configuration list for PBXProject "My Treasure Vault" */ = {
+		B82A34DB18A96C45009DB638 /* Build configuration list for PBXProject "MyTreasureVault" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B82A351618A96C45009DB638 /* Debug */,
@@ -501,7 +507,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B82A351818A96C45009DB638 /* Build configuration list for PBXNativeTarget "My Treasure Vault" */ = {
+		B82A351818A96C45009DB638 /* Build configuration list for PBXNativeTarget "MyTreasureVault" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B82A351918A96C45009DB638 /* Debug */,
@@ -510,7 +516,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B82A351B18A96C45009DB638 /* Build configuration list for PBXNativeTarget "My Treasure VaultTests" */ = {
+		B82A351B18A96C45009DB638 /* Build configuration list for PBXNativeTarget "MyTreasureVaultTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B82A351C18A96C45009DB638 /* Debug */,
