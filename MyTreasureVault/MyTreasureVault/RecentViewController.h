@@ -4,7 +4,7 @@
 // February 10th, 2014
 
 //
-//  FirstViewController.h
+//  RecentViewController.h
 //  MyTreasureVault
 //
 //  Created by Elijah Freestone on 2/11/14.
@@ -13,6 +13,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface RecentViewController : UITableViewController
+
+//Declare array to hold recent items
+@property (nonatomic, strong) NSMutableArray *recentItemsArray;
 
 @end

@@ -4,7 +4,7 @@
 // February 10th, 2014
 
 //
-//  SecondViewController.h
+//  AllItemsViewController.h
 //  MyTreasureVault
 //
 //  Created by Elijah Freestone on 2/11/14.
@@ -13,6 +13,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface AllItemsViewController : UITableViewController
 
 @end

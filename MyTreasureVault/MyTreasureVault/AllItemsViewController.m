@@ -4,7 +4,7 @@
 // February 10th, 2014
 
 //
-//  SecondViewController.m
+//  AllItemsViewController.m
 //  MyTreasureVault
 //
 //  Created by Elijah Freestone on 2/11/14.
@@ -13,11 +13,11 @@
 
 #import "AllItemsViewController.h"
 
-@interface SecondViewController ()
+@interface AllItemsViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation AllItemsViewController
 
 - (void)viewDidLoad
 {

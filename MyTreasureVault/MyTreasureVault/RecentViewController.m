@@ -4,7 +4,7 @@
 // February 10th, 2014
 
 //
-//  FirstViewController.m
+//  RecentViewController.m
 //  MyTreasureVault
 //
 //  Created by Elijah Freestone on 2/11/14.
@@ -13,11 +13,14 @@
 
 #import "RecentViewController.h"
 
-@interface FirstViewController ()
+@interface RecentViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation RecentViewController
+
+//Synthesize recent items array for getter/setter
+@synthesize recentItemsArray;
 
 - (void)viewDidLoad
 {
@@ -30,5 +33,19 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return [self.recentItemsArray count];
+}
+
 
 @end
