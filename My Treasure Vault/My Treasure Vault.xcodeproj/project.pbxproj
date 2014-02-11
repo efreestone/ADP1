@@ -23,6 +23,10 @@
 		B82A350B18A96C45009DB638 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82A34E718A96C45009DB638 /* UIKit.framework */; };
 		B82A351318A96C45009DB638 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B82A351118A96C45009DB638 /* InfoPlist.strings */; };
 		B82A351518A96C45009DB638 /* My_Treasure_VaultTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B82A351418A96C45009DB638 /* My_Treasure_VaultTests.m */; };
+		B85A191418AACFD700BCBEE6 /* Default-Portrait~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B85A191318AACFD700BCBEE6 /* Default-Portrait~iPad.png */; };
+		B893B92118AAC99D007195C0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B893B91E18AAC99D007195C0 /* Default-568h@2x.png */; };
+		B893B92218AAC99D007195C0 /* Default-Portrait@2x~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B893B91F18AAC99D007195C0 /* Default-Portrait@2x~iPad.png */; };
+		B893B92318AAC99D007195C0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B893B92018AAC99D007195C0 /* Default@2x.png */; };
 		B8E5265818A976E5001332AD /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E5265718A976E5001332AD /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +63,10 @@
 		B82A351018A96C45009DB638 /* My Treasure VaultTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "My Treasure VaultTests-Info.plist"; sourceTree = "<group>"; };
 		B82A351218A96C45009DB638 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B82A351418A96C45009DB638 /* My_Treasure_VaultTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = My_Treasure_VaultTests.m; sourceTree = "<group>"; };
+		B85A191318AACFD700BCBEE6 /* Default-Portrait~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~iPad.png"; sourceTree = "<group>"; };
+		B893B91E18AAC99D007195C0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		B893B91F18AAC99D007195C0 /* Default-Portrait@2x~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~iPad.png"; sourceTree = "<group>"; };
+		B893B92018AAC99D007195C0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		B8E5265618A976E5001332AD /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		B8E5265718A976E5001332AD /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,6 +140,7 @@
 				B82A34EA18A96C45009DB638 /* Supporting Files */,
 				B8E5265618A976E5001332AD /* SettingsViewController.h */,
 				B8E5265718A976E5001332AD /* SettingsViewController.m */,
+				B893B91D18AAC99D007195C0 /* images */,
 			);
 			path = "My Treasure Vault";
 			sourceTree = "<group>";
@@ -163,6 +172,17 @@
 				B82A351118A96C45009DB638 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B893B91D18AAC99D007195C0 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				B85A191318AACFD700BCBEE6 /* Default-Portrait~iPad.png */,
+				B893B91E18AAC99D007195C0 /* Default-568h@2x.png */,
+				B893B91F18AAC99D007195C0 /* Default-Portrait@2x~iPad.png */,
+				B893B92018AAC99D007195C0 /* Default@2x.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,10 +261,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B893B92218AAC99D007195C0 /* Default-Portrait@2x~iPad.png in Resources */,
 				B82A34FA18A96C45009DB638 /* Main_iPad.storyboard in Resources */,
 				B82A350218A96C45009DB638 /* Images.xcassets in Resources */,
 				B82A34F718A96C45009DB638 /* Main_iPhone.storyboard in Resources */,
+				B893B92118AAC99D007195C0 /* Default-568h@2x.png in Resources */,
+				B893B92318AAC99D007195C0 /* Default@2x.png in Resources */,
 				B82A34EE18A96C45009DB638 /* InfoPlist.strings in Resources */,
+				B85A191418AACFD700BCBEE6 /* Default-Portrait~iPad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,7 +427,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "My Treasure Vault/My Treasure Vault-Prefix.pch";
 				INFOPLIST_FILE = "My Treasure Vault/My Treasure Vault-Info.plist";
@@ -416,7 +439,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "My Treasure Vault/My Treasure Vault-Prefix.pch";
 				INFOPLIST_FILE = "My Treasure Vault/My Treasure Vault-Info.plist";
