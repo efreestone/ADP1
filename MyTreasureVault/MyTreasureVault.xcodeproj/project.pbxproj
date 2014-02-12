@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B8312C1618AAEF300094ACD8 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8312C1518AAEF300094ACD8 /* CustomCell.m */; };
+		B8312C1918AB121E0094ACD8 /* RecentItems.m in Sources */ = {isa = PBXBuildFile; fileRef = B8312C1818AB121E0094ACD8 /* RecentItems.m */; };
 		B8F7901618AADD730030816A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F7901518AADD730030816A /* Foundation.framework */; };
 		B8F7901818AADD730030816A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F7901718AADD730030816A /* CoreGraphics.framework */; };
 		B8F7901A18AADD730030816A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F7901918AADD730030816A /* UIKit.framework */; };
@@ -45,6 +46,8 @@
 /* Begin PBXFileReference section */
 		B8312C1418AAEF300094ACD8 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
 		B8312C1518AAEF300094ACD8 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
+		B8312C1718AB121E0094ACD8 /* RecentItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentItems.h; sourceTree = "<group>"; };
+		B8312C1818AB121E0094ACD8 /* RecentItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentItems.m; sourceTree = "<group>"; };
 		B8F7901218AADD730030816A /* MyTreasureVault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTreasureVault.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F7901518AADD730030816A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B8F7901718AADD730030816A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -148,6 +151,8 @@
 				B8F7901C18AADD730030816A /* Supporting Files */,
 				B8312C1418AAEF300094ACD8 /* CustomCell.h */,
 				B8312C1518AAEF300094ACD8 /* CustomCell.m */,
+				B8312C1718AB121E0094ACD8 /* RecentItems.h */,
+				B8312C1818AB121E0094ACD8 /* RecentItems.m */,
 			);
 			path = MyTreasureVault;
 			sourceTree = "<group>";
@@ -300,6 +305,7 @@
 				B8F7902618AADD730030816A /* AppDelegate.m in Sources */,
 				B8312C1618AAEF300094ACD8 /* CustomCell.m in Sources */,
 				B8FD489818AADF4D00D23995 /* SettingsViewController.m in Sources */,
+				B8312C1918AB121E0094ACD8 /* RecentItems.m in Sources */,
 				B8F7902F18AADD730030816A /* RecentViewController.m in Sources */,
 				B8F7902218AADD730030816A /* main.m in Sources */,
 			);
