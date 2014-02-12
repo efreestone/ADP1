@@ -15,4 +15,7 @@
 
 @implementation AllItems
 
+//Synthesize image/strings for getter/setter
+@synthesize imageOne, itemMake, itemModel, itemSerial, itemDetails, itemCost, dateAdded;
+
 @end

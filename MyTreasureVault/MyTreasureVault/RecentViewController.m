@@ -81,6 +81,9 @@
     recentItem.dateAdded = @"12-25-2013";
     [recentItemsArray addObject:recentItem];
     
+    //Move edit button to left side of nav bar (right is + sign for add item)
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -109,7 +112,7 @@
 	CustomCell *cell = (CustomCell *) [tableView dequeueReusableCellWithIdentifier:@"RecentCell"];
 	RecentItems *recentItem = [self.recentItemsArray objectAtIndex:indexPath.row];
     cell.cellImage.image = recentItem.imageOne;
-	cell.makeModelLabel.text = recentItem.itemMake;
+	cell.makeModelLabel.text = [NSString stringWithFormat:@"%@ %@", recentItem.itemMake, recentItem.itemModel];
 	cell.detailsLabel.text = recentItem.itemDetails;
     cell.dateAddedLabel.text = recentItem.dateAdded;
     
