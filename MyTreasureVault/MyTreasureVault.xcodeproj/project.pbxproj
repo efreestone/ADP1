@@ -10,6 +10,7 @@
 		B8312C1618AAEF300094ACD8 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8312C1518AAEF300094ACD8 /* CustomCell.m */; };
 		B8312C1918AB121E0094ACD8 /* RecentItems.m in Sources */ = {isa = PBXBuildFile; fileRef = B8312C1818AB121E0094ACD8 /* RecentItems.m */; };
 		B8312C1C18AB216C0094ACD8 /* AllItems.m in Sources */ = {isa = PBXBuildFile; fileRef = B8312C1B18AB216C0094ACD8 /* AllItems.m */; };
+		B8C2FCEE18AB336B00E8EC0E /* defaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = B8C2FCED18AB336B00E8EC0E /* defaultImage.png */; };
 		B8F7901618AADD730030816A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F7901518AADD730030816A /* Foundation.framework */; };
 		B8F7901818AADD730030816A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F7901718AADD730030816A /* CoreGraphics.framework */; };
 		B8F7901A18AADD730030816A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F7901918AADD730030816A /* UIKit.framework */; };
@@ -51,6 +52,7 @@
 		B8312C1818AB121E0094ACD8 /* RecentItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentItems.m; sourceTree = "<group>"; };
 		B8312C1A18AB216C0094ACD8 /* AllItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllItems.h; sourceTree = "<group>"; };
 		B8312C1B18AB216C0094ACD8 /* AllItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllItems.m; sourceTree = "<group>"; };
+		B8C2FCED18AB336B00E8EC0E /* defaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImage.png; sourceTree = "<group>"; };
 		B8F7901218AADD730030816A /* MyTreasureVault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTreasureVault.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F7901518AADD730030816A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B8F7901718AADD730030816A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -194,6 +196,7 @@
 		B8F7905018AADE3D0030816A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B8C2FCED18AB336B00E8EC0E /* defaultImage.png */,
 				B8F7905118AADE3D0030816A /* Default-568h@2x.png */,
 				B8F7905218AADE3D0030816A /* Default-Landscape@2x~iPad.png */,
 				B8F7905318AADE3D0030816A /* Default-Portrait@2x~iPad.png */,
@@ -282,6 +285,7 @@
 				B8F7902C18AADD730030816A /* Main_iPad.storyboard in Resources */,
 				B8F7903418AADD730030816A /* Images.xcassets in Resources */,
 				B8F7905818AADE3D0030816A /* Default-Portrait@2x~iPad.png in Resources */,
+				B8C2FCEE18AB336B00E8EC0E /* defaultImage.png in Resources */,
 				B8F7905A18AADE3D0030816A /* Default@2x.png in Resources */,
 				B8F7902918AADD730030816A /* Main_iPhone.storyboard in Resources */,
 				B8F7905618AADE3D0030816A /* Default-568h@2x.png in Resources */,
