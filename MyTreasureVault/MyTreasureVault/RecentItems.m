@@ -4,18 +4,18 @@
 // February 10th, 2014
 
 //
-//  RecentViewController.h
+//  RecentItems.m
 //  MyTreasureVault
 //
 //  Created by Elijah Freestone on 2/11/14.
 //  Copyright (c) 2014 Elijah Freestone. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "RecentItems.h"
 
-@interface RecentViewController : UITableViewController
+@implementation RecentItems
 
-//Declare array to hold recent items
-@property (nonatomic, strong) NSMutableArray *recentItemsArray;
+//Synthesize image/strings for getter/setter
+@synthesize imageOne, itemMake, itemModel, itemSerial, itemDetails, itemCost, dateAdded;
 
 @end
