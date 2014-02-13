@@ -94,7 +94,7 @@
     }
 }
 
-//Built in method to capture media selection -----------------------------------------------------NEEDED???????????????????
+//Built in method to capture media selection
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     //Initialize/allocate image view controller
@@ -113,7 +113,6 @@
         editedImageView.image = editedImage;
         //Pass image to UIImage in image view
         //imageViewController.passedNewImage = editedImage;
-        //photosViewController.passedEditedImage = editedImage;
     }
     //Dismiss picker view
     [picker dismissViewControllerAnimated:true completion:nil];
