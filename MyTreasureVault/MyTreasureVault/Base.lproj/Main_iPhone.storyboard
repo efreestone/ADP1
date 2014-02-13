@@ -210,7 +210,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQi-LU-Zag">
-                                <rect key="frame" x="114" y="258" width="93" height="30"/>
+                                <rect key="frame" x="88" y="248" width="144" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Image">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -242,8 +242,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Item" id="XE2-nr-dRu">
-                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="0XY-jS-nsQ"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="HvK-rq-5eA"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="0XY-jS-nsQ">
+                            <connections>
+                                <action selector="onSave:" destination="tbt-eF-mNe" id="WZP-RH-AL3"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="HvK-rq-5eA">
+                            <connections>
+                                <action selector="onCancel:" destination="tbt-eF-mNe" id="C9c-yA-kxS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vsx-vc-dis" userLabel="First Responder" sceneMemberID="firstResponder"/>

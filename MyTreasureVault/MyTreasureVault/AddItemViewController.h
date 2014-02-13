@@ -15,4 +15,8 @@
 
 @interface AddItemViewController : UIViewController
 
+//Declare IBActions for save and cancel buttons
+-(IBAction)onCancel:(id)sender;
+-(IBAction)onSave:(id)sender;
+
 @end
