@@ -10,6 +10,7 @@
 		B8312C1618AAEF300094ACD8 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8312C1518AAEF300094ACD8 /* CustomCell.m */; };
 		B8312C1918AB121E0094ACD8 /* RecentItems.m in Sources */ = {isa = PBXBuildFile; fileRef = B8312C1818AB121E0094ACD8 /* RecentItems.m */; };
 		B8312C1C18AB216C0094ACD8 /* AllItems.m in Sources */ = {isa = PBXBuildFile; fileRef = B8312C1B18AB216C0094ACD8 /* AllItems.m */; };
+		B877E38A18AC3F2F004EA539 /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B877E38918AC3F2F004EA539 /* AddItemViewController.m */; };
 		B8C2FCEE18AB336B00E8EC0E /* defaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = B8C2FCED18AB336B00E8EC0E /* defaultImage.png */; };
 		B8F7901618AADD730030816A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F7901518AADD730030816A /* Foundation.framework */; };
 		B8F7901818AADD730030816A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F7901718AADD730030816A /* CoreGraphics.framework */; };
@@ -52,6 +53,8 @@
 		B8312C1818AB121E0094ACD8 /* RecentItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentItems.m; sourceTree = "<group>"; };
 		B8312C1A18AB216C0094ACD8 /* AllItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllItems.h; sourceTree = "<group>"; };
 		B8312C1B18AB216C0094ACD8 /* AllItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllItems.m; sourceTree = "<group>"; };
+		B877E38818AC3F2F004EA539 /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemViewController.h; sourceTree = "<group>"; };
+		B877E38918AC3F2F004EA539 /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemViewController.m; sourceTree = "<group>"; };
 		B8C2FCED18AB336B00E8EC0E /* defaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImage.png; sourceTree = "<group>"; };
 		B8F7901218AADD730030816A /* MyTreasureVault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTreasureVault.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F7901518AADD730030816A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -151,6 +154,8 @@
 				B8F7903118AADD730030816A /* AllItemsViewController.m */,
 				B8FD489618AADF4D00D23995 /* SettingsViewController.h */,
 				B8FD489718AADF4D00D23995 /* SettingsViewController.m */,
+				B877E38818AC3F2F004EA539 /* AddItemViewController.h */,
+				B877E38918AC3F2F004EA539 /* AddItemViewController.m */,
 				B8F7903318AADD730030816A /* Images.xcassets */,
 				B8F7905018AADE3D0030816A /* images */,
 				B8F7901C18AADD730030816A /* Supporting Files */,
@@ -314,6 +319,7 @@
 				B8F7903218AADD730030816A /* AllItemsViewController.m in Sources */,
 				B8F7902618AADD730030816A /* AppDelegate.m in Sources */,
 				B8312C1618AAEF300094ACD8 /* CustomCell.m in Sources */,
+				B877E38A18AC3F2F004EA539 /* AddItemViewController.m in Sources */,
 				B8FD489818AADF4D00D23995 /* SettingsViewController.m in Sources */,
 				B8312C1918AB121E0094ACD8 /* RecentItems.m in Sources */,
 				B8F7902F18AADD730030816A /* RecentViewController.m in Sources */,
