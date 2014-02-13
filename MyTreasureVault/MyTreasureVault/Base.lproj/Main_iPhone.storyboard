@@ -76,11 +76,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AllItemCell" rowHeight="70" id="Em4-IY-OTf" customClass="CustomCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AllItemCell" rowHeight="70" id="Em4-IY-OTf" customClass="CustomCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Em4-IY-OTf" id="aU1-lg-oYN">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Make/Model" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phR-Cd-jsQ">
@@ -113,6 +113,7 @@
                                     <outlet property="dateAddedLabel" destination="226-G3-I6D" id="bDQ-ed-lYy"/>
                                     <outlet property="detailsLabel" destination="N3n-ox-MZ5" id="u0M-Bm-gRr"/>
                                     <outlet property="makeModelLabel" destination="phR-Cd-jsQ" id="GLW-74-yKu"/>
+                                    <segue destination="Zs8-mC-OqJ" kind="push" identifier="DetailView" id="57x-29-mdt"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -532,6 +533,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="xP1-5N-iHG"/>
+        <segue reference="57x-29-mdt"/>
+        <segue reference="TZz-Oy-Skk"/>
     </inferredMetricsTieBreakers>
 </document>

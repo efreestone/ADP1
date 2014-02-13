@@ -16,6 +16,8 @@
 #import "AllItems.h"
 //Import custom cell
 #import "CustomCell.h"
+//Import details view controller
+#import "DetailsViewController.h"
 
 @interface AllItemsViewController ()
 
@@ -183,6 +185,31 @@
         
         //Remove object from table view with animation. Receiving warning "local declaration of "tableView" hides instance variable". I may be missing something here but isn't this an Accessor method?
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:true];
+    }
+}
+
+#pragma mark - Segue
+
+//Built in method to pass data during segue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //Verify identifier of push segue to Details view
+    if ([segue.identifier isEqualToString:@"DetailView"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        //Grab destination view controller
+        DetailsViewController *detailsViewController = segue.destinationViewController;
+        //Grab instance of recentItem object
+        AllItems *allItem = [allItemsArray objectAtIndex:indexPath.row];
+        
+        if (detailsViewController != nil) {
+            detailsViewController.passedItemImage = allItem.imageOne;
+            detailsViewController.passedItemMake = allItem.itemMake;
+            detailsViewController.passedItemModel = allItem.itemModel;
+            detailsViewController.passedItemSerial = allItem.itemSerial;
+            detailsViewController.passedItemDetails = allItem.itemDetails;
+            detailsViewController.passedItemCost = allItem.itemCost;
+            detailsViewController.passedItemDateAdded = allItem.dateAdded;
+        }
     }
 }
 

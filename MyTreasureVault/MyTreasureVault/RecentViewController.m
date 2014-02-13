@@ -83,6 +83,8 @@
     recentItem.dateAdded = @"12-25-2013";
     [recentItemsArray addObject:recentItem];
     
+    //NSLog(@"%@", [recentItemsArray description]);
+    
     //Move edit button to left side of nav bar (right is + sign for add item)
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
@@ -154,8 +156,8 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         //Grab destination view controller
         DetailsViewController *detailsViewController = segue.destinationViewController;
-        //Grab instance of theaterInfo by section
-        RecentItems *recentItem = [recentItemsArray objectAtIndex:indexPath.section];
+        //Grab instance of recentItem object
+        RecentItems *recentItem = [recentItemsArray objectAtIndex:indexPath.row];
         
         if (detailsViewController != nil) {
             detailsViewController.passedItemImage = recentItem.imageOne;
