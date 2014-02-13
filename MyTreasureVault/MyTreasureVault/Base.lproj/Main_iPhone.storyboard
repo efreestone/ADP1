@@ -239,6 +239,9 @@
                                 <state key="normal" image="camera-button.png" backgroundImage="camera-button-highlighted.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onClick:" destination="tbt-eF-mNe" eventType="touchUpInside" id="W02-i2-aLj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

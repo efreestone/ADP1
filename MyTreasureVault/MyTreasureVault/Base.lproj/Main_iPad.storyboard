@@ -313,6 +313,9 @@
                                 <state key="normal" image="camera-button.png" backgroundImage="camera-button-highlighted.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onClick:" destination="7IU-OL-aqs" eventType="touchUpInside" id="ABD-JA-IvL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
