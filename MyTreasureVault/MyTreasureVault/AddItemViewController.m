@@ -17,7 +17,7 @@
 
 @end
 
-@implementation AddItemViewController
+@implementation AddItemViewController 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -68,21 +68,28 @@
     //Create instance of picker controller
     UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
     if (pickerController != nil) {
-        pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-        //Set image picker delegate
-        pickerController.delegate = self;
-        //Set editing
-        pickerController.allowsEditing = true;
-        //Present picker controller in camera mode
-        [self presentViewController:pickerController animated:true completion:nil];
-        //NSLog(@"Camera button clicked");
+        //Make sure camera is available
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+            //Set image picker delegate
+            pickerController.delegate = self;
+            //Set editing
+            pickerController.allowsEditing = true;
+            //Present picker controller in camera mode
+            [self presentViewController:pickerController animated:true completion:nil];
+            //NSLog(@"Camera button clicked");
+        } else {
+            //Trigger no camera alert
+            [self noCameraAlertView];
+            //NSLog(@"Camera not available");
+        }
     }
 }
 
-//Built in method to capture media selection
+//Built in method to capture media selection -----------------------------------------------------NEEDED???????????????????
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-
+    
 }
 
 //Built in method to capture cancel button selection in picker
@@ -94,21 +101,15 @@
     [self.navigationController popViewControllerAnimated:true];
 }
 
-//Make sure camera is available
-/*if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-    //Set source type to camera
-    pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-    //Set delegate
-    pickerController.delegate = self;
-    //Set editing
-    pickerController.allowsEditing = true;
-    //Present picker controller in camera mode
-    [self presentViewController:pickerController animated:true completion:nil];
-    //NSLog(@"Camera button clicked");
-} else {
-    //Set BOOL to NO to stop segue to photos view
-    shouldPushSegueOccur = NO;
-    //NSLog(@"Camera not available");
-}*/
+#pragma mark - Alerts
+
+//Create and show no camera alert
+-(void)noCameraAlertView
+{
+    //Create alert
+    UIAlertView *noCameraAlert = [[UIAlertView alloc] initWithTitle:@"No Camera!" message:@"We're sorry, but your device does not have a camera available to take pictures." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    //Show alert
+    [noCameraAlert show];
+}
 
 @end
