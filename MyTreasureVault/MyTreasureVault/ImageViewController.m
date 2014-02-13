@@ -1,3 +1,8 @@
+// Elijah Freestone
+// ADP1 1402
+// My Treasure Vault
+// February 10th, 2014
+
 //
 //  ImageViewController.m
 //  MyTreasureVault
@@ -14,6 +19,8 @@
 
 @implementation ImageViewController
 
+@synthesize passedNewImage, editedImageView;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -25,6 +32,7 @@
 
 - (void)viewDidLoad
 {
+    editedImageView.image = passedNewImage;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }

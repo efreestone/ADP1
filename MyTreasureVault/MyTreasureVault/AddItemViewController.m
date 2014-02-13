@@ -12,12 +12,18 @@
 //
 
 #import "AddItemViewController.h"
+//Import image view controller
+#import "ImageViewController.h"
 
 @interface AddItemViewController ()
 
 @end
 
-@implementation AddItemViewController 
+@implementation AddItemViewController {
+    ImageViewController *imageViewController;
+}
+
+@synthesize editedImageView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,6 +36,8 @@
 
 - (void)viewDidLoad
 {
+    imageViewController = [[ImageViewController alloc] init];
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
@@ -74,7 +82,7 @@
             //Set image picker delegate
             pickerController.delegate = self;
             //Set editing
-            pickerController.allowsEditing = true;
+            pickerController.allowsEditing = false;
             //Present picker controller in camera mode
             [self presentViewController:pickerController animated:true completion:nil];
             //NSLog(@"Camera button clicked");
@@ -89,7 +97,26 @@
 //Built in method to capture media selection -----------------------------------------------------NEEDED???????????????????
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+    //Initialize/allocate image view controller
+    //ImageViewController *imageViewController = [[ImageViewController alloc] init];
     
+    UIImage *selectedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    if (selectedImage != nil) {
+        //imageViewController.passedNewImage = selectedImage;
+        editedImageView.image = selectedImage;
+        UIImageWriteToSavedPhotosAlbum(selectedImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    }
+    
+    //Cast edited image into a UIImage
+    UIImage *editedImage = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+    if (editedImage != nil) {
+        editedImageView.image = editedImage;
+        //Pass image to UIImage in image view
+        //imageViewController.passedNewImage = editedImage;
+        //photosViewController.passedEditedImage = editedImage;
+    }
+    //Dismiss picker view
+    [picker dismissViewControllerAnimated:true completion:nil];
 }
 
 //Built in method to capture cancel button selection in picker
@@ -97,8 +124,21 @@
 {
     //Dismiss picker view
     [picker dismissViewControllerAnimated:true completion:nil];
-    //Override push to photos view. Because I am using storyboards, data pass to photos view doesn't work without prepareForSegue and the push is initiated with the album and camera buttons. Segue already occured so shouldPerformSegue won't work here.
+    //Dismiss image view. This segue happens when the camera button is hit
     [self.navigationController popViewControllerAnimated:true];
+}
+
+//Save selector method
+-(void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    if (error != nil) {
+        //Show error alert
+        [self errorAlertView];
+        //NSLog(@"Error saving file");
+    } else {
+        //Show saved alert
+        [self saveSuccessfulAlertView];
+        //NSLog(@"Save was completed");
+    }
 }
 
 #pragma mark - Alerts
@@ -111,5 +151,40 @@
     //Show alert
     [noCameraAlert show];
 }
+
+//Create and show save successful alert
+-(void)saveSuccessfulAlertView {
+    //Create saved alert
+    UIAlertView *saveSuccessfulAlert = [[UIAlertView alloc] initWithTitle:@"Saved!" message:@"Your image was successfully saved to your album" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    //Show saved alert
+    [saveSuccessfulAlert show];
+}
+
+//Create and show error alert view
+-(void)errorAlertView {
+    //Create error alert
+    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error!" message:@"An error occurred while attempting to save the image. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    //Show error alert
+    [errorAlert show];
+}
+
+#pragma mark - Segue
+
+//Built in method to pass data with segue to another view controller
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //Verify identifier of push segue to photos view from camera
+    if ([segue.identifier isEqualToString:@"CameraView"]) {
+        //Grab destination view controller
+        imageViewController = segue.destinationViewController;
+        
+        /*if (photosViewController != nil) {
+            //These are set in didFinishPickingMediaWithInfo
+            //photosViewController.passedSelectedImage = selectedImage;
+            //photosViewController.passedEditedImage = editedImage;
+        }*/
+    }
+}
+
 
 @end

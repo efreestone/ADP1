@@ -263,6 +263,30 @@
             </objects>
             <point key="canvasLocation" x="1820" y="188"/>
         </scene>
+        <!--Image View Controller-->
+        <scene sceneID="abU-Rs-UXp">
+            <objects>
+                <viewController id="z8k-rJ-TnF" customClass="ImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lH8-2f-1J2"/>
+                        <viewControllerLayoutGuide type="bottom" id="eKB-ts-JPw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RUc-j7-zV3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cgZ-vH-XEg">
+                                <rect key="frame" x="5" y="129" width="310" height="310"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pjo-Tv-Oxw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1420" y="847"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Vex-rW-GRa">
             <objects>

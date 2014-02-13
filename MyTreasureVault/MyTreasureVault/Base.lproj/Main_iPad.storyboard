@@ -315,8 +315,13 @@
                                 </state>
                                 <connections>
                                     <action selector="onClick:" destination="7IU-OL-aqs" eventType="touchUpInside" id="ABD-JA-IvL"/>
+                                    <segue destination="Ox0-pl-rh3" kind="push" identifier="CameraView" id="exf-IG-EdY"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4i3-52-iAQ">
+                                <rect key="frame" x="271" y="837" width="240" height="146"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -332,6 +337,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="editedImageView" destination="4i3-52-iAQ" id="1RR-gX-yBZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XtZ-Ou-phA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -502,6 +510,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Lg-w9-pyI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-808" y="-2350"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="a7n-gc-93O">
+            <objects>
+                <viewController id="Ox0-pl-rh3" customClass="ImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6M9-T5-PH2"/>
+                        <viewControllerLayoutGuide type="bottom" id="aHp-7g-bKH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Os5-Hp-feP">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VQh-AM-X1b">
+                                <rect key="frame" x="79" y="122" width="610" height="610"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bf-4e-r6e">
+                                <rect key="frame" x="141" y="791" width="487" height="115"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="S2y-0f-NvX"/>
+                    <connections>
+                        <outlet property="editedImageView" destination="VQh-AM-X1b" id="UqW-KQ-sQD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hf4-j6-5I5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-808" y="-1195"/>
         </scene>
     </scenes>
     <resources>
