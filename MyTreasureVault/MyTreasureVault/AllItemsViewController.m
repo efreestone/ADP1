@@ -202,6 +202,8 @@
         AllItems *allItem = [allItemsArray objectAtIndex:indexPath.row];
         
         if (detailsViewController != nil) {
+            //Pass title string and NSStrings/image to detail view
+            detailsViewController.title = allItem.itemModel;
             detailsViewController.passedItemImage = allItem.imageOne;
             detailsViewController.passedItemMake = allItem.itemMake;
             detailsViewController.passedItemModel = allItem.itemModel;

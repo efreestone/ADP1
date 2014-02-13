@@ -160,6 +160,8 @@
         RecentItems *recentItem = [recentItemsArray objectAtIndex:indexPath.row];
         
         if (detailsViewController != nil) {
+            //Pass title string and NSStrings/image to detail view
+            detailsViewController.title = recentItem.itemModel;
             detailsViewController.passedItemImage = recentItem.imageOne;
             detailsViewController.passedItemMake = recentItem.itemMake;
             detailsViewController.passedItemModel = recentItem.itemModel;
