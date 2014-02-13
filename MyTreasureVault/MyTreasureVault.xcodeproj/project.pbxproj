@@ -10,6 +10,9 @@
 		B8312C1618AAEF300094ACD8 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8312C1518AAEF300094ACD8 /* CustomCell.m */; };
 		B8312C1918AB121E0094ACD8 /* RecentItems.m in Sources */ = {isa = PBXBuildFile; fileRef = B8312C1818AB121E0094ACD8 /* RecentItems.m */; };
 		B8312C1C18AB216C0094ACD8 /* AllItems.m in Sources */ = {isa = PBXBuildFile; fileRef = B8312C1B18AB216C0094ACD8 /* AllItems.m */; };
+		B841204D18AD477800D39EE3 /* camera-button.png in Resources */ = {isa = PBXBuildFile; fileRef = B841204C18AD477800D39EE3 /* camera-button.png */; };
+		B841204F18AD495F00D39EE3 /* camera-button-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = B841204E18AD495F00D39EE3 /* camera-button-highlighted.png */; };
+		B841205218AD4D8000D39EE3 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B841205118AD4D8000D39EE3 /* DetailsViewController.m */; };
 		B877E38A18AC3F2F004EA539 /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B877E38918AC3F2F004EA539 /* AddItemViewController.m */; };
 		B8C2FCEE18AB336B00E8EC0E /* defaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = B8C2FCED18AB336B00E8EC0E /* defaultImage.png */; };
 		B8F7901618AADD730030816A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F7901518AADD730030816A /* Foundation.framework */; };
@@ -53,6 +56,10 @@
 		B8312C1818AB121E0094ACD8 /* RecentItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentItems.m; sourceTree = "<group>"; };
 		B8312C1A18AB216C0094ACD8 /* AllItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllItems.h; sourceTree = "<group>"; };
 		B8312C1B18AB216C0094ACD8 /* AllItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllItems.m; sourceTree = "<group>"; };
+		B841204C18AD477800D39EE3 /* camera-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-button.png"; sourceTree = "<group>"; };
+		B841204E18AD495F00D39EE3 /* camera-button-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-button-highlighted.png"; sourceTree = "<group>"; };
+		B841205018AD4D8000D39EE3 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		B841205118AD4D8000D39EE3 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		B877E38818AC3F2F004EA539 /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemViewController.h; sourceTree = "<group>"; };
 		B877E38918AC3F2F004EA539 /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemViewController.m; sourceTree = "<group>"; };
 		B8C2FCED18AB336B00E8EC0E /* defaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImage.png; sourceTree = "<group>"; };
@@ -156,6 +163,8 @@
 				B8FD489718AADF4D00D23995 /* SettingsViewController.m */,
 				B877E38818AC3F2F004EA539 /* AddItemViewController.h */,
 				B877E38918AC3F2F004EA539 /* AddItemViewController.m */,
+				B841205018AD4D8000D39EE3 /* DetailsViewController.h */,
+				B841205118AD4D8000D39EE3 /* DetailsViewController.m */,
 				B8F7903318AADD730030816A /* Images.xcassets */,
 				B8F7905018AADE3D0030816A /* images */,
 				B8F7901C18AADD730030816A /* Supporting Files */,
@@ -201,6 +210,8 @@
 		B8F7905018AADE3D0030816A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B841204E18AD495F00D39EE3 /* camera-button-highlighted.png */,
+				B841204C18AD477800D39EE3 /* camera-button.png */,
 				B8C2FCED18AB336B00E8EC0E /* defaultImage.png */,
 				B8F7905118AADE3D0030816A /* Default-568h@2x.png */,
 				B8F7905218AADE3D0030816A /* Default-Landscape@2x~iPad.png */,
@@ -287,9 +298,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B841204F18AD495F00D39EE3 /* camera-button-highlighted.png in Resources */,
 				B8F7902C18AADD730030816A /* Main_iPad.storyboard in Resources */,
 				B8F7903418AADD730030816A /* Images.xcassets in Resources */,
 				B8F7905818AADE3D0030816A /* Default-Portrait@2x~iPad.png in Resources */,
+				B841204D18AD477800D39EE3 /* camera-button.png in Resources */,
 				B8C2FCEE18AB336B00E8EC0E /* defaultImage.png in Resources */,
 				B8F7905A18AADE3D0030816A /* Default@2x.png in Resources */,
 				B8F7902918AADD730030816A /* Main_iPhone.storyboard in Resources */,
@@ -316,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8312C1C18AB216C0094ACD8 /* AllItems.m in Sources */,
+				B841205218AD4D8000D39EE3 /* DetailsViewController.m in Sources */,
 				B8F7903218AADD730030816A /* AllItemsViewController.m in Sources */,
 				B8F7902618AADD730030816A /* AppDelegate.m in Sources */,
 				B8312C1618AAEF300094ACD8 /* CustomCell.m in Sources */,

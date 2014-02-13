@@ -12,10 +12,12 @@
 //
 
 #import "RecentViewController.h"
-//Import recent item
+//Import recent item object
 #import "RecentItems.h"
 //Import custom cell
 #import "CustomCell.h"
+//Import details view controller
+#import "DetailsViewController.h"
 
 @interface RecentViewController ()
 
@@ -96,22 +98,28 @@
 
 #pragma mark - Table view data source
 
+//Built in method to set number of sections in table view
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
+//Built in method to set number of rows in section in table view
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
     return [self.recentItemsArray count];
 }
 
+//Built in method to allocate and reuse table view cells and apply item info
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //Allocate custom cell
 	CustomCell *cell = (CustomCell *) [tableView dequeueReusableCellWithIdentifier:@"RecentCell"];
 	RecentItems *recentItem = [self.recentItemsArray objectAtIndex:indexPath.row];
+    //Apply image
     cell.cellImage.image = recentItem.imageOne;
+    //Apply make and model
 	cell.makeModelLabel.text = [NSString stringWithFormat:@"%@ %@", recentItem.itemMake, recentItem.itemModel];
 	cell.detailsLabel.text = recentItem.itemDetails;
     cell.dateAddedLabel.text = recentItem.dateAdded;
@@ -133,6 +141,31 @@
         
         //Remove object from table view with animation. Receiving warning "local declaration of "tableView" hides instance variable". I may be missing something here but isn't this an Accessor method?
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:true];
+    }
+}
+
+#pragma mark - Segue
+
+//Built in method to pass data during segue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //Verify identifier of push segue to Details view
+    if ([segue.identifier isEqualToString:@"DetailView"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        //Grab destination view controller
+        DetailsViewController *detailsViewController = segue.destinationViewController;
+        //Grab instance of theaterInfo by section
+        RecentItems *recentItem = [recentItemsArray objectAtIndex:indexPath.section];
+        
+        if (detailsViewController != nil) {
+            detailsViewController.passedItemImage = recentItem.imageOne;
+            detailsViewController.passedItemMake = recentItem.itemMake;
+            detailsViewController.passedItemModel = recentItem.itemModel;
+            detailsViewController.passedItemSerial = recentItem.itemSerial;
+            detailsViewController.passedItemDetails = recentItem.itemDetails;
+            detailsViewController.passedItemCost = recentItem.itemCost;
+            detailsViewController.passedItemDateAdded = recentItem.dateAdded;
+        }
     }
 }
 
