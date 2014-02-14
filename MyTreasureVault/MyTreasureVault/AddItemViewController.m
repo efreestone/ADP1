@@ -20,12 +20,12 @@
 @end
 
 @implementation AddItemViewController {
+    //Declare image view
     ImageViewController *imageViewController;
+    //Declare images
     UIImage *selectedImage;
     UIImage *editedImage;
 }
-
-@synthesize editedImageView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

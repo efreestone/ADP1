@@ -23,23 +23,6 @@
 @synthesize itemImageView, makeLabel, modelLabel, serialLabel, detailsLabel, costLabel, dateAddedLabel;
 @synthesize passedItemImage, passedItemMake, passedItemModel, passedItemSerial, passedItemDetails, passedItemCost, passedItemDateAdded;
 
-/*@property (strong, nonatomic) IBOutlet UIImageView *itemImageView;
-@property (strong, nonatomic) IBOutlet UILabel *makeLabel;
-@property (strong, nonatomic) IBOutlet UILabel *modelLabel;
-@property (strong, nonatomic) IBOutlet UILabel *serialLabel;
-@property (strong, nonatomic) IBOutlet UILabel *detailsLabel;
-@property (strong, nonatomic) IBOutlet UILabel *costLabel;
-@property (strong, nonatomic) IBOutlet UILabel *dateAddedLabel;
-
-//Declare strings and image set from view controller
-@property (strong, nonatomic) UIImage *passedItemImage;
-@property (strong, nonatomic) NSString *passedItemMake;
-@property (strong, nonatomic) NSString *passedItemModel;
-@property (strong, nonatomic) NSString *passedItemSerial;
-@property (strong, nonatomic) NSString *passedItemDetails;
-@property (strong, nonatomic) NSString *passedItemCost;
-@property (strong, nonatomic) NSString *passedItemDateAdded;*/
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

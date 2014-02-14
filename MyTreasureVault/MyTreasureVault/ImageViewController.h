@@ -18,10 +18,8 @@
 //Declare passed image
 @property (strong, nonatomic) UIImage *passedNewImage;
 
-//Declare UIImage and buttons
+//Declare UIImageView
 @property (strong, nonatomic) IBOutlet UIImageView *editedImageView;
-@property (strong, nonatomic) IBOutlet UIButton *saveButton;
-@property (strong, nonatomic) IBOutlet UIButton *cancelButton;
 
 //Declare IBAction for buttons
 -(IBAction)onSave:(id)sender;
