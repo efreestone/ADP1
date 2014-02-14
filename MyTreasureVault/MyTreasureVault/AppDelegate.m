@@ -17,6 +17,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    /*UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
+    loginVC.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self.window.rootViewController presentModalViewController:loginVC animated:YES];*/
     // Override point for customization after application launch.
     return YES;
 }

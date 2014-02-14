@@ -88,6 +88,22 @@
     //Move edit button to left side of nav bar (right is + sign for add item)
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
+    //Present log in screen over home/recent. Not currently active or required. Clicking Sign In dismisses the view while clicking cancel shows an alert view
+    //Declare storyboard
+    UIStoryboard *storyboard;
+    //Check device and set storyboard accordingly
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    } else {
+        storyboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
+    }
+    //Allocate sign in view controller
+    UIViewController *signInVC = [storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
+    //Set transition style to flip
+    signInVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    //Present sign in view
+    [self presentViewController:signInVC animated:true completion:nil];
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }

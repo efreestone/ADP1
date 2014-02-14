@@ -1,5 +1,10 @@
+// Elijah Freestone
+// ADP1 1402
+// My Treasure Vault
+// February 10th, 2014
+
 //
-//  SignInViewController.h
+//  LoginViewController.h
 //  MyTreasureVault
 //
 //  Created by Elijah Freestone on 2/13/14.
@@ -9,5 +14,10 @@
 #import <UIKit/UIKit.h>
 
 @interface SignInViewController : UIViewController
+
+//Declare IBActions for button clicks
+-(IBAction)onSignIn:(id)sender;
+-(IBAction)onCancel:(id)sender;
+-(IBAction)onRegister:(id)sender;
 
 @end

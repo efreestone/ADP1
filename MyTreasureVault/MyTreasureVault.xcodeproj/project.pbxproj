@@ -14,6 +14,7 @@
 		B841204F18AD495F00D39EE3 /* camera-button-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = B841204E18AD495F00D39EE3 /* camera-button-highlighted.png */; };
 		B841205218AD4D8000D39EE3 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B841205118AD4D8000D39EE3 /* DetailsViewController.m */; };
 		B877E38A18AC3F2F004EA539 /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B877E38918AC3F2F004EA539 /* AddItemViewController.m */; };
+		B87B7CBE18AD9A8300D8AD3E /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87B7CBD18AD9A8300D8AD3E /* SignInViewController.m */; };
 		B8C2FCEE18AB336B00E8EC0E /* defaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = B8C2FCED18AB336B00E8EC0E /* defaultImage.png */; };
 		B8E8DD7618AD768E00CABA86 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E8DD7518AD768E00CABA86 /* ImageViewController.m */; };
 		B8F7901618AADD730030816A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F7901518AADD730030816A /* Foundation.framework */; };
@@ -63,6 +64,8 @@
 		B841205118AD4D8000D39EE3 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		B877E38818AC3F2F004EA539 /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemViewController.h; sourceTree = "<group>"; };
 		B877E38918AC3F2F004EA539 /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemViewController.m; sourceTree = "<group>"; };
+		B87B7CBC18AD9A8300D8AD3E /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
+		B87B7CBD18AD9A8300D8AD3E /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		B8C2FCED18AB336B00E8EC0E /* defaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImage.png; sourceTree = "<group>"; };
 		B8E8DD7418AD768E00CABA86 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		B8E8DD7518AD768E00CABA86 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
@@ -179,6 +182,8 @@
 				B8312C1B18AB216C0094ACD8 /* AllItems.m */,
 				B8E8DD7418AD768E00CABA86 /* ImageViewController.h */,
 				B8E8DD7518AD768E00CABA86 /* ImageViewController.m */,
+				B87B7CBC18AD9A8300D8AD3E /* SignInViewController.h */,
+				B87B7CBD18AD9A8300D8AD3E /* SignInViewController.m */,
 			);
 			path = MyTreasureVault;
 			sourceTree = "<group>";
@@ -337,6 +342,7 @@
 				B841205218AD4D8000D39EE3 /* DetailsViewController.m in Sources */,
 				B8F7903218AADD730030816A /* AllItemsViewController.m in Sources */,
 				B8F7902618AADD730030816A /* AppDelegate.m in Sources */,
+				B87B7CBE18AD9A8300D8AD3E /* SignInViewController.m in Sources */,
 				B8E8DD7618AD768E00CABA86 /* ImageViewController.m in Sources */,
 				B8312C1618AAEF300094ACD8 /* CustomCell.m in Sources */,
 				B877E38A18AC3F2F004EA539 /* AddItemViewController.m in Sources */,
