@@ -241,6 +241,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onClick:" destination="tbt-eF-mNe" eventType="touchUpInside" id="W02-i2-aLj"/>
+                                    <segue destination="z8k-rJ-TnF" kind="push" identifier="CameraView" id="YAL-dH-wiE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -276,12 +277,30 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cgZ-vH-XEg">
-                                <rect key="frame" x="5" y="129" width="310" height="310"/>
+                                <rect key="frame" x="5" y="78" width="310" height="310"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCD-yb-SCt">
+                                <rect key="frame" x="62" y="403" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eK0-yf-dCk">
+                                <rect key="frame" x="199" y="403" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="w8w-gT-lxk"/>
+                    <connections>
+                        <outlet property="editedImageView" destination="cgZ-vH-XEg" id="DIP-CU-CbE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pjo-Tv-Oxw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

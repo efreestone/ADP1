@@ -21,6 +21,8 @@
 
 @implementation AddItemViewController {
     ImageViewController *imageViewController;
+    UIImage *selectedImage;
+    UIImage *editedImage;
 }
 
 @synthesize editedImageView;
@@ -91,6 +93,8 @@
             [self noCameraAlertView];
             //NSLog(@"Camera not available");
         }
+        //[self.navigationController pushViewController:imageViewController animated:true];
+        //[self presentViewController:imageViewController animated:true completion:nil];
     }
 }
 
@@ -100,19 +104,16 @@
     //Initialize/allocate image view controller
     //ImageViewController *imageViewController = [[ImageViewController alloc] init];
     
-    UIImage *selectedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    selectedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     if (selectedImage != nil) {
-        //imageViewController.passedNewImage = selectedImage;
-        editedImageView.image = selectedImage;
-        UIImageWriteToSavedPhotosAlbum(selectedImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+        imageViewController.passedNewImage = selectedImage;
     }
     
     //Cast edited image into a UIImage
-    UIImage *editedImage = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+    editedImage = [info objectForKey:@"UIImagePickerControllerEditedImage"];
     if (editedImage != nil) {
-        editedImageView.image = editedImage;
         //Pass image to UIImage in image view
-        //imageViewController.passedNewImage = editedImage;
+        imageViewController.passedNewImage = editedImage;
     }
     //Dismiss picker view
     [picker dismissViewControllerAnimated:true completion:nil];
@@ -177,11 +178,11 @@
         //Grab destination view controller
         imageViewController = segue.destinationViewController;
         
-        /*if (photosViewController != nil) {
+        if (imageViewController != nil) {
             //These are set in didFinishPickingMediaWithInfo
-            //photosViewController.passedSelectedImage = selectedImage;
-            //photosViewController.passedEditedImage = editedImage;
-        }*/
+            //imageViewController.passedNewImage = selectedImage;
+            //imageViewController.passedNewImage = editedImage;
+        }
     }
 }
 

@@ -42,11 +42,13 @@
 
 #pragma mark - Navigation
 
+//Triggered by sign in button click. Dismisses sign in view
 -(IBAction)onSignIn:(id)sender
 {
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
+//Triggered when cancel button clicked
 -(IBAction)onCancel:(id)sender
 {
     //Create and show error alert
@@ -55,6 +57,7 @@
     [errorAlert show];
 }
 
+//Triggered when register button clicked
 -(IBAction)onRegister:(id)sender
 {
     //Create and show alert

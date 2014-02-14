@@ -18,6 +18,10 @@
 		B8C2FCEE18AB336B00E8EC0E /* defaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = B8C2FCED18AB336B00E8EC0E /* defaultImage.png */; };
 		B8CDB79218ADAA0C00F325C7 /* signin-button.png in Resources */ = {isa = PBXBuildFile; fileRef = B8CDB79118ADAA0C00F325C7 /* signin-button.png */; };
 		B8CDB79418ADAACA00F325C7 /* signin-button-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = B8CDB79318ADAACA00F325C7 /* signin-button-highlighted.png */; };
+		B8CDB79918ADB95F00F325C7 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = B8CDB79518ADB95F00F325C7 /* Icon-76.png */; };
+		B8CDB79A18ADB95F00F325C7 /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B8CDB79618ADB95F00F325C7 /* Icon-76@2x.png */; };
+		B8CDB79B18ADB95F00F325C7 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B8CDB79718ADB95F00F325C7 /* Icon.png */; };
+		B8CDB79C18ADB95F00F325C7 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B8CDB79818ADB95F00F325C7 /* Icon@2x.png */; };
 		B8E8DD7618AD768E00CABA86 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E8DD7518AD768E00CABA86 /* ImageViewController.m */; };
 		B8F7901618AADD730030816A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F7901518AADD730030816A /* Foundation.framework */; };
 		B8F7901818AADD730030816A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F7901718AADD730030816A /* CoreGraphics.framework */; };
@@ -71,6 +75,10 @@
 		B8C2FCED18AB336B00E8EC0E /* defaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImage.png; sourceTree = "<group>"; };
 		B8CDB79118ADAA0C00F325C7 /* signin-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signin-button.png"; sourceTree = "<group>"; };
 		B8CDB79318ADAACA00F325C7 /* signin-button-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signin-button-highlighted.png"; sourceTree = "<group>"; };
+		B8CDB79518ADB95F00F325C7 /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
+		B8CDB79618ADB95F00F325C7 /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
+		B8CDB79718ADB95F00F325C7 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		B8CDB79818ADB95F00F325C7 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		B8E8DD7418AD768E00CABA86 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		B8E8DD7518AD768E00CABA86 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		B8F7901218AADD730030816A /* MyTreasureVault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTreasureVault.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,6 +232,10 @@
 		B8F7905018AADE3D0030816A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B8CDB79518ADB95F00F325C7 /* Icon-76.png */,
+				B8CDB79618ADB95F00F325C7 /* Icon-76@2x.png */,
+				B8CDB79718ADB95F00F325C7 /* Icon.png */,
+				B8CDB79818ADB95F00F325C7 /* Icon@2x.png */,
 				B8CDB79318ADAACA00F325C7 /* signin-button-highlighted.png */,
 				B8CDB79118ADAA0C00F325C7 /* signin-button.png */,
 				B841204E18AD495F00D39EE3 /* camera-button-highlighted.png */,
@@ -314,8 +326,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8CDB79B18ADB95F00F325C7 /* Icon.png in Resources */,
+				B8CDB79C18ADB95F00F325C7 /* Icon@2x.png in Resources */,
 				B841204F18AD495F00D39EE3 /* camera-button-highlighted.png in Resources */,
 				B8F7902C18AADD730030816A /* Main_iPad.storyboard in Resources */,
+				B8CDB79918ADB95F00F325C7 /* Icon-76.png in Resources */,
 				B8F7903418AADD730030816A /* Images.xcassets in Resources */,
 				B8CDB79418ADAACA00F325C7 /* signin-button-highlighted.png in Resources */,
 				B8F7905818AADE3D0030816A /* Default-Portrait@2x~iPad.png in Resources */,
@@ -327,6 +342,7 @@
 				B8CDB79218ADAA0C00F325C7 /* signin-button.png in Resources */,
 				B8F7902018AADD730030816A /* InfoPlist.strings in Resources */,
 				B8F7905718AADE3D0030816A /* Default-Landscape@2x~iPad.png in Resources */,
+				B8CDB79A18ADB95F00F325C7 /* Icon-76@2x.png in Resources */,
 				B8F7905918AADE3D0030816A /* Default-Portrait~iPad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,7 +508,6 @@
 		B8F7904B18AADD740030816A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyTreasureVault/MyTreasureVault-Prefix.pch";
 				INFOPLIST_FILE = "MyTreasureVault/MyTreasureVault-Info.plist";
@@ -504,7 +519,6 @@
 		B8F7904C18AADD740030816A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyTreasureVault/MyTreasureVault-Prefix.pch";
 				INFOPLIST_FILE = "MyTreasureVault/MyTreasureVault-Info.plist";
