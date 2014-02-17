@@ -44,6 +44,8 @@
 		B8F20F6118B2C02D00CC1958 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F5318B2C02D00CC1958 /* Icon@2x.png */; };
 		B8F20F6218B2C02D00CC1958 /* signin-button-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F5418B2C02D00CC1958 /* signin-button-highlighted.png */; };
 		B8F20F6318B2C02D00CC1958 /* signin-button.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F5518B2C02D00CC1958 /* signin-button.png */; };
+		B8F20F6618B2C7B800CC1958 /* RecentItems.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F20F6518B2C7B800CC1958 /* RecentItems.m */; };
+		B8F20F6918B2C7DC00CC1958 /* AllItems.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F20F6818B2C7DC00CC1958 /* AllItems.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,10 @@
 		B8F20F5318B2C02D00CC1958 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		B8F20F5418B2C02D00CC1958 /* signin-button-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signin-button-highlighted.png"; sourceTree = "<group>"; };
 		B8F20F5518B2C02D00CC1958 /* signin-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signin-button.png"; sourceTree = "<group>"; };
+		B8F20F6418B2C7B800CC1958 /* RecentItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentItems.h; sourceTree = "<group>"; };
+		B8F20F6518B2C7B800CC1958 /* RecentItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentItems.m; sourceTree = "<group>"; };
+		B8F20F6718B2C7DC00CC1958 /* AllItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllItems.h; sourceTree = "<group>"; };
+		B8F20F6818B2C7DC00CC1958 /* AllItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllItems.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +191,10 @@
 				B8F20F0518B2B0F100CC1958 /* Supporting Files */,
 				B8F20F3E18B2BA5800CC1958 /* CustomCell.h */,
 				B8F20F3F18B2BA5800CC1958 /* CustomCell.m */,
+				B8F20F6418B2C7B800CC1958 /* RecentItems.h */,
+				B8F20F6518B2C7B800CC1958 /* RecentItems.m */,
+				B8F20F6718B2C7DC00CC1958 /* AllItems.h */,
+				B8F20F6818B2C7DC00CC1958 /* AllItems.m */,
 			);
 			path = MyTreasureVaultV2;
 			sourceTree = "<group>";
@@ -355,9 +365,11 @@
 				B8F20F3718B2B65000CC1958 /* RecentViewController.m in Sources */,
 				B8F20F3D18B2B75500CC1958 /* SettingsViewController.m in Sources */,
 				B8F20F4618B2BCDE00CC1958 /* AddItemViewController.m in Sources */,
+				B8F20F6618B2C7B800CC1958 /* RecentItems.m in Sources */,
 				B8F20F4018B2BA5800CC1958 /* CustomCell.m in Sources */,
 				B8F20F0F18B2B0F100CC1958 /* AppDelegate.m in Sources */,
 				B8F20F0B18B2B0F100CC1958 /* main.m in Sources */,
+				B8F20F6918B2C7DC00CC1958 /* AllItems.m in Sources */,
 				B8F20F4318B2BC9500CC1958 /* DetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
