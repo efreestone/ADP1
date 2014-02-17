@@ -22,10 +22,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    /*UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+     UIViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
+     loginVC.modalPresentationStyle = UIModalPresentationFullScreen;
+     [self.window.rootViewController presentModalViewController:loginVC animated:YES];*/
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
     return YES;
 }
 
