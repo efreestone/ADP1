@@ -46,6 +46,7 @@
 		B8F20F6318B2C02D00CC1958 /* signin-button.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F5518B2C02D00CC1958 /* signin-button.png */; };
 		B8F20F6618B2C7B800CC1958 /* RecentItems.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F20F6518B2C7B800CC1958 /* RecentItems.m */; };
 		B8F20F6918B2C7DC00CC1958 /* AllItems.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F20F6818B2C7DC00CC1958 /* AllItems.m */; };
+		B8F20F6C18B2CA2400CC1958 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F20F6B18B2CA2400CC1958 /* ImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,8 @@
 		B8F20F6518B2C7B800CC1958 /* RecentItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentItems.m; sourceTree = "<group>"; };
 		B8F20F6718B2C7DC00CC1958 /* AllItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllItems.h; sourceTree = "<group>"; };
 		B8F20F6818B2C7DC00CC1958 /* AllItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllItems.m; sourceTree = "<group>"; };
+		B8F20F6A18B2CA2400CC1958 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		B8F20F6B18B2CA2400CC1958 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +198,8 @@
 				B8F20F6518B2C7B800CC1958 /* RecentItems.m */,
 				B8F20F6718B2C7DC00CC1958 /* AllItems.h */,
 				B8F20F6818B2C7DC00CC1958 /* AllItems.m */,
+				B8F20F6A18B2CA2400CC1958 /* ImageViewController.h */,
+				B8F20F6B18B2CA2400CC1958 /* ImageViewController.m */,
 			);
 			path = MyTreasureVaultV2;
 			sourceTree = "<group>";
@@ -366,6 +371,7 @@
 				B8F20F3D18B2B75500CC1958 /* SettingsViewController.m in Sources */,
 				B8F20F4618B2BCDE00CC1958 /* AddItemViewController.m in Sources */,
 				B8F20F6618B2C7B800CC1958 /* RecentItems.m in Sources */,
+				B8F20F6C18B2CA2400CC1958 /* ImageViewController.m in Sources */,
 				B8F20F4018B2BA5800CC1958 /* CustomCell.m in Sources */,
 				B8F20F0F18B2B0F100CC1958 /* AppDelegate.m in Sources */,
 				B8F20F0B18B2B0F100CC1958 /* main.m in Sources */,

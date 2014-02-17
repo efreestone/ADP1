@@ -16,4 +16,14 @@
 
 @interface CustomCell : UITableViewCell
 
+//Declare image view
+@property (strong, nonatomic) IBOutlet UIImageView *cellImage;
+//Declare item make/model label
+@property (strong, nonatomic) IBOutlet UILabel *makeModelLabel;
+//Declare item details label
+@property (strong, nonatomic) IBOutlet UILabel *detailsLabel;
+//Declare date added label
+@property (strong, nonatomic) IBOutlet UILabel *dateAddedLabel;
+
 @end
+

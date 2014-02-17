@@ -20,6 +20,10 @@
 
 @implementation DetailsViewController
 
+//Synthesize for getters/setters
+@synthesize itemImageView, makeLabel, modelLabel, serialLabel, detailsLabel, costLabel, dateAddedLabel;
+@synthesize passedItemImage, passedItemMake, passedItemModel, passedItemSerial, passedItemDetails, passedItemCost, passedItemDateAdded;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -31,6 +35,15 @@
 
 - (void)viewDidLoad
 {
+    //Set labels and image to passed item info
+    itemImageView.image = passedItemImage;
+    makeLabel.text = passedItemMake;
+    modelLabel.text = passedItemModel;
+    serialLabel.text = passedItemSerial;
+    detailsLabel.text = passedItemDetails;
+    costLabel.text = passedItemCost;
+    dateAddedLabel.text = passedItemDateAdded;
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
@@ -42,3 +55,4 @@
 }
 
 @end
+

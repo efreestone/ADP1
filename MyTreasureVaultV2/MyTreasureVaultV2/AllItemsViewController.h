@@ -16,4 +16,7 @@
 
 @interface AllItemsViewController : UITableViewController
 
+//Declare array to hold all items
+@property (nonatomic, strong) NSMutableArray *allItemsArray;
+
 @end
