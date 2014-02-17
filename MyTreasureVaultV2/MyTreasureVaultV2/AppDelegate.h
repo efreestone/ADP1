@@ -1,3 +1,9 @@
+// Elijah Freestone
+// ADP1 1402
+// Week 3
+// My Treasure Vault Version 2
+// February 15th, 2014
+
 //
 //  AppDelegate.h
 //  MyTreasureVaultV2

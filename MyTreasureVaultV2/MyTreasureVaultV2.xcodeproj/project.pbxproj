@@ -22,6 +22,11 @@
 		B8F20F1E18B2B0F100CC1958 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F20F0218B2B0F100CC1958 /* CoreData.framework */; };
 		B8F20F2618B2B0F100CC1958 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F2418B2B0F100CC1958 /* InfoPlist.strings */; };
 		B8F20F2818B2B0F100CC1958 /* MyTreasureVaultV2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F20F2718B2B0F100CC1958 /* MyTreasureVaultV2Tests.m */; };
+		B8F20F3218B2B45500CC1958 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F3118B2B45500CC1958 /* Main_iPhone.storyboard */; };
+		B8F20F3418B2B46C00CC1958 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F3318B2B46C00CC1958 /* Main_iPad.storyboard */; };
+		B8F20F3718B2B65000CC1958 /* RecentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F20F3618B2B65000CC1958 /* RecentViewController.m */; };
+		B8F20F3A18B2B70400CC1958 /* AllItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F20F3918B2B70400CC1958 /* AllItemsViewController.m */; };
+		B8F20F3D18B2B75500CC1958 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F20F3C18B2B75500CC1958 /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,14 @@
 		B8F20F2318B2B0F100CC1958 /* MyTreasureVaultV2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyTreasureVaultV2Tests-Info.plist"; sourceTree = "<group>"; };
 		B8F20F2518B2B0F100CC1958 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B8F20F2718B2B0F100CC1958 /* MyTreasureVaultV2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTreasureVaultV2Tests.m; sourceTree = "<group>"; };
+		B8F20F3118B2B45500CC1958 /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
+		B8F20F3318B2B46C00CC1958 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
+		B8F20F3518B2B65000CC1958 /* RecentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentViewController.h; sourceTree = "<group>"; };
+		B8F20F3618B2B65000CC1958 /* RecentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentViewController.m; sourceTree = "<group>"; };
+		B8F20F3818B2B70400CC1958 /* AllItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllItemsViewController.h; sourceTree = "<group>"; };
+		B8F20F3918B2B70400CC1958 /* AllItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllItemsViewController.m; sourceTree = "<group>"; };
+		B8F20F3B18B2B75500CC1958 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		B8F20F3C18B2B75500CC1958 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +130,14 @@
 			children = (
 				B8F20F0D18B2B0F100CC1958 /* AppDelegate.h */,
 				B8F20F0E18B2B0F100CC1958 /* AppDelegate.m */,
+				B8F20F3118B2B45500CC1958 /* Main_iPhone.storyboard */,
+				B8F20F3318B2B46C00CC1958 /* Main_iPad.storyboard */,
+				B8F20F3518B2B65000CC1958 /* RecentViewController.h */,
+				B8F20F3618B2B65000CC1958 /* RecentViewController.m */,
+				B8F20F3818B2B70400CC1958 /* AllItemsViewController.h */,
+				B8F20F3918B2B70400CC1958 /* AllItemsViewController.m */,
+				B8F20F3B18B2B75500CC1958 /* SettingsViewController.h */,
+				B8F20F3C18B2B75500CC1958 /* SettingsViewController.m */,
 				B8F20F1318B2B0F100CC1958 /* Images.xcassets */,
 				B8F20F1018B2B0F100CC1958 /* MyTreasureVaultV2.xcdatamodeld */,
 				B8F20F0518B2B0F100CC1958 /* Supporting Files */,
@@ -229,7 +250,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8F20F0918B2B0F100CC1958 /* InfoPlist.strings in Resources */,
+				B8F20F3418B2B46C00CC1958 /* Main_iPad.storyboard in Resources */,
 				B8F20F1418B2B0F100CC1958 /* Images.xcassets in Resources */,
+				B8F20F3218B2B45500CC1958 /* Main_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +271,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8F20F3A18B2B70400CC1958 /* AllItemsViewController.m in Sources */,
 				B8F20F1218B2B0F100CC1958 /* MyTreasureVaultV2.xcdatamodeld in Sources */,
+				B8F20F3718B2B65000CC1958 /* RecentViewController.m in Sources */,
+				B8F20F3D18B2B75500CC1958 /* SettingsViewController.m in Sources */,
 				B8F20F0F18B2B0F100CC1958 /* AppDelegate.m in Sources */,
 				B8F20F0B18B2B0F100CC1958 /* main.m in Sources */,
 			);
