@@ -16,4 +16,7 @@
 
 @interface RecentViewController : UITableViewController
 
+//Declare array to hold recent items
+@property (nonatomic, strong) NSMutableArray *recentItemsArray;
+
 @end
