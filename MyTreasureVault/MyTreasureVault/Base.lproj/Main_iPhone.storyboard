@@ -336,7 +336,7 @@
         <scene sceneID="iKz-1a-Vf4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pUu-Jx-mpF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recent" image="first" id="V1T-9c-XMH"/>
+                    <tabBarItem key="tabBarItem" title="Recent" id="V1T-9c-XMH"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xws-uh-pIX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -355,7 +355,7 @@
         <scene sceneID="DGP-Bk-hlI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t7Y-cT-JYz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="All Items" image="second" id="5So-f7-xQH"/>
+                    <tabBarItem key="tabBarItem" title="All Items" id="5So-f7-xQH"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Inr-tA-h6x">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -670,8 +670,6 @@
     <resources>
         <image name="camera-button-highlighted.png" width="288" height="88"/>
         <image name="camera-button.png" width="288" height="88"/>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
         <image name="signin-button-highlighted.png" width="288" height="88"/>
         <image name="signin-button.png" width="288" height="88"/>
     </resources>
@@ -681,7 +679,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="57x-29-mdt"/>
-        <segue reference="TZz-Oy-Skk"/>
+        <segue reference="jir-0g-E1W"/>
+        <segue reference="xP1-5N-iHG"/>
     </inferredMetricsTieBreakers>
 </document>
