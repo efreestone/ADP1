@@ -58,8 +58,8 @@
 //Triggered when cancel button is hit
 -(IBAction)onCancel:(id)sender
 {
+    //Dismiss view controller
     [self dismissViewControllerAnimated:YES completion:nil];
-	//[self.delegate addBooksViewControllerDidCancel:self];
 }
 
 //Triggered when save button is hit
@@ -87,12 +87,17 @@
     _serialTextField.text = @"";
     _detailsTextField.text = @"";
     _costTextField.text = @"";
-    //Create error object
+    //Create error object for save
     NSError *error;
-    //Save item to device
-    [objectContext save:&error];
-    
-    NSLog(@"%@", newItem.description);
+    //Save item to device after error check
+    if ([objectContext save:&error] == NO) {
+        NSLog(@"Save failed");
+    } else {
+        UIAlertView *savedAlert = [[UIAlertView alloc] initWithTitle: @"Item Saved" message: @"Your item was saved successfully!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [savedAlert show];
+        [objectContext save:&error];
+        NSLog(@"%@", newItem.description);
+    }
     
     //Dismiss view controller
     [self dismissViewControllerAnimated:YES completion:nil];
