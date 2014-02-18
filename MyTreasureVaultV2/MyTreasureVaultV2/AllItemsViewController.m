@@ -1,13 +1,14 @@
 // Elijah Freestone
 // ADP1 1402
-// My Treasure Vault
-// February 10th, 2014
+// Week 3
+// My Treasure Vault Version 2
+// February 15th, 2014
 
 //
 //  AllItemsViewController.m
-//  MyTreasureVault
+//  MyTreasureVaultV2
 //
-//  Created by Elijah Freestone on 2/11/14.
+//  Created by Elijah Freestone on 2/17/14.
 //  Copyright (c) 2014 Elijah Freestone. All rights reserved.
 //
 
@@ -135,7 +136,7 @@
     
     //Move edit button to left side of nav bar (right is + sign for add item)
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }

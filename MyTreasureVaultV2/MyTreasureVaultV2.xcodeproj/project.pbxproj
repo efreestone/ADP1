@@ -1,0 +1,603 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B8F20EFD18B2B0F100CC1958 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F20EFC18B2B0F100CC1958 /* Foundation.framework */; };
+		B8F20EFF18B2B0F100CC1958 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F20EFE18B2B0F100CC1958 /* CoreGraphics.framework */; };
+		B8F20F0118B2B0F100CC1958 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F20F0018B2B0F100CC1958 /* UIKit.framework */; };
+		B8F20F0318B2B0F100CC1958 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F20F0218B2B0F100CC1958 /* CoreData.framework */; };
+		B8F20F0918B2B0F100CC1958 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F0718B2B0F100CC1958 /* InfoPlist.strings */; };
+		B8F20F0B18B2B0F100CC1958 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F20F0A18B2B0F100CC1958 /* main.m */; };
+		B8F20F0F18B2B0F100CC1958 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F20F0E18B2B0F100CC1958 /* AppDelegate.m */; };
+		B8F20F1218B2B0F100CC1958 /* MyTreasureVaultV2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8F20F1018B2B0F100CC1958 /* MyTreasureVaultV2.xcdatamodeld */; };
+		B8F20F1418B2B0F100CC1958 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F1318B2B0F100CC1958 /* Images.xcassets */; };
+		B8F20F1B18B2B0F100CC1958 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F20F1A18B2B0F100CC1958 /* XCTest.framework */; };
+		B8F20F1C18B2B0F100CC1958 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F20EFC18B2B0F100CC1958 /* Foundation.framework */; };
+		B8F20F1D18B2B0F100CC1958 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F20F0018B2B0F100CC1958 /* UIKit.framework */; };
+		B8F20F1E18B2B0F100CC1958 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F20F0218B2B0F100CC1958 /* CoreData.framework */; };
+		B8F20F2618B2B0F100CC1958 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F2418B2B0F100CC1958 /* InfoPlist.strings */; };
+		B8F20F2818B2B0F100CC1958 /* MyTreasureVaultV2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F20F2718B2B0F100CC1958 /* MyTreasureVaultV2Tests.m */; };
+		B8F20F3218B2B45500CC1958 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F3118B2B45500CC1958 /* Main_iPhone.storyboard */; };
+		B8F20F3418B2B46C00CC1958 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F3318B2B46C00CC1958 /* Main_iPad.storyboard */; };
+		B8F20F3718B2B65000CC1958 /* RecentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F20F3618B2B65000CC1958 /* RecentViewController.m */; };
+		B8F20F3A18B2B70400CC1958 /* AllItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F20F3918B2B70400CC1958 /* AllItemsViewController.m */; };
+		B8F20F3D18B2B75500CC1958 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F20F3C18B2B75500CC1958 /* SettingsViewController.m */; };
+		B8F20F4018B2BA5800CC1958 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F20F3F18B2BA5800CC1958 /* CustomCell.m */; };
+		B8F20F4318B2BC9500CC1958 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F20F4218B2BC9500CC1958 /* DetailsViewController.m */; };
+		B8F20F4618B2BCDE00CC1958 /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F20F4518B2BCDE00CC1958 /* AddItemViewController.m */; };
+		B8F20F5618B2C02D00CC1958 /* camera-button-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F4818B2C02D00CC1958 /* camera-button-highlighted.png */; };
+		B8F20F5718B2C02D00CC1958 /* camera-button.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F4918B2C02D00CC1958 /* camera-button.png */; };
+		B8F20F5818B2C02D00CC1958 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F4A18B2C02D00CC1958 /* Default-568h@2x.png */; };
+		B8F20F5918B2C02D00CC1958 /* Default-Landscape@2x~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F4B18B2C02D00CC1958 /* Default-Landscape@2x~iPad.png */; };
+		B8F20F5A18B2C02D00CC1958 /* Default-Portrait@2x~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F4C18B2C02D00CC1958 /* Default-Portrait@2x~iPad.png */; };
+		B8F20F5B18B2C02D00CC1958 /* Default-Portrait~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F4D18B2C02D00CC1958 /* Default-Portrait~iPad.png */; };
+		B8F20F5C18B2C02D00CC1958 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F4E18B2C02D00CC1958 /* Default@2x.png */; };
+		B8F20F5D18B2C02D00CC1958 /* defaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F4F18B2C02D00CC1958 /* defaultImage.png */; };
+		B8F20F5E18B2C02D00CC1958 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F5018B2C02D00CC1958 /* Icon-76.png */; };
+		B8F20F5F18B2C02D00CC1958 /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F5118B2C02D00CC1958 /* Icon-76@2x.png */; };
+		B8F20F6018B2C02D00CC1958 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F5218B2C02D00CC1958 /* Icon.png */; };
+		B8F20F6118B2C02D00CC1958 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F5318B2C02D00CC1958 /* Icon@2x.png */; };
+		B8F20F6218B2C02D00CC1958 /* signin-button-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F5418B2C02D00CC1958 /* signin-button-highlighted.png */; };
+		B8F20F6318B2C02D00CC1958 /* signin-button.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F20F5518B2C02D00CC1958 /* signin-button.png */; };
+		B8F20F6618B2C7B800CC1958 /* RecentItems.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F20F6518B2C7B800CC1958 /* RecentItems.m */; };
+		B8F20F6918B2C7DC00CC1958 /* AllItems.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F20F6818B2C7DC00CC1958 /* AllItems.m */; };
+		B8F20F6C18B2CA2400CC1958 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F20F6B18B2CA2400CC1958 /* ImageViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B8F20F1F18B2B0F100CC1958 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B8F20EF118B2B0F000CC1958 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8F20EF818B2B0F100CC1958;
+			remoteInfo = MyTreasureVaultV2;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B8F20EF918B2B0F100CC1958 /* MyTreasureVaultV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTreasureVaultV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8F20EFC18B2B0F100CC1958 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B8F20EFE18B2B0F100CC1958 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B8F20F0018B2B0F100CC1958 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B8F20F0218B2B0F100CC1958 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B8F20F0618B2B0F100CC1958 /* MyTreasureVaultV2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyTreasureVaultV2-Info.plist"; sourceTree = "<group>"; };
+		B8F20F0818B2B0F100CC1958 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B8F20F0A18B2B0F100CC1958 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B8F20F0C18B2B0F100CC1958 /* MyTreasureVaultV2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyTreasureVaultV2-Prefix.pch"; sourceTree = "<group>"; };
+		B8F20F0D18B2B0F100CC1958 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B8F20F0E18B2B0F100CC1958 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B8F20F1118B2B0F100CC1958 /* MyTreasureVaultV2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyTreasureVaultV2.xcdatamodel; sourceTree = "<group>"; };
+		B8F20F1318B2B0F100CC1958 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B8F20F1918B2B0F100CC1958 /* MyTreasureVaultV2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyTreasureVaultV2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8F20F1A18B2B0F100CC1958 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		B8F20F2318B2B0F100CC1958 /* MyTreasureVaultV2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyTreasureVaultV2Tests-Info.plist"; sourceTree = "<group>"; };
+		B8F20F2518B2B0F100CC1958 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B8F20F2718B2B0F100CC1958 /* MyTreasureVaultV2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTreasureVaultV2Tests.m; sourceTree = "<group>"; };
+		B8F20F3118B2B45500CC1958 /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
+		B8F20F3318B2B46C00CC1958 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
+		B8F20F3518B2B65000CC1958 /* RecentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentViewController.h; sourceTree = "<group>"; };
+		B8F20F3618B2B65000CC1958 /* RecentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentViewController.m; sourceTree = "<group>"; };
+		B8F20F3818B2B70400CC1958 /* AllItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllItemsViewController.h; sourceTree = "<group>"; };
+		B8F20F3918B2B70400CC1958 /* AllItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllItemsViewController.m; sourceTree = "<group>"; };
+		B8F20F3B18B2B75500CC1958 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		B8F20F3C18B2B75500CC1958 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		B8F20F3E18B2BA5800CC1958 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
+		B8F20F3F18B2BA5800CC1958 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
+		B8F20F4118B2BC9500CC1958 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		B8F20F4218B2BC9500CC1958 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		B8F20F4418B2BCDE00CC1958 /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemViewController.h; sourceTree = "<group>"; };
+		B8F20F4518B2BCDE00CC1958 /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemViewController.m; sourceTree = "<group>"; };
+		B8F20F4818B2C02D00CC1958 /* camera-button-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-button-highlighted.png"; sourceTree = "<group>"; };
+		B8F20F4918B2C02D00CC1958 /* camera-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-button.png"; sourceTree = "<group>"; };
+		B8F20F4A18B2C02D00CC1958 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		B8F20F4B18B2C02D00CC1958 /* Default-Landscape@2x~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~iPad.png"; sourceTree = "<group>"; };
+		B8F20F4C18B2C02D00CC1958 /* Default-Portrait@2x~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~iPad.png"; sourceTree = "<group>"; };
+		B8F20F4D18B2C02D00CC1958 /* Default-Portrait~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~iPad.png"; sourceTree = "<group>"; };
+		B8F20F4E18B2C02D00CC1958 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		B8F20F4F18B2C02D00CC1958 /* defaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImage.png; sourceTree = "<group>"; };
+		B8F20F5018B2C02D00CC1958 /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
+		B8F20F5118B2C02D00CC1958 /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
+		B8F20F5218B2C02D00CC1958 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		B8F20F5318B2C02D00CC1958 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		B8F20F5418B2C02D00CC1958 /* signin-button-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signin-button-highlighted.png"; sourceTree = "<group>"; };
+		B8F20F5518B2C02D00CC1958 /* signin-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signin-button.png"; sourceTree = "<group>"; };
+		B8F20F6418B2C7B800CC1958 /* RecentItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentItems.h; sourceTree = "<group>"; };
+		B8F20F6518B2C7B800CC1958 /* RecentItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentItems.m; sourceTree = "<group>"; };
+		B8F20F6718B2C7DC00CC1958 /* AllItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllItems.h; sourceTree = "<group>"; };
+		B8F20F6818B2C7DC00CC1958 /* AllItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllItems.m; sourceTree = "<group>"; };
+		B8F20F6A18B2CA2400CC1958 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		B8F20F6B18B2CA2400CC1958 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B8F20EF618B2B0F100CC1958 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8F20EFF18B2B0F100CC1958 /* CoreGraphics.framework in Frameworks */,
+				B8F20F0318B2B0F100CC1958 /* CoreData.framework in Frameworks */,
+				B8F20F0118B2B0F100CC1958 /* UIKit.framework in Frameworks */,
+				B8F20EFD18B2B0F100CC1958 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8F20F1618B2B0F100CC1958 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8F20F1B18B2B0F100CC1958 /* XCTest.framework in Frameworks */,
+				B8F20F1E18B2B0F100CC1958 /* CoreData.framework in Frameworks */,
+				B8F20F1D18B2B0F100CC1958 /* UIKit.framework in Frameworks */,
+				B8F20F1C18B2B0F100CC1958 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B8F20EF018B2B0F000CC1958 = {
+			isa = PBXGroup;
+			children = (
+				B8F20F0418B2B0F100CC1958 /* MyTreasureVaultV2 */,
+				B8F20F2118B2B0F100CC1958 /* MyTreasureVaultV2Tests */,
+				B8F20EFB18B2B0F100CC1958 /* Frameworks */,
+				B8F20EFA18B2B0F100CC1958 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B8F20EFA18B2B0F100CC1958 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B8F20EF918B2B0F100CC1958 /* MyTreasureVaultV2.app */,
+				B8F20F1918B2B0F100CC1958 /* MyTreasureVaultV2Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B8F20EFB18B2B0F100CC1958 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B8F20EFC18B2B0F100CC1958 /* Foundation.framework */,
+				B8F20EFE18B2B0F100CC1958 /* CoreGraphics.framework */,
+				B8F20F0018B2B0F100CC1958 /* UIKit.framework */,
+				B8F20F0218B2B0F100CC1958 /* CoreData.framework */,
+				B8F20F1A18B2B0F100CC1958 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B8F20F0418B2B0F100CC1958 /* MyTreasureVaultV2 */ = {
+			isa = PBXGroup;
+			children = (
+				B8F20F0D18B2B0F100CC1958 /* AppDelegate.h */,
+				B8F20F0E18B2B0F100CC1958 /* AppDelegate.m */,
+				B8F20F3118B2B45500CC1958 /* Main_iPhone.storyboard */,
+				B8F20F3318B2B46C00CC1958 /* Main_iPad.storyboard */,
+				B8F20F3518B2B65000CC1958 /* RecentViewController.h */,
+				B8F20F3618B2B65000CC1958 /* RecentViewController.m */,
+				B8F20F3818B2B70400CC1958 /* AllItemsViewController.h */,
+				B8F20F3918B2B70400CC1958 /* AllItemsViewController.m */,
+				B8F20F3B18B2B75500CC1958 /* SettingsViewController.h */,
+				B8F20F3C18B2B75500CC1958 /* SettingsViewController.m */,
+				B8F20F4418B2BCDE00CC1958 /* AddItemViewController.h */,
+				B8F20F4518B2BCDE00CC1958 /* AddItemViewController.m */,
+				B8F20F4118B2BC9500CC1958 /* DetailsViewController.h */,
+				B8F20F4218B2BC9500CC1958 /* DetailsViewController.m */,
+				B8F20F1318B2B0F100CC1958 /* Images.xcassets */,
+				B8F20F1018B2B0F100CC1958 /* MyTreasureVaultV2.xcdatamodeld */,
+				B8F20F4718B2C02D00CC1958 /* images */,
+				B8F20F0518B2B0F100CC1958 /* Supporting Files */,
+				B8F20F3E18B2BA5800CC1958 /* CustomCell.h */,
+				B8F20F3F18B2BA5800CC1958 /* CustomCell.m */,
+				B8F20F6418B2C7B800CC1958 /* RecentItems.h */,
+				B8F20F6518B2C7B800CC1958 /* RecentItems.m */,
+				B8F20F6718B2C7DC00CC1958 /* AllItems.h */,
+				B8F20F6818B2C7DC00CC1958 /* AllItems.m */,
+				B8F20F6A18B2CA2400CC1958 /* ImageViewController.h */,
+				B8F20F6B18B2CA2400CC1958 /* ImageViewController.m */,
+			);
+			path = MyTreasureVaultV2;
+			sourceTree = "<group>";
+		};
+		B8F20F0518B2B0F100CC1958 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B8F20F0618B2B0F100CC1958 /* MyTreasureVaultV2-Info.plist */,
+				B8F20F0718B2B0F100CC1958 /* InfoPlist.strings */,
+				B8F20F0A18B2B0F100CC1958 /* main.m */,
+				B8F20F0C18B2B0F100CC1958 /* MyTreasureVaultV2-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B8F20F2118B2B0F100CC1958 /* MyTreasureVaultV2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B8F20F2718B2B0F100CC1958 /* MyTreasureVaultV2Tests.m */,
+				B8F20F2218B2B0F100CC1958 /* Supporting Files */,
+			);
+			path = MyTreasureVaultV2Tests;
+			sourceTree = "<group>";
+		};
+		B8F20F2218B2B0F100CC1958 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B8F20F2318B2B0F100CC1958 /* MyTreasureVaultV2Tests-Info.plist */,
+				B8F20F2418B2B0F100CC1958 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B8F20F4718B2C02D00CC1958 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				B8F20F4818B2C02D00CC1958 /* camera-button-highlighted.png */,
+				B8F20F4918B2C02D00CC1958 /* camera-button.png */,
+				B8F20F4A18B2C02D00CC1958 /* Default-568h@2x.png */,
+				B8F20F4B18B2C02D00CC1958 /* Default-Landscape@2x~iPad.png */,
+				B8F20F4C18B2C02D00CC1958 /* Default-Portrait@2x~iPad.png */,
+				B8F20F4D18B2C02D00CC1958 /* Default-Portrait~iPad.png */,
+				B8F20F4E18B2C02D00CC1958 /* Default@2x.png */,
+				B8F20F4F18B2C02D00CC1958 /* defaultImage.png */,
+				B8F20F5018B2C02D00CC1958 /* Icon-76.png */,
+				B8F20F5118B2C02D00CC1958 /* Icon-76@2x.png */,
+				B8F20F5218B2C02D00CC1958 /* Icon.png */,
+				B8F20F5318B2C02D00CC1958 /* Icon@2x.png */,
+				B8F20F5418B2C02D00CC1958 /* signin-button-highlighted.png */,
+				B8F20F5518B2C02D00CC1958 /* signin-button.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B8F20EF818B2B0F100CC1958 /* MyTreasureVaultV2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8F20F2B18B2B0F100CC1958 /* Build configuration list for PBXNativeTarget "MyTreasureVaultV2" */;
+			buildPhases = (
+				B8F20EF518B2B0F100CC1958 /* Sources */,
+				B8F20EF618B2B0F100CC1958 /* Frameworks */,
+				B8F20EF718B2B0F100CC1958 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyTreasureVaultV2;
+			productName = MyTreasureVaultV2;
+			productReference = B8F20EF918B2B0F100CC1958 /* MyTreasureVaultV2.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B8F20F1818B2B0F100CC1958 /* MyTreasureVaultV2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8F20F2E18B2B0F100CC1958 /* Build configuration list for PBXNativeTarget "MyTreasureVaultV2Tests" */;
+			buildPhases = (
+				B8F20F1518B2B0F100CC1958 /* Sources */,
+				B8F20F1618B2B0F100CC1958 /* Frameworks */,
+				B8F20F1718B2B0F100CC1958 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B8F20F2018B2B0F100CC1958 /* PBXTargetDependency */,
+			);
+			name = MyTreasureVaultV2Tests;
+			productName = MyTreasureVaultV2Tests;
+			productReference = B8F20F1918B2B0F100CC1958 /* MyTreasureVaultV2Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B8F20EF118B2B0F000CC1958 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Elijah Freestone";
+				TargetAttributes = {
+					B8F20F1818B2B0F100CC1958 = {
+						TestTargetID = B8F20EF818B2B0F100CC1958;
+					};
+				};
+			};
+			buildConfigurationList = B8F20EF418B2B0F000CC1958 /* Build configuration list for PBXProject "MyTreasureVaultV2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B8F20EF018B2B0F000CC1958;
+			productRefGroup = B8F20EFA18B2B0F100CC1958 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B8F20EF818B2B0F100CC1958 /* MyTreasureVaultV2 */,
+				B8F20F1818B2B0F100CC1958 /* MyTreasureVaultV2Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B8F20EF718B2B0F100CC1958 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8F20F5A18B2C02D00CC1958 /* Default-Portrait@2x~iPad.png in Resources */,
+				B8F20F6118B2C02D00CC1958 /* Icon@2x.png in Resources */,
+				B8F20F5E18B2C02D00CC1958 /* Icon-76.png in Resources */,
+				B8F20F5718B2C02D00CC1958 /* camera-button.png in Resources */,
+				B8F20F5618B2C02D00CC1958 /* camera-button-highlighted.png in Resources */,
+				B8F20F6318B2C02D00CC1958 /* signin-button.png in Resources */,
+				B8F20F5F18B2C02D00CC1958 /* Icon-76@2x.png in Resources */,
+				B8F20F0918B2B0F100CC1958 /* InfoPlist.strings in Resources */,
+				B8F20F5918B2C02D00CC1958 /* Default-Landscape@2x~iPad.png in Resources */,
+				B8F20F5C18B2C02D00CC1958 /* Default@2x.png in Resources */,
+				B8F20F3418B2B46C00CC1958 /* Main_iPad.storyboard in Resources */,
+				B8F20F5D18B2C02D00CC1958 /* defaultImage.png in Resources */,
+				B8F20F6218B2C02D00CC1958 /* signin-button-highlighted.png in Resources */,
+				B8F20F1418B2B0F100CC1958 /* Images.xcassets in Resources */,
+				B8F20F5B18B2C02D00CC1958 /* Default-Portrait~iPad.png in Resources */,
+				B8F20F6018B2C02D00CC1958 /* Icon.png in Resources */,
+				B8F20F5818B2C02D00CC1958 /* Default-568h@2x.png in Resources */,
+				B8F20F3218B2B45500CC1958 /* Main_iPhone.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8F20F1718B2B0F100CC1958 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8F20F2618B2B0F100CC1958 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B8F20EF518B2B0F100CC1958 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8F20F3A18B2B70400CC1958 /* AllItemsViewController.m in Sources */,
+				B8F20F1218B2B0F100CC1958 /* MyTreasureVaultV2.xcdatamodeld in Sources */,
+				B8F20F3718B2B65000CC1958 /* RecentViewController.m in Sources */,
+				B8F20F3D18B2B75500CC1958 /* SettingsViewController.m in Sources */,
+				B8F20F4618B2BCDE00CC1958 /* AddItemViewController.m in Sources */,
+				B8F20F6618B2C7B800CC1958 /* RecentItems.m in Sources */,
+				B8F20F6C18B2CA2400CC1958 /* ImageViewController.m in Sources */,
+				B8F20F4018B2BA5800CC1958 /* CustomCell.m in Sources */,
+				B8F20F0F18B2B0F100CC1958 /* AppDelegate.m in Sources */,
+				B8F20F0B18B2B0F100CC1958 /* main.m in Sources */,
+				B8F20F6918B2C7DC00CC1958 /* AllItems.m in Sources */,
+				B8F20F4318B2BC9500CC1958 /* DetailsViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8F20F1518B2B0F100CC1958 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8F20F2818B2B0F100CC1958 /* MyTreasureVaultV2Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B8F20F2018B2B0F100CC1958 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B8F20EF818B2B0F100CC1958 /* MyTreasureVaultV2 */;
+			targetProxy = B8F20F1F18B2B0F100CC1958 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B8F20F0718B2B0F100CC1958 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B8F20F0818B2B0F100CC1958 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B8F20F2418B2B0F100CC1958 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B8F20F2518B2B0F100CC1958 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B8F20F2918B2B0F100CC1958 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B8F20F2A18B2B0F100CC1958 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B8F20F2C18B2B0F100CC1958 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyTreasureVaultV2/MyTreasureVaultV2-Prefix.pch";
+				INFOPLIST_FILE = "MyTreasureVaultV2/MyTreasureVaultV2-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B8F20F2D18B2B0F100CC1958 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyTreasureVaultV2/MyTreasureVaultV2-Prefix.pch";
+				INFOPLIST_FILE = "MyTreasureVaultV2/MyTreasureVaultV2-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B8F20F2F18B2B0F100CC1958 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MyTreasureVaultV2.app/MyTreasureVaultV2";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyTreasureVaultV2/MyTreasureVaultV2-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MyTreasureVaultV2Tests/MyTreasureVaultV2Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		B8F20F3018B2B0F100CC1958 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MyTreasureVaultV2.app/MyTreasureVaultV2";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyTreasureVaultV2/MyTreasureVaultV2-Prefix.pch";
+				INFOPLIST_FILE = "MyTreasureVaultV2Tests/MyTreasureVaultV2Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B8F20EF418B2B0F000CC1958 /* Build configuration list for PBXProject "MyTreasureVaultV2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8F20F2918B2B0F100CC1958 /* Debug */,
+				B8F20F2A18B2B0F100CC1958 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B8F20F2B18B2B0F100CC1958 /* Build configuration list for PBXNativeTarget "MyTreasureVaultV2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8F20F2C18B2B0F100CC1958 /* Debug */,
+				B8F20F2D18B2B0F100CC1958 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B8F20F2E18B2B0F100CC1958 /* Build configuration list for PBXNativeTarget "MyTreasureVaultV2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8F20F2F18B2B0F100CC1958 /* Debug */,
+				B8F20F3018B2B0F100CC1958 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B8F20F1018B2B0F100CC1958 /* MyTreasureVaultV2.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B8F20F1118B2B0F100CC1958 /* MyTreasureVaultV2.xcdatamodel */,
+			);
+			currentVersion = B8F20F1118B2B0F100CC1958 /* MyTreasureVaultV2.xcdatamodel */;
+			path = MyTreasureVaultV2.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = B8F20EF118B2B0F000CC1958 /* Project object */;
+}

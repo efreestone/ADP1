@@ -1,13 +1,14 @@
 // Elijah Freestone
 // ADP1 1402
-// My Treasure Vault
-// February 10th, 2014
+// Week 3
+// My Treasure Vault Version 2
+// February 15th, 2014
 
 //
 //  RecentViewController.m
-//  MyTreasureVault
+//  MyTreasureVaultV2
 //
-//  Created by Elijah Freestone on 2/11/14.
+//  Created by Elijah Freestone on 2/17/14.
 //  Copyright (c) 2014 Elijah Freestone. All rights reserved.
 //
 
@@ -90,7 +91,7 @@
     
     //Present log in screen over home/recent. Not currently active or required. Clicking Sign In dismisses the view while clicking cancel shows an alert view
     //Declare storyboard
-    UIStoryboard *storyboard;
+    /*UIStoryboard *storyboard;
     //Check device and set storyboard accordingly
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
@@ -102,7 +103,7 @@
     //Set transition style to flip
     signInVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     //Present sign in view
-    [self presentViewController:signInVC animated:true completion:nil];
+    [self presentViewController:signInVC animated:true completion:nil];*/
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
