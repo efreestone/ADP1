@@ -16,6 +16,13 @@
 
 @interface AddItemViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+//Declare IBOutlets for text fields
+@property (strong, nonatomic) IBOutlet UITextField *makeTextField;
+@property (strong, nonatomic) IBOutlet UITextField *modelTextField;
+@property (strong, nonatomic) IBOutlet UITextField *serialTextField;
+@property (strong, nonatomic) IBOutlet UITextField *detailsTextField;
+@property (strong, nonatomic) IBOutlet UITextField *costTextField;
+
 //Declare IBActions for save and cancel buttons
 -(IBAction)onCancel:(id)sender;
 -(IBAction)onSave:(id)sender;

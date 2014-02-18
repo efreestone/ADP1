@@ -15,6 +15,8 @@
 #import "AddItemViewController.h"
 //Import image view controller
 #import "ImageViewController.h"
+//Import app delegate
+#import "AppDelegate.h"
 
 @interface AddItemViewController ()
 
@@ -64,12 +66,59 @@
 -(IBAction)onSave:(id)sender
 {
     //Create and display alert when save button is hit
-    UIAlertView *savedAlert = [[UIAlertView alloc] initWithTitle: @"Item Would Have Saved!!" message: @"Your item would have been saved, but this bit of code hasn't been written yet." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [savedAlert show];
+    /*UIAlertView *savedAlert = [[UIAlertView alloc] initWithTitle: @"Item Would Have Saved!!" message: @"Your item would have been saved, but this bit of code hasn't been written yet." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [savedAlert show];*/
     
+    //Create instance of AppDelegate and set as delegate for access to core data
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    //Grab managed object context on app delegate
+    NSManagedObjectContext *objectContext = [appDelegate managedObjectContext];
+    //Create new item object
+    NSManagedObject *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:objectContext];
+    //Set object attributes to text from text fields using setValue Method
+    [newItem setValue: _makeTextField.text forKey:@"make"];
+    [newItem setValue: _modelTextField.text forKey:@"model"];
+    [newItem setValue: _serialTextField.text forKey:@"serial"];
+    [newItem setValue: _detailsTextField.text forKey:@"details"];
+    [newItem setValue: _costTextField.text forKey:@"cost"];
+    //Clear out text fields
+    _makeTextField.text = @"";
+    _modelTextField.text = @"";
+    _serialTextField.text = @"";
+    _detailsTextField.text = @"";
+    _costTextField.text = @"";
+    //Create error object
+    NSError *error;
+    //Save item to device
+    [objectContext save:&error];
+    
+    NSLog(@"%@", newItem.description);
+    
+    //Dismiss view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 	//[self.delegate addBooksViewControllerDidSave:self];
 }
+
+/*- (IBAction)saveData:(id)sender {
+    CoreDataAppDelegate *appDelegate =
+    [[UIApplication sharedApplication] delegate];
+    
+    NSManagedObjectContext *context =
+    [appDelegate managedObjectContext];
+    NSManagedObject *newContact;
+    newContact = [NSEntityDescription
+                  insertNewObjectForEntityForName:@"Contacts"
+                  inManagedObjectContext:context];
+    [newContact setValue: _name.text forKey:@"name"];
+    [newContact setValue: _address.text forKey:@"address"];
+    [newContact setValue: _phone.text forKey:@"phone"];
+    _name.text = @"";
+    _address.text = @"";
+    _phone.text = @"";
+    NSError *error;
+    [context save:&error];
+    _status.text = @"Contact saved";
+}*/
 
 #pragma mark - Camera
 

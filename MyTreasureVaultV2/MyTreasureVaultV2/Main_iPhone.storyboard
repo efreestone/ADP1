@@ -341,6 +341,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="costTextField" destination="S75-yn-3K5" id="c6d-H8-1Jp"/>
+                        <outlet property="detailsTextField" destination="gTi-F1-iJA" id="aFR-at-qK9"/>
+                        <outlet property="makeTextField" destination="wpw-N1-qS8" id="bbo-yD-h3P"/>
+                        <outlet property="modelTextField" destination="kuw-hD-mgH" id="TkO-6r-im8"/>
+                        <outlet property="serialTextField" destination="eLs-1U-ZBP" id="5A4-yN-hsO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X4E-yE-rAs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

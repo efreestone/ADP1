@@ -411,6 +411,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="costTextField" destination="SmC-Ia-3XA" id="0Tc-Fk-5ni"/>
+                        <outlet property="detailsTextField" destination="KhL-hg-d7T" id="V4A-tP-XAa"/>
+                        <outlet property="makeTextField" destination="ChE-ne-JNd" id="8X2-53-j8e"/>
+                        <outlet property="modelTextField" destination="cF4-3b-w20" id="UN3-M4-kep"/>
+                        <outlet property="serialTextField" destination="KEG-Ji-YF3" id="FcF-gr-L0r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUR-1g-9Ia" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -565,7 +572,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="PUu-Zw-Wgp"/>
+        <segue reference="4ql-Mp-O30"/>
         <segue reference="mZL-Ca-tK5"/>
     </inferredMetricsTieBreakers>
 </document>
