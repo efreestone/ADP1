@@ -75,12 +75,30 @@
     NSManagedObjectContext *objectContext = [appDelegate managedObjectContext];
     //Create new item object
     NSManagedObject *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:objectContext];
+    
+    //Grab current date to set NSDate object on Core Data. Also formatting date as string for display
+    NSDate *currentDate = [NSDate date];
+    if (currentDate != nil) {
+        //Format date for display and cast into formattedDate
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        if (dateFormatter != nil) {
+            //Set formatted date to month-day-year (02-17-2014)
+            [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+            //[dateFormatter setDateFormat:@"MMM dd, yyyy hh:mm:ss a"];
+            formattedDate = [dateFormatter stringFromDate:currentDate];
+        }
+        //NSLog(@"date = %@", formattedDate);
+    }
+    
     //Set object attributes to text from text fields using setValue Method
     [newItem setValue: _makeTextField.text forKey:@"make"];
     [newItem setValue: _modelTextField.text forKey:@"model"];
     [newItem setValue: _serialTextField.text forKey:@"serial"];
     [newItem setValue: _detailsTextField.text forKey:@"details"];
     [newItem setValue: _costTextField.text forKey:@"cost"];
+    [newItem setValue: currentDate forKey:@"dateAdded"];
+    [newItem setValue: formattedDate forKey:@"formattedDate"];
+    
     //Clear out text fields
     _makeTextField.text = @"";
     _modelTextField.text = @"";
@@ -103,27 +121,6 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 	//[self.delegate addBooksViewControllerDidSave:self];
 }
-
-/*- (IBAction)saveData:(id)sender {
-    CoreDataAppDelegate *appDelegate =
-    [[UIApplication sharedApplication] delegate];
-    
-    NSManagedObjectContext *context =
-    [appDelegate managedObjectContext];
-    NSManagedObject *newContact;
-    newContact = [NSEntityDescription
-                  insertNewObjectForEntityForName:@"Contacts"
-                  inManagedObjectContext:context];
-    [newContact setValue: _name.text forKey:@"name"];
-    [newContact setValue: _address.text forKey:@"address"];
-    [newContact setValue: _phone.text forKey:@"phone"];
-    _name.text = @"";
-    _address.text = @"";
-    _phone.text = @"";
-    NSError *error;
-    [context save:&error];
-    _status.text = @"Contact saved";
-}*/
 
 #pragma mark - Camera
 

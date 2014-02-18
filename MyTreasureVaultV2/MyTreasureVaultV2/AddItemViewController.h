@@ -14,7 +14,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddItemViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface AddItemViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
+    //Declare formatted date
+    NSString *formattedDate;
+}
 
 //Declare IBOutlets for text fields
 @property (strong, nonatomic) IBOutlet UITextField *makeTextField;
