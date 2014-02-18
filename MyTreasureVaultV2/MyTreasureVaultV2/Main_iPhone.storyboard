@@ -596,7 +596,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="eI6-51-d1U"/>
         <segue reference="REp-tc-nka"/>
-        <segue reference="KEz-Iq-Hb8"/>
     </inferredMetricsTieBreakers>
 </document>

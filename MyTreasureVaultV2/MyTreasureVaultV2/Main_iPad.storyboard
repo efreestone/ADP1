@@ -129,6 +129,7 @@
                                     <outlet property="dateAddedLabel" destination="py6-k5-72Z" id="1FK-kP-fUa"/>
                                     <outlet property="detailsLabel" destination="Cp0-Ra-ceb" id="KSa-qT-336"/>
                                     <outlet property="makeModelLabel" destination="hea-6u-dXJ" id="wy4-Bh-X7q"/>
+                                    <segue destination="ZHg-3z-5Hw" kind="push" identifier="DetailView" id="e5m-nO-2Vw"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -193,6 +194,7 @@
                                     <outlet property="dateAddedLabel" destination="fjE-OK-6t9" id="apO-OP-opz"/>
                                     <outlet property="detailsLabel" destination="K1U-sM-VsE" id="Ehg-TW-jcO"/>
                                     <outlet property="makeModelLabel" destination="O5Z-Zz-idq" id="Jdk-OP-l2M"/>
+                                    <segue destination="ZHg-3z-5Hw" kind="push" identifier="DetailView" id="mZL-Ca-tK5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -482,6 +484,76 @@
             </objects>
             <point key="canvasLocation" x="2046" y="249"/>
         </scene>
+        <!--Details View Controller-->
+        <scene sceneID="TAb-Jz-sjw">
+            <objects>
+                <viewController id="ZHg-3z-5Hw" customClass="DetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zeD-it-LnR"/>
+                        <viewControllerLayoutGuide type="bottom" id="WYZ-eW-bVo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="m8m-6E-7Sz">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Make" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSt-u9-drr">
+                                <rect key="frame" x="20" y="519" width="728" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Model" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5KC-vX-VDp">
+                                <rect key="frame" x="20" y="556" width="728" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Serial" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wo-j4-KTl">
+                                <rect key="frame" x="20" y="593" width="728" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Details" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="13S-P7-q5X">
+                                <rect key="frame" x="20" y="630" width="728" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cost" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWn-Hc-Wxq">
+                                <rect key="frame" x="20" y="698" width="728" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date Added" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5S-ej-env">
+                                <rect key="frame" x="20" y="735" width="728" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="61i-Qc-ue9">
+                                <rect key="frame" x="209" y="161" width="350" height="350"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="F1N-DP-lQY"/>
+                    <connections>
+                        <outlet property="costLabel" destination="bWn-Hc-Wxq" id="9fh-fm-5Nw"/>
+                        <outlet property="dateAddedLabel" destination="b5S-ej-env" id="ukX-L0-UW6"/>
+                        <outlet property="detailsLabel" destination="13S-P7-q5X" id="Jhv-lx-jWW"/>
+                        <outlet property="itemImageView" destination="61i-Qc-ue9" id="K1G-Km-qIM"/>
+                        <outlet property="makeLabel" destination="PSt-u9-drr" id="U2k-4S-7rS"/>
+                        <outlet property="modelLabel" destination="5KC-vX-VDp" id="TZZ-iZ-S20"/>
+                        <outlet property="serialLabel" destination="3wo-j4-KTl" id="b9d-yW-VtT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hwb-Lo-Y13" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2046" y="-2019"/>
+        </scene>
     </scenes>
     <resources>
         <image name="camera-button-highlighted.png" width="288" height="88"/>
@@ -494,5 +566,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="PUu-Zw-Wgp"/>
+        <segue reference="mZL-Ca-tK5"/>
     </inferredMetricsTieBreakers>
 </document>
