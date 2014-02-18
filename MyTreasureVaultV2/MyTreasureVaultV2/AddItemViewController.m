@@ -17,6 +17,8 @@
 #import "ImageViewController.h"
 //Import app delegate
 #import "AppDelegate.h"
+//Import Items Core Data subclass
+#import "Items.h"
 
 @interface AddItemViewController ()
 
@@ -74,7 +76,7 @@
     //Grab managed object context on app delegate
     NSManagedObjectContext *objectContext = [appDelegate managedObjectContext];
     //Create new item object
-    NSManagedObject *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:objectContext];
+    Items *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:objectContext];
     
     //Grab current date to set NSDate object on Core Data. Also formatting date as string for display
     NSDate *currentDate = [NSDate date];
@@ -109,17 +111,29 @@
     NSError *error;
     //Save item to device after error check
     if ([objectContext save:&error] == NO) {
-        NSLog(@"Save failed");
+        //Log out error
+        NSLog(@"Save failed: %@", [error localizedDescription]);
     } else {
+        //Create and show save success alert
         UIAlertView *savedAlert = [[UIAlertView alloc] initWithTitle: @"Item Saved" message: @"Your item was saved successfully!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [savedAlert show];
         [objectContext save:&error];
-        NSLog(@"%@", newItem.description);
+        //NSLog(@"%@", newItem.description);
+    }
+    
+    //Test
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:objectContext];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [objectContext executeFetchRequest:fetchRequest error:&error];
+    for (Items *item in fetchedObjects) {
+        //NSLog(@"%@", newItem.description);
+        NSLog(@"Make: %@ Model: %@", [item valueForKey:@"make"], [item valueForKey:@"model"]);
+        //NSLog(@"Zip: %@", [newItem valueForKey:@"model"]);
     }
     
     //Dismiss view controller
     [self dismissViewControllerAnimated:YES completion:nil];
-	//[self.delegate addBooksViewControllerDidSave:self];
 }
 
 #pragma mark - Camera

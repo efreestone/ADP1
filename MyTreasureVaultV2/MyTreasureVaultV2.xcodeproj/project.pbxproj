@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B89FBCD118B4120E00D1B7BB /* Items.m in Sources */ = {isa = PBXBuildFile; fileRef = B89FBCD018B4120E00D1B7BB /* Items.m */; };
 		B8F20EFD18B2B0F100CC1958 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F20EFC18B2B0F100CC1958 /* Foundation.framework */; };
 		B8F20EFF18B2B0F100CC1958 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F20EFE18B2B0F100CC1958 /* CoreGraphics.framework */; };
 		B8F20F0118B2B0F100CC1958 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F20F0018B2B0F100CC1958 /* UIKit.framework */; };
@@ -60,6 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B89FBCCF18B4120E00D1B7BB /* Items.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Items.h; sourceTree = "<group>"; };
+		B89FBCD018B4120E00D1B7BB /* Items.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Items.m; sourceTree = "<group>"; };
 		B8F20EF918B2B0F100CC1958 /* MyTreasureVaultV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTreasureVaultV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F20EFC18B2B0F100CC1958 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B8F20EFE18B2B0F100CC1958 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -190,6 +193,8 @@
 				B8F20F4218B2BC9500CC1958 /* DetailsViewController.m */,
 				B8F20F1318B2B0F100CC1958 /* Images.xcassets */,
 				B8F20F1018B2B0F100CC1958 /* MyTreasureVaultV2.xcdatamodeld */,
+				B89FBCCF18B4120E00D1B7BB /* Items.h */,
+				B89FBCD018B4120E00D1B7BB /* Items.m */,
 				B8F20F4718B2C02D00CC1958 /* images */,
 				B8F20F0518B2B0F100CC1958 /* Supporting Files */,
 				B8F20F3E18B2BA5800CC1958 /* CustomCell.h */,
@@ -367,6 +372,7 @@
 			files = (
 				B8F20F3A18B2B70400CC1958 /* AllItemsViewController.m in Sources */,
 				B8F20F1218B2B0F100CC1958 /* MyTreasureVaultV2.xcdatamodeld in Sources */,
+				B89FBCD118B4120E00D1B7BB /* Items.m in Sources */,
 				B8F20F3718B2B65000CC1958 /* RecentViewController.m in Sources */,
 				B8F20F3D18B2B75500CC1958 /* SettingsViewController.m in Sources */,
 				B8F20F4618B2BCDE00CC1958 /* AddItemViewController.m in Sources */,
@@ -575,6 +581,7 @@
 				B8F20F2D18B2B0F100CC1958 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B8F20F2E18B2B0F100CC1958 /* Build configuration list for PBXNativeTarget "MyTreasureVaultV2Tests" */ = {
 			isa = XCConfigurationList;
@@ -583,6 +590,7 @@
 				B8F20F3018B2B0F100CC1958 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
