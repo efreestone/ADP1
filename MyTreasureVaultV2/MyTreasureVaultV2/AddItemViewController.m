@@ -90,7 +90,7 @@
     //Grab managed object context on app delegate
     NSManagedObjectContext *objectContext = [appDelegate managedObjectContext];
     //Create new item object
-    Items *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:objectContext];
+    //Items *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:objectContext];
     //Set default image string
     NSString *defaultImage = @"defaultImage.png";
     
@@ -108,8 +108,44 @@
         //NSLog(@"date = %@", formattedDate);
     }
     
+    if (self.passedManagedObject) {
+        [passedManagedObject setValue: makeTextField.text forKey:@"make"];
+        [passedManagedObject setValue: modelTextField.text forKey:@"model"];
+        [passedManagedObject setValue: serialTextField.text forKey:@"serial"];
+        [passedManagedObject setValue: detailsTextField.text forKey:@"details"];
+        [passedManagedObject setValue: costTextField.text forKey:@"cost"];
+        [passedManagedObject setValue: currentDate forKey:@"dateAdded"];
+        [passedManagedObject setValue: formattedDate forKey:@"formattedDate"];
+    } else {
+        Items *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:objectContext];
+        [newItem setValue: makeTextField.text forKey:@"make"];
+        [newItem setValue: modelTextField.text forKey:@"model"];
+        [newItem setValue: serialTextField.text forKey:@"serial"];
+        [newItem setValue: detailsTextField.text forKey:@"details"];
+        [newItem setValue: costTextField.text forKey:@"cost"];
+        [newItem setValue: currentDate forKey:@"dateAdded"];
+        [newItem setValue: formattedDate forKey:@"formattedDate"];
+        
+        //Currently setting image to default image
+        [newItem setValue: defaultImage forKey:@"image"];
+    }
+    
+    /*if (self.device) {
+        // Update existing device
+        [self.device setValue:self.nameTextField.text forKey:@"name"];
+        [self.device setValue:self.versionTextField.text forKey:@"version"];
+        [self.device setValue:self.companyTextField.text forKey:@"company"];
+        
+    } else {
+        // Create a new device
+        NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Device" inManagedObjectContext:context];
+        [newDevice setValue:self.nameTextField.text forKey:@"name"];
+        [newDevice setValue:self.versionTextField.text forKey:@"version"];
+        [newDevice setValue:self.companyTextField.text forKey:@"company"];
+    }*/
+    
     //Set object attributes to text from text fields using setValue Method
-    [newItem setValue: makeTextField.text forKey:@"make"];
+    /*[newItem setValue: makeTextField.text forKey:@"make"];
     [newItem setValue: modelTextField.text forKey:@"model"];
     [newItem setValue: serialTextField.text forKey:@"serial"];
     [newItem setValue: detailsTextField.text forKey:@"details"];
@@ -118,7 +154,7 @@
     [newItem setValue: formattedDate forKey:@"formattedDate"];
     
     //Currently setting image to default image
-    [newItem setValue: defaultImage forKey:@"image"];
+    [newItem setValue: defaultImage forKey:@"image"];*/
     
     //Clear out text fields
     makeTextField.text = @"";
@@ -137,7 +173,7 @@
         UIAlertView *savedAlert = [[UIAlertView alloc] initWithTitle: @"Item Saved" message: @"Your item was saved successfully!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [savedAlert show];
         //[objectContext save:&error];
-        NSLog(@"%@", newItem.description);
+        //NSLog(@"%@", newItem.description);
     }
     
     //Test
