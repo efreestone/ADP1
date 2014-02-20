@@ -346,28 +346,27 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath {
+/*-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSManagedObject *managedObject = [context objectAtIndexPath:indexPath];
         [self.managedObjectContext deleteObject:managedObject];
         [self.managedObjectContext save:nil];
     }
-}
+}*/
 
 //Built in function to check editing style (-=delete, +=add)
-/*- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     //Check if in delete mode
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSLog(@"We want to delete row = %d", indexPath.row);
         
         //Remove the deleted object from recentItemsArray
-        //[recentItemsArray removeObjectAtIndex:indexPath.row];
-        [context deleteObject:indexPath.row];
+        [recentItemsArray removeObjectAtIndex:indexPath.row];
         
         //Remove object from table view with animation. Receiving warning "local declaration of "tableView" hides instance variable". I may be missing something here but isn't this an Accessor method?
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:true];
     }
-}*/
+}
 
 #pragma mark - Segue
 
