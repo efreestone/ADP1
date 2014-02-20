@@ -33,7 +33,7 @@
 }
 
 //Synthesize recent items array for getter/setter
-@synthesize recentItemsArray;
+@synthesize recentItemsArray, myTableView;
 
 - (void)viewDidLoad
 {
@@ -68,11 +68,6 @@
         [self fillDefaultData];
         NSLog(@"Default Data Added");
     }
-    
-    
-    /*NSError* err = nil;
-    NSString* dataPath = [[NSBundle mainBundle] pathForResource:@"DefaultItems" ofType:@"json"];
-    NSArray* defaultItems = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:dataPath] options:kNilOptions error:&err];*/
     
     //NSLog(@"Default Items: %@", defaultItems.description);
     
@@ -174,13 +169,13 @@
     }
 }
 
-//Custom method to fill Core Data storage with default items
+//Custom method to create default items to fill Core Data storage with
 -(void)fillDefaultData
 {
     NSString *dateString;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     NSDate *dateAddedNS;
-    dateString = @"2014-02-11 12:00:00 +0000";
+    dateString = @"";
     dateAddedNS = [dateFormatter dateFromString:dateString];
     
     NSString *defaultImage = @"defaultImage.png";
@@ -188,45 +183,131 @@
     Items *newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
     
     //Set object attributes to text from text fields using setValue Method
+    //Item 1
     [newDefaultItem setValue: @"Google (LG)" forKey:@"make"];
     [newDefaultItem setValue: @"Nexus 5" forKey:@"model"];
     [newDefaultItem setValue: @"123ABCD456789" forKey:@"serial"];
     [newDefaultItem setValue: @"Black 16GB smartphone" forKey:@"details"];
     [newDefaultItem setValue: @"$350" forKey:@"cost"];
+    dateString = @"2014-02-11 12:00:00 +0000";
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"02-11-2014" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
     [self saveDefault];
-    
-    NSLog(@"Default: %@", [newDefaultItem description]);
-    
+    //NSLog(@"Default: %@", [newDefaultItem description]);
+    //Item 2
     newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
     [newDefaultItem setValue: @"Apple" forKey:@"make"];
     [newDefaultItem setValue: @"MacBook Pro" forKey:@"model"];
     [newDefaultItem setValue: @"A12BCD34EF567" forKey:@"serial"];
     [newDefaultItem setValue: @"Silver 15inch laptop, late 2011 model" forKey:@"details"];
     [newDefaultItem setValue: @"$1500" forKey:@"cost"];
+    dateString = @"2014-02-01 12:00:00 +0000";
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"02-01-2014" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
     [self saveDefault];
-    
-    NSLog(@"Default: %@", [newDefaultItem description]);
-    
+    //NSLog(@"Default: %@", [newDefaultItem description]);
+    //Item 3
     newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
     [newDefaultItem setValue: @"ESP LTD" forKey:@"make"];
     [newDefaultItem setValue: @"H-401FM" forKey:@"model"];
     [newDefaultItem setValue: @"ISO123456ABCD" forKey:@"serial"];
     [newDefaultItem setValue: @"Cherryburst electric guitar with case, Seymour Duncan pickups" forKey:@"details"];
     [newDefaultItem setValue: @"$750" forKey:@"cost"];
+    dateString = @"2014-01-10 12:00:00 +0000";
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"01-10-2014" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
     [self saveDefault];
+    //NSLog(@"Default: %@", [newDefaultItem description]);
+    //Item 4
+    newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
+    [newDefaultItem setValue: @"Apple" forKey:@"make"];
+    [newDefaultItem setValue: @"iPod Classic" forKey:@"model"];
+    [newDefaultItem setValue: @"A12BCD34EF567" forKey:@"serial"];
+    [newDefaultItem setValue: @"Black 160GB MP3 player" forKey:@"details"];
+    [newDefaultItem setValue: @"$200" forKey:@"cost"];
+    dateString = @"2014-12-25 12:00:00 +0000";
+    [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
+    [newDefaultItem setValue: @"12-25-2013" forKey:@"formattedDate"];
+    [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [self saveDefault];
+    //Item 5
+    newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
+    [newDefaultItem setValue: @"Amazon" forKey:@"make"];
+    [newDefaultItem setValue: @"Kindle Fire HD" forKey:@"model"];
+    [newDefaultItem setValue: @"9876ABCD54321" forKey:@"serial"];
+    [newDefaultItem setValue: @"Black 7inch Android tablet" forKey:@"details"];
+    [newDefaultItem setValue: @"$140" forKey:@"cost"];
+    dateString = @"2014-12-25 12:00:00 +0000";
+    [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
+    [newDefaultItem setValue: @"12-25-2013" forKey:@"formattedDate"];
+    [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [self saveDefault];
+    //Item 6
+    newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
+    [newDefaultItem setValue: @"Samsung" forKey:@"make"];
+    [newDefaultItem setValue: @"UN40F5500" forKey:@"model"];
+    [newDefaultItem setValue: @"1234567890" forKey:@"serial"];
+    [newDefaultItem setValue: @"40inch slim LED HDTV" forKey:@"details"];
+    [newDefaultItem setValue: @"$600" forKey:@"cost"];
+    dateString = @"2014-12-25 12:00:00 +0000";
+    [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
+    [newDefaultItem setValue: @"12-25-2013" forKey:@"formattedDate"];
+    [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [self saveDefault];
+    //Item 7
+    newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
+    [newDefaultItem setValue: @"Apple" forKey:@"make"];
+    [newDefaultItem setValue: @"iPad Retina" forKey:@"model"];
+    [newDefaultItem setValue: @"ABCDEFG0987" forKey:@"serial"];
+    [newDefaultItem setValue: @"Black and silver tablet" forKey:@"details"];
+    [newDefaultItem setValue: @"$500" forKey:@"cost"];
+    dateString = @"2014-11-21 12:00:00 +0000";
+    [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
+    [newDefaultItem setValue: @"11-21-2013" forKey:@"formattedDate"];
+    [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [self saveDefault];
+    //Item 8
+    newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
+    [newDefaultItem setValue: @"Gateway" forKey:@"make"];
+    [newDefaultItem setValue: @"HFX2303L" forKey:@"model"];
+    [newDefaultItem setValue: @"1029384756BLAH" forKey:@"serial"];
+    [newDefaultItem setValue: @"Black 23inch LED Monitor" forKey:@"details"];
+    [newDefaultItem setValue: @"$180" forKey:@"cost"];
+    dateString = @"2014-10-13 12:00:00 +0000";
+    [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
+    [newDefaultItem setValue: @"10-13-2013" forKey:@"formattedDate"];
+    [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [self saveDefault];
+    //Item 9
+    newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
+    [newDefaultItem setValue: @"Sony" forKey:@"make"];
+    [newDefaultItem setValue: @"VAIO Tap 21" forKey:@"model"];
+    [newDefaultItem setValue: @"BIGTABLET1234" forKey:@"serial"];
+    [newDefaultItem setValue: @"21inch All-in-one PC/ really big tablet" forKey:@"details"];
+    [newDefaultItem setValue: @"$1200" forKey:@"cost"];
+    dateString = @"2014-10-10 12:00:00 +0000";
+    [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
+    [newDefaultItem setValue: @"10-10-2013" forKey:@"formattedDate"];
+    [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [self saveDefault];
+    //Item 10
+    newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
+    [newDefaultItem setValue: @"Subaru" forKey:@"make"];
+    [newDefaultItem setValue: @"Legacy AWD Wagon" forKey:@"model"];
+    [newDefaultItem setValue: @"SNOWBEAST09876" forKey:@"serial"];
+    [newDefaultItem setValue: @"Silver 1993 all wheel drive wagon" forKey:@"details"];
+    [newDefaultItem setValue: @"$2000" forKey:@"cost"];
+    dateString = @"2014-08-22 12:00:00 +0000";
+    [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
+    [newDefaultItem setValue: @"08-22-2013" forKey:@"formattedDate"];
+    [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [self saveDefault];
+
     
-    NSLog(@"Default: %@", [newDefaultItem description]);
-    
-    //databaseExists = YES;
+    [myTableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -241,29 +322,12 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.recentItemsArray count];
+    return 5;
 }
 
 //Built in method to allocate and reuse table view cells and apply item info
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*//Allocate custom cell
-	CustomCell *cell = (CustomCell *) [tableView dequeueReusableCellWithIdentifier:@"RecentCell"];
-	RecentItems *recentItem = [self.recentItemsArray objectAtIndex:indexPath.row];
-    //Apply image
-    cell.cellImage.image = recentItem.imageOne;
-    //Apply make and model
-	cell.makeModelLabel.text = [NSString stringWithFormat:@"%@ %@", recentItem.itemMake, recentItem.itemModel];
-	cell.detailsLabel.text = recentItem.itemDetails;
-    cell.dateAddedLabel.text = recentItem.dateAdded;
-    
-    //Override to remove extra seperator lines after the last cell
-    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectMake(0,0,0,0)]];
-    
-    return cell;*/
-    
-    
-    
     //Allocate custom cell
 	CustomCell *cell = (CustomCell *) [tableView dequeueReusableCellWithIdentifier:@"RecentCell"];
 	Items *recentItem = [self.recentItemsArray objectAtIndex:indexPath.row];
@@ -282,19 +346,28 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSManagedObject *managedObject = [context objectAtIndexPath:indexPath];
+        [self.managedObjectContext deleteObject:managedObject];
+        [self.managedObjectContext save:nil];
+    }
+}
+
 //Built in function to check editing style (-=delete, +=add)
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+/*- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     //Check if in delete mode
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSLog(@"We want to delete row = %d", indexPath.row);
         
-        //Remove the deleted object from locationsArray
-        [recentItemsArray removeObjectAtIndex:indexPath.row];
+        //Remove the deleted object from recentItemsArray
+        //[recentItemsArray removeObjectAtIndex:indexPath.row];
+        [context deleteObject:indexPath.row];
         
         //Remove object from table view with animation. Receiving warning "local declaration of "tableView" hides instance variable". I may be missing something here but isn't this an Accessor method?
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:true];
     }
-}
+}*/
 
 #pragma mark - Segue
 
@@ -307,18 +380,20 @@
         //Grab destination view controller
         DetailsViewController *detailsViewController = segue.destinationViewController;
         //Grab instance of recentItem object
-        RecentItems *recentItem = [recentItemsArray objectAtIndex:indexPath.row];
+        Items *recentItem = [recentItemsArray objectAtIndex:indexPath.row];
+        //Cast image string into UIImage
+        UIImage *itemImage = [UIImage imageNamed:recentItem.image];
         
         if (detailsViewController != nil) {
             //Pass title string and NSStrings/image to detail view
-            detailsViewController.title = recentItem.itemModel;
-            detailsViewController.passedItemImage = recentItem.imageOne;
-            detailsViewController.passedItemMake = recentItem.itemMake;
-            detailsViewController.passedItemModel = recentItem.itemModel;
-            detailsViewController.passedItemSerial = recentItem.itemSerial;
-            detailsViewController.passedItemDetails = recentItem.itemDetails;
-            detailsViewController.passedItemCost = recentItem.itemCost;
-            detailsViewController.passedItemDateAdded = recentItem.dateAdded;
+            detailsViewController.title = recentItem.model;
+            detailsViewController.passedItemImage = itemImage;
+            detailsViewController.passedItemMake = recentItem.make;
+            detailsViewController.passedItemModel = recentItem.model;
+            detailsViewController.passedItemSerial = recentItem.serial;
+            detailsViewController.passedItemDetails = recentItem.details;
+            detailsViewController.passedItemCost = recentItem.cost;
+            detailsViewController.passedItemDateAdded = recentItem.formattedDate;
         }
     }
 }

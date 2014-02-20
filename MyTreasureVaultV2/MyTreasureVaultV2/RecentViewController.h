@@ -16,12 +16,12 @@
 
 @interface RecentViewController : UITableViewController
 
+@property (strong, nonatomic) IBOutlet UITableView *myTableView;
+//Declare default data fill method
+
 //Declare array to hold recent items
 @property (nonatomic, strong) NSMutableArray *recentItemsArray;
-//Declare BOOL to add in filling default date
-//@property (nonatomic, readwrite) BOOL databaseExists;
 
-//Declare default data fill method
 -(void)fillDefaultData;
 -(void)saveDefault;
 
