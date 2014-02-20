@@ -41,16 +41,6 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     //Grab managed object context on app delegate. This is used to check if an sqlite file already exists for the app
     context = [appDelegate managedObjectContext];
-    //Create new item object
-    //Items *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
-    
-    // Custom code here...
-    // Save the managed object context
-    /*NSError *error = nil;
-    if (![context save:&error]) {
-        NSLog(@"Error while saving %@", ([error localizedDescription] != nil) ? [error localizedDescription] : @"Unknown Error");
-        exit(1);
-    }*/
     
     NSError *error;
     
@@ -69,7 +59,7 @@
         [self fillDefaultData];
         NSLog(@"Default Data Added");
     }
-
+    
     
     //Move edit button to left side of nav bar (right is + sign for add item)
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -77,21 +67,21 @@
     //Present log in screen over home/recent. Not currently active or required. Clicking Sign In dismisses the view while clicking cancel shows an alert view
     //Declare storyboard
     /*UIStoryboard *storyboard;
-    //Check device and set storyboard accordingly
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-    } else {
-        storyboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
-    }
-    //Allocate sign in view controller
-    UIViewController *signInVC = [storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
-    //Set transition style to flip
-    signInVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    //Present sign in view
-    [self presentViewController:signInVC animated:true completion:nil];*/
+     //Check device and set storyboard accordingly
+     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+     storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+     } else {
+     storyboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
+     }
+     //Allocate sign in view controller
+     UIViewController *signInVC = [storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
+     //Set transition style to flip
+     signInVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+     //Present sign in view
+     [self presentViewController:signInVC animated:true completion:nil];*/
     
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning
@@ -250,7 +240,7 @@
     [newDefaultItem setValue: @"08-22-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
     [self saveDefault];
-
+    
     
     [myTableView reloadData];
 }
@@ -267,22 +257,22 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 5;
+    return [recentItemsArray count];
 }
 
 //Built in method to allocate and reuse table view cells and apply item info
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //Allocate custom cell
-	CustomCell *cell = (CustomCell *) [tableView dequeueReusableCellWithIdentifier:@"RecentCell"];
-	Items *recentItem = [self.recentItemsArray objectAtIndex:indexPath.row];
+    CustomCell *cell = (CustomCell *) [tableView dequeueReusableCellWithIdentifier:@"RecentCell"];
+    Items *recentItem = [self.recentItemsArray objectAtIndex:indexPath.row];
     //Cast image string into UIImage
     UIImage *itemImage = [UIImage imageNamed:recentItem.image];
     //Apply image
     cell.cellImage.image = itemImage;
     //Apply make and model
-	cell.makeModelLabel.text = [NSString stringWithFormat:@"%@ %@", recentItem.make, recentItem.model];
-	cell.detailsLabel.text = recentItem.details;
+    cell.makeModelLabel.text = [NSString stringWithFormat:@"%@ %@", recentItem.make, recentItem.model];
+    cell.detailsLabel.text = recentItem.details;
     cell.dateAddedLabel.text = recentItem.formattedDate;
     
     //Override to remove extra seperator lines after the last cell
@@ -292,11 +282,11 @@
 }
 
 /*-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSManagedObject *managedObject = [context objectAtIndexPath:indexPath];
-        [self.managedObjectContext deleteObject:managedObject];
-        [self.managedObjectContext save:nil];
-    }
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ NSManagedObject *managedObject = [context objectAtIndexPath:indexPath];
+ [self.managedObjectContext deleteObject:managedObject];
+ [self.managedObjectContext save:nil];
+ }
 }*/
 
 //Built in function to check editing style (-=delete, +=add)

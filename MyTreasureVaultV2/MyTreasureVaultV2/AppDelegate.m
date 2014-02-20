@@ -128,7 +128,7 @@
         noDatabase = YES;
     } /*else {
         NSLog(@"Yep SQLite DB is there");
-        recentView.databaseExists = YES;
+        recentView.noDatabase = NO;
     }*/
     
     NSError *error = nil;

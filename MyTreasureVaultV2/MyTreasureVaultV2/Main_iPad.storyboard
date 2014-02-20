@@ -133,6 +133,10 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="w80-nr-YMC" id="R6M-66-lov"/>
+                            <outlet property="delegate" destination="w80-nr-YMC" id="n3L-f3-e0K"/>
+                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Recent" id="20a-DH-Jfq">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="yrD-l5-QrS">
@@ -202,8 +206,8 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="Gdj-YD-IP3" id="m3u-6P-YqF"/>
-                            <outlet property="delegate" destination="Gdj-YD-IP3" id="ofQ-OM-WR2"/>
+                            <outlet property="dataSource" destination="Gdj-YD-IP3" id="1j7-qf-802"/>
+                            <outlet property="delegate" destination="Gdj-YD-IP3" id="zQm-E1-knV"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="All Items" id="9i4-qB-N6S">
