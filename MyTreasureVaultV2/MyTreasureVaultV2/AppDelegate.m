@@ -13,6 +13,12 @@
 //
 
 #import "AppDelegate.h"
+//Import Items Core Data subclass
+#import "Items.h"
+//Import Recent view controller
+#import "RecentViewController.h"
+//Import parse framework
+#import <Parse/Parse.h>
 
 @implementation AppDelegate
 
@@ -20,8 +26,15 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+@synthesize noDatabase;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //Set up Parse Framework id and key
+    [Parse setApplicationId:@"WJomiNXzmFqumHIDGOoQQZewIDUeFF3Oxf8Lqz0n" clientKey:@"CWXP2lXmrKD6PYwZifBxgubYDqcGAPpP8733Frmv"];
+    //Track stats for app opens
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
     /*UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
      UIViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
      loginVC.modalPresentationStyle = UIModalPresentationFullScreen;
@@ -111,6 +124,17 @@
     }
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MyTreasureVaultV2.sqlite"];
+    
+    //RecentViewController *recentView = [[RecentViewController alloc] init];
+    //recentView.databaseExists = YES;
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]]) {
+        NSLog(@"SQLite DB doesnt exist");
+        noDatabase = YES;
+    } /*else {
+        NSLog(@"Yep SQLite DB is there");
+        recentView.noDatabase = NO;
+    }*/
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];

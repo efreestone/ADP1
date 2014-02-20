@@ -8,7 +8,7 @@
         <scene sceneID="TVZ-pc-V1i">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="0hK-gh-WNW" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="x2G-ww-VNL">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -24,11 +24,11 @@
             </objects>
             <point key="canvasLocation" x="-555" y="-892"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - Recent-->
         <scene sceneID="5Oz-rF-PPo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sYu-An-jZs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="xMC-Xl-mZW"/>
+                    <tabBarItem key="tabBarItem" title="Recent" id="xMC-Xl-mZW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ore-FK-Bzw">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -43,11 +43,11 @@
             </objects>
             <point key="canvasLocation" x="327" y="-2019"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - All Items-->
         <scene sceneID="X6n-3A-McQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0vS-yh-j8p" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="rXw-jQ-LYc"/>
+                    <tabBarItem key="tabBarItem" title="All Items" id="rXw-jQ-LYc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="d6f-T5-jCS">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -62,11 +62,11 @@
             </objects>
             <point key="canvasLocation" x="327" y="-892"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - settings-->
         <scene sceneID="Xqz-eI-gjM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DHF-3R-hXn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="vgG-Mp-7qc"/>
+                    <tabBarItem key="tabBarItem" title="settings" id="vgG-Mp-7qc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zI6-S1-cff">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -133,6 +133,10 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="w80-nr-YMC" id="R6M-66-lov"/>
+                            <outlet property="delegate" destination="w80-nr-YMC" id="n3L-f3-e0K"/>
+                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Recent" id="20a-DH-Jfq">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="yrD-l5-QrS">
@@ -141,6 +145,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="hrg-TF-sen">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
+                    <connections>
+                        <outlet property="myTableView" destination="IKb-8K-XZ9" id="muB-kC-2fl"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yh5-yU-TfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -199,8 +209,8 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="Gdj-YD-IP3" id="m3u-6P-YqF"/>
-                            <outlet property="delegate" destination="Gdj-YD-IP3" id="ofQ-OM-WR2"/>
+                            <outlet property="dataSource" destination="Gdj-YD-IP3" id="1j7-qf-802"/>
+                            <outlet property="delegate" destination="Gdj-YD-IP3" id="zQm-E1-knV"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="All Items" id="9i4-qB-N6S">
@@ -210,6 +220,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="myTableView" destination="okm-ca-9fh" id="1cB-gR-wLn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vb6-1u-tgl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -543,6 +556,18 @@
                                 <rect key="frame" x="209" y="161" width="350" height="350"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ff4-yn-A0Z">
+                                <rect key="frame" x="292" y="772" width="184" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Edit Item">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onEdit:" destination="ZHg-3z-5Hw" eventType="touchUpInside" id="rLp-cW-b06"/>
+                                    <segue destination="dZL-jZ-Pma" kind="modal" identifier="ItemEdit" id="c9Q-Md-2Fp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -551,6 +576,7 @@
                         <outlet property="costLabel" destination="bWn-Hc-Wxq" id="9fh-fm-5Nw"/>
                         <outlet property="dateAddedLabel" destination="b5S-ej-env" id="ukX-L0-UW6"/>
                         <outlet property="detailsLabel" destination="13S-P7-q5X" id="Jhv-lx-jWW"/>
+                        <outlet property="editButton" destination="Ff4-yn-A0Z" id="c4m-vF-Kvs"/>
                         <outlet property="itemImageView" destination="61i-Qc-ue9" id="K1G-Km-qIM"/>
                         <outlet property="makeLabel" destination="PSt-u9-drr" id="U2k-4S-7rS"/>
                         <outlet property="modelLabel" destination="5KC-vX-VDp" id="TZZ-iZ-S20"/>

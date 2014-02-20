@@ -17,6 +17,10 @@
 #import "ImageViewController.h"
 //Import app delegate
 #import "AppDelegate.h"
+//Import Items Core Data subclass
+#import "Items.h"
+//Import recent view controller
+#import "RecentViewController.h"
 
 @interface AddItemViewController ()
 
@@ -30,6 +34,8 @@
     UIImage *editedImage;
 }
 
+@synthesize makeTextField, modelTextField, serialTextField, detailsTextField, costTextField, passedManagedObject;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -42,6 +48,16 @@
 - (void)viewDidLoad
 {
     imageViewController = [[ImageViewController alloc] init];
+    
+    if (passedManagedObject != nil) {
+        makeTextField.text = [passedManagedObject valueForKey:@"make"];
+        modelTextField.text = [passedManagedObject valueForKey:@"model"];
+        serialTextField.text = [passedManagedObject valueForKey:@"serial"];
+        detailsTextField.text = [passedManagedObject valueForKey:@"details"];
+        costTextField.text = [passedManagedObject valueForKey:@"cost"];
+    }
+    
+    NSLog(@"Make: %@", makeTextField.text);
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
@@ -74,56 +90,110 @@
     //Grab managed object context on app delegate
     NSManagedObjectContext *objectContext = [appDelegate managedObjectContext];
     //Create new item object
-    NSManagedObject *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:objectContext];
+    //Items *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:objectContext];
+    //Set default image string
+    NSString *defaultImage = @"defaultImage.png";
+    
+    //Grab current date to set NSDate object on Core Data. Also formatting date as string for display
+    NSDate *currentDate = [NSDate date];
+    if (currentDate != nil) {
+        //Format date for display and cast into formattedDate
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        if (dateFormatter != nil) {
+            //Set formatted date to month-day-year (02-17-2014)
+            [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+            //[dateFormatter setDateFormat:@"MMM dd, yyyy hh:mm:ss a"];
+            formattedDate = [dateFormatter stringFromDate:currentDate];
+        }
+        //NSLog(@"date = %@", formattedDate);
+    }
+    
+    if (self.passedManagedObject) {
+        [passedManagedObject setValue: makeTextField.text forKey:@"make"];
+        [passedManagedObject setValue: modelTextField.text forKey:@"model"];
+        [passedManagedObject setValue: serialTextField.text forKey:@"serial"];
+        [passedManagedObject setValue: detailsTextField.text forKey:@"details"];
+        [passedManagedObject setValue: costTextField.text forKey:@"cost"];
+        [passedManagedObject setValue: currentDate forKey:@"dateAdded"];
+        [passedManagedObject setValue: formattedDate forKey:@"formattedDate"];
+    } else {
+        Items *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:objectContext];
+        [newItem setValue: makeTextField.text forKey:@"make"];
+        [newItem setValue: modelTextField.text forKey:@"model"];
+        [newItem setValue: serialTextField.text forKey:@"serial"];
+        [newItem setValue: detailsTextField.text forKey:@"details"];
+        [newItem setValue: costTextField.text forKey:@"cost"];
+        [newItem setValue: currentDate forKey:@"dateAdded"];
+        [newItem setValue: formattedDate forKey:@"formattedDate"];
+        
+        //Currently setting image to default image
+        [newItem setValue: defaultImage forKey:@"image"];
+    }
+    
+    /*if (self.device) {
+        // Update existing device
+        [self.device setValue:self.nameTextField.text forKey:@"name"];
+        [self.device setValue:self.versionTextField.text forKey:@"version"];
+        [self.device setValue:self.companyTextField.text forKey:@"company"];
+        
+    } else {
+        // Create a new device
+        NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Device" inManagedObjectContext:context];
+        [newDevice setValue:self.nameTextField.text forKey:@"name"];
+        [newDevice setValue:self.versionTextField.text forKey:@"version"];
+        [newDevice setValue:self.companyTextField.text forKey:@"company"];
+    }*/
+    
     //Set object attributes to text from text fields using setValue Method
-    [newItem setValue: _makeTextField.text forKey:@"make"];
-    [newItem setValue: _modelTextField.text forKey:@"model"];
-    [newItem setValue: _serialTextField.text forKey:@"serial"];
-    [newItem setValue: _detailsTextField.text forKey:@"details"];
-    [newItem setValue: _costTextField.text forKey:@"cost"];
+    /*[newItem setValue: makeTextField.text forKey:@"make"];
+    [newItem setValue: modelTextField.text forKey:@"model"];
+    [newItem setValue: serialTextField.text forKey:@"serial"];
+    [newItem setValue: detailsTextField.text forKey:@"details"];
+    [newItem setValue: costTextField.text forKey:@"cost"];
+    [newItem setValue: currentDate forKey:@"dateAdded"];
+    [newItem setValue: formattedDate forKey:@"formattedDate"];
+    
+    //Currently setting image to default image
+    [newItem setValue: defaultImage forKey:@"image"];*/
+    
     //Clear out text fields
-    _makeTextField.text = @"";
-    _modelTextField.text = @"";
-    _serialTextField.text = @"";
-    _detailsTextField.text = @"";
-    _costTextField.text = @"";
+    makeTextField.text = @"";
+    modelTextField.text = @"";
+    serialTextField.text = @"";
+    detailsTextField.text = @"";
+    costTextField.text = @"";
     //Create error object for save
     NSError *error;
     //Save item to device after error check
     if ([objectContext save:&error] == NO) {
-        NSLog(@"Save failed");
+        //Log out error
+        NSLog(@"Save failed: %@", [error localizedDescription]);
     } else {
+        //Create and show save success alert
         UIAlertView *savedAlert = [[UIAlertView alloc] initWithTitle: @"Item Saved" message: @"Your item was saved successfully!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [savedAlert show];
-        [objectContext save:&error];
-        NSLog(@"%@", newItem.description);
+        //[objectContext save:&error];
+        //NSLog(@"%@", newItem.description);
     }
+    
+    //Test
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:objectContext];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [objectContext executeFetchRequest:fetchRequest error:&error];
+    for (Items *item in fetchedObjects) {
+        //NSLog(@"%@", newItem.description);
+        NSLog(@"Make: %@ Model: %@", [item valueForKey:@"make"], [item valueForKey:@"model"]);
+        //NSLog(@"Zip: %@", [newItem valueForKey:@"model"]);
+    }
+    
+    RecentViewController *recentViewController = [[RecentViewController alloc] init];
+    
+    [recentViewController.myTableView reloadData];
     
     //Dismiss view controller
     [self dismissViewControllerAnimated:YES completion:nil];
-	//[self.delegate addBooksViewControllerDidSave:self];
 }
-
-/*- (IBAction)saveData:(id)sender {
-    CoreDataAppDelegate *appDelegate =
-    [[UIApplication sharedApplication] delegate];
-    
-    NSManagedObjectContext *context =
-    [appDelegate managedObjectContext];
-    NSManagedObject *newContact;
-    newContact = [NSEntityDescription
-                  insertNewObjectForEntityForName:@"Contacts"
-                  inManagedObjectContext:context];
-    [newContact setValue: _name.text forKey:@"name"];
-    [newContact setValue: _address.text forKey:@"address"];
-    [newContact setValue: _phone.text forKey:@"phone"];
-    _name.text = @"";
-    _address.text = @"";
-    _phone.text = @"";
-    NSError *error;
-    [context save:&error];
-    _status.text = @"Contact saved";
-}*/
 
 #pragma mark - Camera
 
@@ -159,9 +229,13 @@
     //Initialize/allocate image view controller
     //ImageViewController *imageViewController = [[ImageViewController alloc] init];
     
+    NSLog(@"%@", [info description]);
+    
     selectedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     if (selectedImage != nil) {
         imageViewController.passedNewImage = selectedImage;
+        
+        NSLog(@"%@", [selectedImage description]);
     }
     
     //Cast edited image into a UIImage

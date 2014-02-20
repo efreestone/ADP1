@@ -16,6 +16,9 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+//Declare BOOL to add in filling default date
+@property (nonatomic, readwrite) BOOL noDatabase;
+
 @property (strong, nonatomic) UIWindow *window;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
