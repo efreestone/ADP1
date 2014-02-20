@@ -25,5 +25,6 @@
 @property (nonatomic, retain) NSString * serial;
 @property (nonatomic, retain) NSDate * dateAdded;
 @property (nonatomic, retain) NSString * formattedDate;
+@property (nonatomic, retain) NSString * image;
 
 @end

@@ -24,5 +24,6 @@
 @dynamic serial;
 @dynamic dateAdded;
 @dynamic formattedDate;
+@dynamic image;
 
 @end

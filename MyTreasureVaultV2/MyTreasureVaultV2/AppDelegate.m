@@ -15,6 +15,8 @@
 #import "AppDelegate.h"
 //Import Items Core Data subclass
 #import "Items.h"
+//Import Recent view controller
+#import "RecentViewController.h"
 
 @implementation AppDelegate
 
@@ -22,24 +24,12 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+@synthesize databaseExists;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    /*NSManagedObjectContext *context = [self managedObjectContext];
-    NSError *error = nil;
-    
-    NSManagedObject *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription
-                                   entityForName:@"Items" inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    for (NSManagedObject *newItem in fetchedObjects) {
-        NSLog(@"Make: %@", [newItem valueForKey:@"make"]);
-        
-        NSLog(@"Zip: %@", [newItem valueForKey:@"model"]);
-    }*/
-    
+    //RecentViewController *recentView = [[RecentViewController alloc] init];
+    //databaseExists = YES;
     /*UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
      UIViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
      loginVC.modalPresentationStyle = UIModalPresentationFullScreen;
@@ -129,6 +119,17 @@
     }
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MyTreasureVaultV2.sqlite"];
+    
+    //RecentViewController *recentView = [[RecentViewController alloc] init];
+    //recentView.databaseExists = YES;
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]]) {
+        NSLog(@"SQLite DB doesnt exist");
+        databaseExists = YES;
+    } /*else {
+        NSLog(@"Yep SQLite DB is there");
+        recentView.databaseExists = YES;
+    }*/
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];

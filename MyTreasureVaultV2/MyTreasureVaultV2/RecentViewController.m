@@ -20,18 +20,63 @@
 //Import details view controller
 #import "DetailsViewController.h"
 
+#import "AppDelegate.h"
+
+#import "Items.h"
+
 @interface RecentViewController ()
 
 @end
 
-@implementation RecentViewController
+@implementation RecentViewController {
+    NSManagedObjectContext *context;
+}
 
 //Synthesize recent items array for getter/setter
 @synthesize recentItemsArray;
 
 - (void)viewDidLoad
 {
-    //Create recent items array and fill. Each new item entry is a new instance of RecentItems container class
+    //Create instance of AppDelegate and set as delegate for access to core data
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    //Grab managed object context on app delegate. This is used to check if an sqlite file already exists for the app
+    context = [appDelegate managedObjectContext];
+    //Create new item object
+    //Items *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
+    
+    // Custom code here...
+    // Save the managed object context
+    /*NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"Error while saving %@", ([error localizedDescription] != nil) ? [error localizedDescription] : @"Unknown Error");
+        exit(1);
+    }*/
+    
+    NSError *error;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    recentItemsArray = [context executeFetchRequest:fetchRequest error:&error];
+    for (Items *item in recentItemsArray) {
+        //NSLog(@"%@", newItem.description);
+        NSLog(@"Make: %@ Model: %@", [item valueForKey:@"make"], [item valueForKey:@"model"]);
+        //NSLog(@"Zip: %@", [newItem valueForKey:@"model"]);
+    }
+    
+    if (appDelegate.databaseExists == YES) {
+        [self fillDefaultData];
+        NSLog(@"Default Data Added");
+    }
+    
+    
+    /*NSError* err = nil;
+    NSString* dataPath = [[NSBundle mainBundle] pathForResource:@"DefaultItems" ofType:@"json"];
+    NSArray* defaultItems = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:dataPath] options:kNilOptions error:&err];*/
+    
+    //NSLog(@"Default Items: %@", defaultItems.description);
+    
+    /*//Create recent items array and fill. Each new item entry is a new instance of RecentItems container class
     recentItemsArray = [NSMutableArray arrayWithCapacity:20];
     //Item 1 with cast/alloc of recent items object
     RecentItems *recentItem = [[RecentItems alloc] init];
@@ -82,7 +127,7 @@
     recentItem.itemDetails = @"Black 7inch";
     recentItem.itemCost = @"$140";
     recentItem.dateAdded = @"12-25-2013";
-    [recentItemsArray addObject:recentItem];
+    [recentItemsArray addObject:recentItem];*/
     
     //NSLog(@"%@", [recentItemsArray description]);
     
@@ -115,6 +160,75 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Default Data add
+
+-(void)saveDefault
+{
+    //Create error object for save
+    NSError *error;
+    
+    //Save item to device after error check
+    if ([context save:&error] == NO) {
+        //Log out error
+        NSLog(@"Save failed: %@", [error localizedDescription]);
+    }
+}
+
+//Custom method to fill Core Data storage with default items
+-(void)fillDefaultData
+{
+    NSString *dateString;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    NSDate *dateAddedNS;
+    dateString = @"2014-02-11 12:00:00 +0000";
+    dateAddedNS = [dateFormatter dateFromString:dateString];
+    
+    NSString *defaultImage = @"defaultImage.png";
+    
+    Items *newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
+    
+    //Set object attributes to text from text fields using setValue Method
+    [newDefaultItem setValue: @"Google (LG)" forKey:@"make"];
+    [newDefaultItem setValue: @"Nexus 5" forKey:@"model"];
+    [newDefaultItem setValue: @"123ABCD456789" forKey:@"serial"];
+    [newDefaultItem setValue: @"Black 16GB smartphone" forKey:@"details"];
+    [newDefaultItem setValue: @"$350" forKey:@"cost"];
+    [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
+    [newDefaultItem setValue: @"02-11-2014" forKey:@"formattedDate"];
+    [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [self saveDefault];
+    
+    NSLog(@"Default: %@", [newDefaultItem description]);
+    
+    newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
+    [newDefaultItem setValue: @"Apple" forKey:@"make"];
+    [newDefaultItem setValue: @"MacBook Pro" forKey:@"model"];
+    [newDefaultItem setValue: @"A12BCD34EF567" forKey:@"serial"];
+    [newDefaultItem setValue: @"Silver 15inch laptop, late 2011 model" forKey:@"details"];
+    [newDefaultItem setValue: @"$1500" forKey:@"cost"];
+    [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
+    [newDefaultItem setValue: @"02-01-2014" forKey:@"formattedDate"];
+    [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [self saveDefault];
+    
+    NSLog(@"Default: %@", [newDefaultItem description]);
+    
+    newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
+    [newDefaultItem setValue: @"ESP LTD" forKey:@"make"];
+    [newDefaultItem setValue: @"H-401FM" forKey:@"model"];
+    [newDefaultItem setValue: @"ISO123456ABCD" forKey:@"serial"];
+    [newDefaultItem setValue: @"Cherryburst electric guitar with case, Seymour Duncan pickups" forKey:@"details"];
+    [newDefaultItem setValue: @"$750" forKey:@"cost"];
+    [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
+    [newDefaultItem setValue: @"01-10-2014" forKey:@"formattedDate"];
+    [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [self saveDefault];
+    
+    NSLog(@"Default: %@", [newDefaultItem description]);
+    
+    //databaseExists = YES;
+}
+
 #pragma mark - Table view data source
 
 //Built in method to set number of sections in table view
@@ -133,7 +247,7 @@
 //Built in method to allocate and reuse table view cells and apply item info
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //Allocate custom cell
+    /*//Allocate custom cell
 	CustomCell *cell = (CustomCell *) [tableView dequeueReusableCellWithIdentifier:@"RecentCell"];
 	RecentItems *recentItem = [self.recentItemsArray objectAtIndex:indexPath.row];
     //Apply image
@@ -142,6 +256,25 @@
 	cell.makeModelLabel.text = [NSString stringWithFormat:@"%@ %@", recentItem.itemMake, recentItem.itemModel];
 	cell.detailsLabel.text = recentItem.itemDetails;
     cell.dateAddedLabel.text = recentItem.dateAdded;
+    
+    //Override to remove extra seperator lines after the last cell
+    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectMake(0,0,0,0)]];
+    
+    return cell;*/
+    
+    
+    
+    //Allocate custom cell
+	CustomCell *cell = (CustomCell *) [tableView dequeueReusableCellWithIdentifier:@"RecentCell"];
+	Items *recentItem = [self.recentItemsArray objectAtIndex:indexPath.row];
+    //Cast image string into UIImage
+    UIImage *itemImage = [UIImage imageNamed:recentItem.image];
+    //Apply image
+    cell.cellImage.image = itemImage;
+    //Apply make and model
+	cell.makeModelLabel.text = [NSString stringWithFormat:@"%@ %@", recentItem.make, recentItem.model];
+	cell.detailsLabel.text = recentItem.details;
+    cell.dateAddedLabel.text = recentItem.formattedDate;
     
     //Override to remove extra seperator lines after the last cell
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectMake(0,0,0,0)]];

@@ -8,7 +8,7 @@
         <scene sceneID="TVZ-pc-V1i">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="0hK-gh-WNW" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="x2G-ww-VNL">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -24,11 +24,11 @@
             </objects>
             <point key="canvasLocation" x="-555" y="-892"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - Recent-->
         <scene sceneID="5Oz-rF-PPo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sYu-An-jZs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="xMC-Xl-mZW"/>
+                    <tabBarItem key="tabBarItem" title="Recent" id="xMC-Xl-mZW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ore-FK-Bzw">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -43,11 +43,11 @@
             </objects>
             <point key="canvasLocation" x="327" y="-2019"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - All Items-->
         <scene sceneID="X6n-3A-McQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0vS-yh-j8p" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="rXw-jQ-LYc"/>
+                    <tabBarItem key="tabBarItem" title="All Items" id="rXw-jQ-LYc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="d6f-T5-jCS">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -62,11 +62,11 @@
             </objects>
             <point key="canvasLocation" x="327" y="-892"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - settings-->
         <scene sceneID="Xqz-eI-gjM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DHF-3R-hXn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="vgG-Mp-7qc"/>
+                    <tabBarItem key="tabBarItem" title="settings" id="vgG-Mp-7qc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zI6-S1-cff">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>

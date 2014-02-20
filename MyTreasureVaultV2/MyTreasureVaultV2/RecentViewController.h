@@ -18,5 +18,11 @@
 
 //Declare array to hold recent items
 @property (nonatomic, strong) NSMutableArray *recentItemsArray;
+//Declare BOOL to add in filling default date
+//@property (nonatomic, readwrite) BOOL databaseExists;
+
+//Declare default data fill method
+-(void)fillDefaultData;
+-(void)saveDefault;
 
 @end

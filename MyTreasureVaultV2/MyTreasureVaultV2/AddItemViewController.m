@@ -117,8 +117,8 @@
         //Create and show save success alert
         UIAlertView *savedAlert = [[UIAlertView alloc] initWithTitle: @"Item Saved" message: @"Your item was saved successfully!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [savedAlert show];
-        [objectContext save:&error];
-        //NSLog(@"%@", newItem.description);
+        //[objectContext save:&error];
+        NSLog(@"%@", newItem.description);
     }
     
     //Test
@@ -170,9 +170,13 @@
     //Initialize/allocate image view controller
     //ImageViewController *imageViewController = [[ImageViewController alloc] init];
     
+    NSLog(@"%@", [info description]);
+    
     selectedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     if (selectedImage != nil) {
         imageViewController.passedNewImage = selectedImage;
+        
+        NSLog(@"%@", [selectedImage description]);
     }
     
     //Cast edited image into a UIImage
