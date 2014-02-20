@@ -26,6 +26,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *detailsTextField;
 @property (strong, nonatomic) IBOutlet UITextField *costTextField;
 
+@property (strong, nonatomic) NSManagedObject *passedManagedObject;
+
 //Declare IBActions for save and cancel buttons
 -(IBAction)onCancel:(id)sender;
 -(IBAction)onSave:(id)sender;

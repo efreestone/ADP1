@@ -66,6 +66,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="myTableView" destination="a9d-m1-05G" id="Hhm-Q0-3b7"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AyF-P4-MzN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -408,9 +411,13 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cp1-4M-YIP">
                                 <rect key="frame" x="20" y="480" width="280" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Edit">
+                                <state key="normal" title="Edit Item">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onEdit:" destination="F2A-hp-cwg" eventType="touchUpInside" id="l08-Tn-5Qk"/>
+                                    <segue destination="9JV-ZK-jQi" kind="modal" identifier="ItemEdit" id="olI-0b-Jxz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -420,6 +427,7 @@
                         <outlet property="costLabel" destination="YvE-vv-wUa" id="cUp-fQ-HlM"/>
                         <outlet property="dateAddedLabel" destination="xhp-on-L77" id="esJ-fd-edy"/>
                         <outlet property="detailsLabel" destination="VXb-4G-Lt9" id="Hgt-lm-3kk"/>
+                        <outlet property="editButton" destination="Cp1-4M-YIP" id="yqK-iw-Irf"/>
                         <outlet property="itemImageView" destination="Jdo-Ys-2Ff" id="Rzn-Fn-xXL"/>
                         <outlet property="makeLabel" destination="PhS-4t-Nct" id="Ri5-5G-weh"/>
                         <outlet property="modelLabel" destination="y2f-Mp-pwE" id="fRb-iU-S9B"/>

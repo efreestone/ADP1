@@ -34,6 +34,8 @@
     UIImage *editedImage;
 }
 
+@synthesize makeTextField, modelTextField, serialTextField, detailsTextField, costTextField, passedManagedObject;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -46,6 +48,16 @@
 - (void)viewDidLoad
 {
     imageViewController = [[ImageViewController alloc] init];
+    
+    if (passedManagedObject != nil) {
+        makeTextField.text = [passedManagedObject valueForKey:@"make"];
+        modelTextField.text = [passedManagedObject valueForKey:@"model"];
+        serialTextField.text = [passedManagedObject valueForKey:@"serial"];
+        detailsTextField.text = [passedManagedObject valueForKey:@"details"];
+        costTextField.text = [passedManagedObject valueForKey:@"cost"];
+    }
+    
+    NSLog(@"Make: %@", makeTextField.text);
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
@@ -97,11 +109,11 @@
     }
     
     //Set object attributes to text from text fields using setValue Method
-    [newItem setValue: _makeTextField.text forKey:@"make"];
-    [newItem setValue: _modelTextField.text forKey:@"model"];
-    [newItem setValue: _serialTextField.text forKey:@"serial"];
-    [newItem setValue: _detailsTextField.text forKey:@"details"];
-    [newItem setValue: _costTextField.text forKey:@"cost"];
+    [newItem setValue: makeTextField.text forKey:@"make"];
+    [newItem setValue: modelTextField.text forKey:@"model"];
+    [newItem setValue: serialTextField.text forKey:@"serial"];
+    [newItem setValue: detailsTextField.text forKey:@"details"];
+    [newItem setValue: costTextField.text forKey:@"cost"];
     [newItem setValue: currentDate forKey:@"dateAdded"];
     [newItem setValue: formattedDate forKey:@"formattedDate"];
     
@@ -109,11 +121,11 @@
     [newItem setValue: defaultImage forKey:@"image"];
     
     //Clear out text fields
-    _makeTextField.text = @"";
-    _modelTextField.text = @"";
-    _serialTextField.text = @"";
-    _detailsTextField.text = @"";
-    _costTextField.text = @"";
+    makeTextField.text = @"";
+    modelTextField.text = @"";
+    serialTextField.text = @"";
+    detailsTextField.text = @"";
+    costTextField.text = @"";
     //Create error object for save
     NSError *error;
     //Save item to device after error check

@@ -553,6 +553,18 @@
                                 <rect key="frame" x="209" y="161" width="350" height="350"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ff4-yn-A0Z">
+                                <rect key="frame" x="292" y="772" width="184" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Edit Item">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onEdit:" destination="ZHg-3z-5Hw" eventType="touchUpInside" id="rLp-cW-b06"/>
+                                    <segue destination="dZL-jZ-Pma" kind="modal" identifier="ItemEdit" id="c9Q-Md-2Fp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -561,6 +573,7 @@
                         <outlet property="costLabel" destination="bWn-Hc-Wxq" id="9fh-fm-5Nw"/>
                         <outlet property="dateAddedLabel" destination="b5S-ej-env" id="ukX-L0-UW6"/>
                         <outlet property="detailsLabel" destination="13S-P7-q5X" id="Jhv-lx-jWW"/>
+                        <outlet property="editButton" destination="Ff4-yn-A0Z" id="c4m-vF-Kvs"/>
                         <outlet property="itemImageView" destination="61i-Qc-ue9" id="K1G-Km-qIM"/>
                         <outlet property="makeLabel" destination="PSt-u9-drr" id="U2k-4S-7rS"/>
                         <outlet property="modelLabel" destination="5KC-vX-VDp" id="TZZ-iZ-S20"/>
@@ -583,6 +596,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="e5m-nO-2Vw"/>
-        <segue reference="PUu-Zw-Wgp"/>
+        <segue reference="c9Q-Md-2Fp"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -13,8 +13,10 @@
 //
 
 #import <UIKit/UIKit.h>
+//
+#import "AddItemViewController.h"
 
-@interface DetailsViewController : UIViewController
+@interface DetailsViewController : UIViewController //<AddItemViewControllerDelegate>
 
 //Declare image view
 @property (strong, nonatomic) IBOutlet UIImageView *itemImageView;
@@ -25,6 +27,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *detailsLabel;
 @property (strong, nonatomic) IBOutlet UILabel *costLabel;
 @property (strong, nonatomic) IBOutlet UILabel *dateAddedLabel;
+//Declare edit button
+@property (strong, nonatomic) IBOutlet UIButton *editButton;
 
 //Declare strings and image set from view controller
 @property (strong, nonatomic) UIImage *passedItemImage;
@@ -34,5 +38,10 @@
 @property (strong, nonatomic) NSString *passedItemDetails;
 @property (strong, nonatomic) NSString *passedItemCost;
 @property (strong, nonatomic) NSString *passedItemDateAdded;
+//Declare passed managed object
+@property (strong, nonatomic) NSManagedObject *passedManagedObject;
+
+//Declare onClick method for edit
+-(IBAction)onEdit:(id)sender;
 
 @end

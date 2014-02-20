@@ -387,6 +387,8 @@
         //Cast image string into UIImage
         UIImage *itemImage = [UIImage imageNamed:recentItem.image];
         
+        NSManagedObject *selectedObject = [recentItemsArray objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+        
         if (detailsViewController != nil) {
             //Pass title string and NSStrings/image to detail view
             detailsViewController.title = recentItem.model;
@@ -397,8 +399,15 @@
             detailsViewController.passedItemDetails = recentItem.details;
             detailsViewController.passedItemCost = recentItem.cost;
             detailsViewController.passedItemDateAdded = recentItem.formattedDate;
+            detailsViewController.passedManagedObject = selectedObject;
         }
     }
 }
+
+/*if ([[segue identifier] isEqualToString:@"UpdateDevice"]) {
+    NSManagedObject *selectedDevice = [self.devices objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+    DeviceDetailViewController *destViewController = segue.destinationViewController;
+    destViewController.device = selectedDevice;
+}*/
 
 @end
