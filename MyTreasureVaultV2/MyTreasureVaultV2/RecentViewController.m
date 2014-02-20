@@ -30,6 +30,7 @@
 
 @implementation RecentViewController {
     NSManagedObjectContext *context;
+    AppDelegate *appDelegate;
 }
 
 //Synthesize recent items array for getter/setter
@@ -41,7 +42,7 @@
     _fetchedResultsController = [[NSFetchedResultsController alloc] init];
     
     //Create instance of AppDelegate and set as delegate for access to core data
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate = [[UIApplication sharedApplication] delegate];
     //Grab managed object context on app delegate. This is used to check if an sqlite file already exists for the app
     context = [appDelegate managedObjectContext];
     
@@ -102,6 +103,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    // Fetch the devices from persistent data store
+    NSManagedObjectContext *managedObjectContext = [appDelegate managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Items"];
+    recentItemsArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
+    [myTableView reloadData];
 }
 
 - (NSFetchedResultsController *)fetchedResultsController
@@ -285,7 +298,7 @@
     [self saveDefault];
     
     
-    [myTableView reloadData];
+    //[myTableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -299,6 +312,12 @@
 //Built in method to set number of rows in section in table view
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    //Check length of array. This is to stop a crash because of array length when there is no items in storage. I think the crash is because the view is already loaded before the array is filled but I haven't been able to dig into the issue yet. I feel this is a hacky fix but it works for now.
+    /*if ([recentItemsArray count] <= 5) {
+        return [recentItemsArray count];
+    } else {
+        return 5;
+    }*/
     // Return the number of rows in the section.
     return [recentItemsArray count];
 }
@@ -324,14 +343,6 @@
     return cell;
 }
 
-/*-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- NSManagedObject *managedObject = [context objectAtIndexPath:indexPath];
- [self.managedObjectContext deleteObject:managedObject];
- [self.managedObjectContext save:nil];
- }
-}*/
-
 //Built in function to check editing style (-=delete, +=add)
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     //Check if in delete mode
@@ -351,6 +362,13 @@
         
         //Remove object from table view with animation. Receiving warning "local declaration of "tableView" hides instance variable". I may be missing something here but isn't this an Accessor method?
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:true];
+        
+        // Fetch the devices from persistent data store
+        /*NSManagedObjectContext *managedObjectContext = [appDelegate managedObjectContext];
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Items"];
+        recentItemsArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+        
+        [myTableView reloadData];*/
     }
 }
 

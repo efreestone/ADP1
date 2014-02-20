@@ -19,6 +19,8 @@
 #import "AppDelegate.h"
 //Import Items Core Data subclass
 #import "Items.h"
+//Import recent view controller
+#import "RecentViewController.h"
 
 @interface AddItemViewController ()
 
@@ -136,6 +138,10 @@
         NSLog(@"Make: %@ Model: %@", [item valueForKey:@"make"], [item valueForKey:@"model"]);
         //NSLog(@"Zip: %@", [newItem valueForKey:@"model"]);
     }
+    
+    RecentViewController *recentViewController = [[RecentViewController alloc] init];
+    
+    [recentViewController.myTableView reloadData];
     
     //Dismiss view controller
     [self dismissViewControllerAnimated:YES completion:nil];
