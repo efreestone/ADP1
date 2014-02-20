@@ -64,67 +64,12 @@
         //NSLog(@"Zip: %@", [newItem valueForKey:@"model"]);
     }
     
-    if (appDelegate.databaseExists == YES) {
+    //
+    if (appDelegate.noDatabase == YES) {
         [self fillDefaultData];
         NSLog(@"Default Data Added");
     }
-    
-    //NSLog(@"Default Items: %@", defaultItems.description);
-    
-    /*//Create recent items array and fill. Each new item entry is a new instance of RecentItems container class
-    recentItemsArray = [NSMutableArray arrayWithCapacity:20];
-    //Item 1 with cast/alloc of recent items object
-    RecentItems *recentItem = [[RecentItems alloc] init];
-    recentItem.imageOne = [UIImage imageNamed:@"defaultImage.png"];
-    recentItem.itemMake = @"Google (LG)";
-    recentItem.itemModel = @"Nexus 5";
-    recentItem.itemSerial = @"123ABCD456789";
-    recentItem.itemDetails = @"Black 16GB smartphone";
-    recentItem.itemCost = @"$350";
-    recentItem.dateAdded = @"2-11-2014";
-    [recentItemsArray addObject:recentItem];
-    //Item 2
-    recentItem = [[RecentItems alloc] init];
-    recentItem.imageOne = [UIImage imageNamed:@"defaultImage.png"];
-    recentItem.itemMake = @"Apple";
-    recentItem.itemModel = @"MacBook Pro";
-    recentItem.itemSerial = @"A12BCD34EF567";
-    recentItem.itemDetails = @"Silver 15inch laptop, late 2011 model";
-    recentItem.itemCost = @"$1500";
-    recentItem.dateAdded = @"2-1-2014";
-    [recentItemsArray addObject:recentItem];
-    //Item 3
-    recentItem = [[RecentItems alloc] init];
-    recentItem.imageOne = [UIImage imageNamed:@"defaultImage.png"];
-    recentItem.itemMake = @"ESP LTD";
-    recentItem.itemModel = @"H-401FM";
-    recentItem.itemSerial = @"ISO123456ABCD";
-    recentItem.itemDetails = @"Cherryburst electric guitar with case, Seymour Duncan pickups";
-    recentItem.itemCost = @"$750";
-    recentItem.dateAdded = @"1-10-2014";
-    [recentItemsArray addObject:recentItem];
-    //Item 4
-    recentItem = [[RecentItems alloc] init];
-    recentItem.imageOne = [UIImage imageNamed:@"defaultImage.png"];
-    recentItem.itemMake = @"Apple";
-    recentItem.itemModel = @"iPod Classic";
-    recentItem.itemSerial = @"A12BCD34EF567";
-    recentItem.itemDetails = @"Black 160GB MP3 player";
-    recentItem.itemCost = @"$200";
-    recentItem.dateAdded = @"12-25-2013";
-    [recentItemsArray addObject:recentItem];
-    //Item 5
-    recentItem = [[RecentItems alloc] init];
-    recentItem.imageOne = [UIImage imageNamed:@"defaultImage.png"];
-    recentItem.itemMake = @"Amazon";
-    recentItem.itemModel = @"Kindle Fire HD";
-    recentItem.itemSerial = @"9876ABCD54321";
-    recentItem.itemDetails = @"Black 7inch";
-    recentItem.itemCost = @"$140";
-    recentItem.dateAdded = @"12-25-2013";
-    [recentItemsArray addObject:recentItem];*/
-    
-    //NSLog(@"%@", [recentItemsArray description]);
+
     
     //Move edit button to left side of nav bar (right is + sign for add item)
     self.navigationItem.leftBarButtonItem = self.editButtonItem;

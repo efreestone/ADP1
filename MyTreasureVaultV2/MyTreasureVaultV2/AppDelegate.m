@@ -24,7 +24,7 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
-@synthesize databaseExists;
+@synthesize noDatabase;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -125,7 +125,7 @@
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]]) {
         NSLog(@"SQLite DB doesnt exist");
-        databaseExists = YES;
+        noDatabase = YES;
     } /*else {
         NSLog(@"Yep SQLite DB is there");
         recentView.databaseExists = YES;

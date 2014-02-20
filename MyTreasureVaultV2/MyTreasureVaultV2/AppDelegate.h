@@ -17,7 +17,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 //Declare BOOL to add in filling default date
-@property (nonatomic, readwrite) BOOL databaseExists;
+@property (nonatomic, readwrite) BOOL noDatabase;
 
 @property (strong, nonatomic) UIWindow *window;
 
