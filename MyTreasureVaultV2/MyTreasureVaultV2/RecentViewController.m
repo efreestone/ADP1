@@ -34,9 +34,12 @@
 
 //Synthesize recent items array for getter/setter
 @synthesize recentItemsArray, myTableView;
+@synthesize fetchedResultsController = _fetchedResultsController;
 
 - (void)viewDidLoad
 {
+    _fetchedResultsController = [[NSFetchedResultsController alloc] init];
+    
     //Create instance of AppDelegate and set as delegate for access to core data
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     //Grab managed object context on app delegate. This is used to check if an sqlite file already exists for the app
@@ -47,12 +50,23 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
-    recentItemsArray = [context executeFetchRequest:fetchRequest error:&error];
-    for (Items *item in recentItemsArray) {
+    recentItemsArray = [[context executeFetchRequest:fetchRequest error:&error] mutableCopy];
+    
+    if (recentItemsArray != nil) {
+        [self.tableView reloadData];
+    }
+    
+    /*for (Items *item in recentItemsArray) {
         //NSLog(@"%@", newItem.description);
         NSLog(@"Make: %@ Model: %@", [item valueForKey:@"make"], [item valueForKey:@"model"]);
         //NSLog(@"Zip: %@", [newItem valueForKey:@"model"]);
-    }
+    }*/
+    
+	/*if (![[self fetchedResultsController] performFetch:&error]) {
+		// Update to handle the error appropriately.
+		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+		exit(-1);  // Fail
+	}*/
     
     //
     if (appDelegate.noDatabase == YES) {
@@ -88,6 +102,35 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    
+    NSSortDescriptor *sortedItems = [[NSSortDescriptor alloc] initWithKey:@"recentItems.dateAdded" ascending:NO];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortedItems]];
+    
+    [fetchRequest setFetchBatchSize:20];
+    
+    NSFetchedResultsController *theFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:@"Root"];
+    self.fetchedResultsController = theFetchedResultsController;
+    _fetchedResultsController.delegate = self;
+    
+    for (Items *item in recentItemsArray) {
+        //NSLog(@"%@", newItem.description);
+        NSLog(@"Make: %@ Model: %@", [item valueForKey:@"make"], [item valueForKey:@"model"]);
+        //NSLog(@"Zip: %@", [newItem valueForKey:@"model"]);
+    }
+    
+    return _fetchedResultsController;
+    
 }
 
 #pragma mark - Default Data add
@@ -294,6 +337,14 @@
     //Check if in delete mode
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSLog(@"We want to delete row = %d", indexPath.row);
+        
+        [context deleteObject:[recentItemsArray objectAtIndex:indexPath.row]];
+        
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+            return;
+        }
         
         //Remove the deleted object from recentItemsArray
         [recentItemsArray removeObjectAtIndex:indexPath.row];

@@ -22,6 +22,8 @@
 //Declare array to hold recent items
 @property (nonatomic, strong) NSMutableArray *recentItemsArray;
 
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+
 -(void)fillDefaultData;
 -(void)saveDefault;
 

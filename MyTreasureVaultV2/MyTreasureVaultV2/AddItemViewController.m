@@ -77,6 +77,8 @@
     NSManagedObjectContext *objectContext = [appDelegate managedObjectContext];
     //Create new item object
     Items *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:objectContext];
+    //Set default image string
+    NSString *defaultImage = @"defaultImage.png";
     
     //Grab current date to set NSDate object on Core Data. Also formatting date as string for display
     NSDate *currentDate = [NSDate date];
@@ -100,6 +102,9 @@
     [newItem setValue: _costTextField.text forKey:@"cost"];
     [newItem setValue: currentDate forKey:@"dateAdded"];
     [newItem setValue: formattedDate forKey:@"formattedDate"];
+    
+    //Currently setting image to default image
+    [newItem setValue: defaultImage forKey:@"image"];
     
     //Clear out text fields
     _makeTextField.text = @"";
