@@ -145,9 +145,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="hrg-TF-sen">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </refreshControl>
                     <connections>
                         <outlet property="myTableView" destination="IKb-8K-XZ9" id="muB-kC-2fl"/>
                     </connections>
@@ -598,7 +595,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="4ql-Mp-O30"/>
-        <segue reference="mZL-Ca-tK5"/>
+        <segue reference="PUu-Zw-Wgp"/>
+        <segue reference="e5m-nO-2Vw"/>
     </inferredMetricsTieBreakers>
 </document>
