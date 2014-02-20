@@ -13,6 +13,8 @@
 //
 
 #import <UIKit/UIKit.h>
+//Import Parse Framework
+#import <Parse/Parse.h>
 
 @interface RecentViewController : UITableViewController
 
@@ -22,7 +24,7 @@
 //Declare array to hold recent items
 @property (nonatomic, strong) NSMutableArray *recentItemsArray;
 
-@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+//@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
 -(void)fillDefaultData;
 -(void)saveDefault;

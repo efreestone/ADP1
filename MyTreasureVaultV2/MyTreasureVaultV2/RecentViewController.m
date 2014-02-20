@@ -37,12 +37,17 @@
 
 //Synthesize recent items array for getter/setter
 @synthesize recentItemsArray, myTableView;
-@synthesize fetchedResultsController = _fetchedResultsController;
+//@synthesize fetchedResultsController = _fetchedResultsController;
 
 - (void)viewDidLoad
 {
+    //Testing Parse
+    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+    testObject[@"foo"] = @"bar";
+    //[testObject saveInBackground];
+    
     //Allocate fetched results controller
-    _fetchedResultsController = [[NSFetchedResultsController alloc] init];
+    //_fetchedResultsController = [[NSFetchedResultsController alloc] init];
     
     //Alocate all items view controller to pass fetched items array
     AllItemsViewController *allItemsViewController = [[AllItemsViewController alloc] init];

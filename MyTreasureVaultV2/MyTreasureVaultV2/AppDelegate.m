@@ -17,6 +17,8 @@
 #import "Items.h"
 //Import Recent view controller
 #import "RecentViewController.h"
+//Import parse framework
+#import <Parse/Parse.h>
 
 @implementation AppDelegate
 
@@ -28,8 +30,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //RecentViewController *recentView = [[RecentViewController alloc] init];
-    //databaseExists = YES;
+    //Set up Parse Framework id and key
+    [Parse setApplicationId:@"WJomiNXzmFqumHIDGOoQQZewIDUeFF3Oxf8Lqz0n" clientKey:@"CWXP2lXmrKD6PYwZifBxgubYDqcGAPpP8733Frmv"];
+    //Track stats for app opens
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
     /*UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
      UIViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
      loginVC.modalPresentationStyle = UIModalPresentationFullScreen;
