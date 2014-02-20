@@ -156,6 +156,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="myTableView" destination="3GQ-5z-Yle" id="nBP-Az-Uaz"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3cM-G9-QVq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -611,7 +614,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="eI6-51-d1U"/>
-        <segue reference="REp-tc-nka"/>
+        <segue reference="KEz-Iq-Hb8"/>
+        <segue reference="6oW-BP-BTb"/>
     </inferredMetricsTieBreakers>
 </document>

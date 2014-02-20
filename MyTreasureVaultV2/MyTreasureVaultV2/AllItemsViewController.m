@@ -19,120 +19,38 @@
 #import "CustomCell.h"
 //Import details view controller
 #import "DetailsViewController.h"
+//Import core data subclass Items
+#import "Items.h"
+//Import app delegate
+#import "AppDelegate.h"
 
 @interface AllItemsViewController ()
 
 @end
 
-@implementation AllItemsViewController
+@implementation AllItemsViewController {
+    NSManagedObjectContext *context;
+    AppDelegate *appDelegate;
+}
 
 //Synthesize recent items array for getter/setter
-@synthesize allItemsArray;
+@synthesize allItemsArray, myTableView;
 
 - (void)viewDidLoad
 {
-    //Create recent items array and fill. Each new item entry is a new instance of RecentItems container class
-    allItemsArray = [NSMutableArray arrayWithCapacity:20];
-    //Item 1 with cast/alloc of all items object
-    AllItems *allItem = [[AllItems alloc] init];
-    allItem.imageOne = [UIImage imageNamed:@"defaultImage.png"];
-    allItem.itemMake = @"Google (LG)";
-    allItem.itemModel = @"Nexus 5";
-    allItem.itemSerial = @"123ABCD456789";
-    allItem.itemDetails = @"Black 16GB smartphone";
-    allItem.itemCost = @"$350";
-    allItem.dateAdded = @"2-11-2014";
-    [allItemsArray addObject:allItem];
-    //Item 2
-    allItem = [[AllItems alloc] init];
-    allItem.imageOne = [UIImage imageNamed:@"defaultImage.png"];
-    allItem.itemMake = @"Apple";
-    allItem.itemModel = @"MacBook Pro";
-    allItem.itemSerial = @"A12BCD34EF567";
-    allItem.itemDetails = @"Silver 15inch laptop, late 2011 model";
-    allItem.itemCost = @"$1500";
-    allItem.dateAdded = @"2-1-2014";
-    [allItemsArray addObject:allItem];
-    //Item 3
-    allItem = [[AllItems alloc] init];
-    allItem.imageOne = [UIImage imageNamed:@"defaultImage.png"];
-    allItem.itemMake = @"ESP LTD";
-    allItem.itemModel = @"H-401FM";
-    allItem.itemSerial = @"ISO123456ABCD";
-    allItem.itemDetails = @"Cherryburst electric guitar with case, Seymour Duncan pickups";
-    allItem.itemCost = @"$750";
-    allItem.dateAdded = @"1-10-2014";
-    [allItemsArray addObject:allItem];
-    //Item 4
-    allItem = [[AllItems alloc] init];
-    allItem.imageOne = [UIImage imageNamed:@"defaultImage.png"];
-    allItem.itemMake = @"Apple";
-    allItem.itemModel = @"iPod Classic";
-    allItem.itemSerial = @"A12BCD34EF567";
-    allItem.itemDetails = @"Black 160GB MP3 player";
-    allItem.itemCost = @"$200";
-    allItem.dateAdded = @"12-25-2013";
-    [allItemsArray addObject:allItem];
-    //Item 5
-    allItem = [[AllItems alloc] init];
-    allItem.imageOne = [UIImage imageNamed:@"defaultImage.png"];
-    allItem.itemMake = @"Amazon";
-    allItem.itemModel = @"Kindle Fire HD";
-    allItem.itemSerial = @"9876ABCD54321";
-    allItem.itemDetails = @"Black 7inch";
-    allItem.itemCost = @"$140";
-    allItem.dateAdded = @"12-25-2013";
-    [allItemsArray addObject:allItem];
-    //Item 6
-    allItem = [[AllItems alloc] init];
-    allItem.imageOne = [UIImage imageNamed:@"defaultImage.png"];
-    allItem.itemMake = @"Samsung";
-    allItem.itemModel = @"UN40F5500";
-    allItem.itemSerial = @"1234567890";
-    allItem.itemDetails = @"40inch slim LED HDTV";
-    allItem.itemCost = @"$600";
-    allItem.dateAdded = @"12-25-2013";
-    [allItemsArray addObject:allItem];
-    //Item 7
-    allItem = [[AllItems alloc] init];
-    allItem.imageOne = [UIImage imageNamed:@"defaultImage.png"];
-    allItem.itemMake = @"Apple";
-    allItem.itemModel = @"iPad Retina";
-    allItem.itemSerial = @"ABCDEFG0987";
-    allItem.itemDetails = @"Black and silver tablet";
-    allItem.itemCost = @"$500";
-    allItem.dateAdded = @"11-21-2013";
-    [allItemsArray addObject:allItem];
-    //Item 8
-    allItem = [[AllItems alloc] init];
-    allItem.imageOne = [UIImage imageNamed:@"defaultImage.png"];
-    allItem.itemMake = @"Gateway";
-    allItem.itemModel = @"HFX2303L";
-    allItem.itemSerial = @"1029384756BLAH";
-    allItem.itemDetails = @"Black 23inch LED Monitor";
-    allItem.itemCost = @"$180";
-    allItem.dateAdded = @"10-13-2013";
-    [allItemsArray addObject:allItem];
-    //Item 9
-    allItem = [[AllItems alloc] init];
-    allItem.imageOne = [UIImage imageNamed:@"defaultImage.png"];
-    allItem.itemMake = @"Sony";
-    allItem.itemModel = @"VAIO Tap 21";
-    allItem.itemSerial = @"BIGTABLET1234";
-    allItem.itemDetails = @"21inch All-in-one PC/ really big tablet";
-    allItem.itemCost = @"$1200";
-    allItem.dateAdded = @"10-10-2013";
-    [allItemsArray addObject:allItem];
-    //Item 10
-    allItem = [[AllItems alloc] init];
-    allItem.imageOne = [UIImage imageNamed:@"defaultImage.png"];
-    allItem.itemMake = @"Subaru";
-    allItem.itemModel = @"Legacy AWD Wagon";
-    allItem.itemSerial = @"SNOWBEAST09876";
-    allItem.itemDetails = @"Silver 1993 all wheel drive wagon";
-    allItem.itemCost = @"$2000";
-    allItem.dateAdded = @"8-22-2013";
-    [allItemsArray addObject:allItem];
+    //Create instance of AppDelegate and set as delegate for access to core data
+    appDelegate = [[UIApplication sharedApplication] delegate];
+    //Grab managed object context on app delegate. This is used to check if an sqlite file already exists for the app
+    context = [appDelegate managedObjectContext];
+    
+    NSError *error;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    allItemsArray = [[context executeFetchRequest:fetchRequest error:&error] mutableCopy];
+    
+    //NSLog(@"All items: %@", [allItemsArray description]);
     
     //Move edit button to left side of nav bar (right is + sign for add item)
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -145,6 +63,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    // Fetch the devices from persistent data store
+    NSManagedObjectContext *managedObjectContext = [appDelegate managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Items"];
+    allItemsArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
+    [myTableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -160,7 +90,7 @@
     return [self.allItemsArray count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+/*- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	CustomCell *cell = (CustomCell *) [tableView dequeueReusableCellWithIdentifier:@"AllItemCell"];
 	AllItems *allItem = [self.allItemsArray objectAtIndex:indexPath.row];
@@ -173,6 +103,27 @@
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectMake(0,0,0,0)]];
     
     return cell;
+}*/
+
+//Built in method to allocate and reuse table view cells and apply item info
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //Allocate custom cell
+    CustomCell *cell = (CustomCell *) [tableView dequeueReusableCellWithIdentifier:@"AllItemCell"];
+    Items *allItem = [self.allItemsArray objectAtIndex:indexPath.row];
+    //Cast image string into UIImage
+    UIImage *itemImage = [UIImage imageNamed:allItem.image];
+    //Apply image
+    cell.cellImage.image = itemImage;
+    //Apply make and model
+    cell.makeModelLabel.text = [NSString stringWithFormat:@"%@ %@", allItem.make, allItem.model];
+    cell.detailsLabel.text = allItem.details;
+    cell.dateAddedLabel.text = allItem.formattedDate;
+    
+    //Override to remove extra seperator lines after the last cell
+    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectMake(0,0,0,0)]];
+    
+    return cell;
 }
 
 //Built in function to check editing style (-=delete, +=add)
@@ -180,9 +131,15 @@
 {
     //Check if in delete mode
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSLog(@"We want to delete row = %d", indexPath.row);
+        [context deleteObject:[allItemsArray objectAtIndex:indexPath.row]];
         
-        //Remove the deleted object from locationsArray
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+            return;
+        }
+        
+        //Remove the deleted object from recentItemsArray
         [allItemsArray removeObjectAtIndex:indexPath.row];
         
         //Remove object from table view with animation. Receiving warning "local declaration of "tableView" hides instance variable". I may be missing something here but isn't this an Accessor method?
@@ -201,21 +158,56 @@
         //Grab destination view controller
         DetailsViewController *detailsViewController = segue.destinationViewController;
         //Grab instance of recentItem object
-        AllItems *allItem = [allItemsArray objectAtIndex:indexPath.row];
+        Items *allItem = [allItemsArray objectAtIndex:indexPath.row];
+        //Cast image string into UIImage
+        UIImage *itemImage = [UIImage imageNamed:allItem.image];
+        
+        NSManagedObject *selectedObject = [allItemsArray objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
         
         if (detailsViewController != nil) {
             //Pass title string and NSStrings/image to detail view
-            detailsViewController.title = allItem.itemModel;
-            detailsViewController.passedItemImage = allItem.imageOne;
-            detailsViewController.passedItemMake = allItem.itemMake;
-            detailsViewController.passedItemModel = allItem.itemModel;
-            detailsViewController.passedItemSerial = allItem.itemSerial;
-            detailsViewController.passedItemDetails = allItem.itemDetails;
-            detailsViewController.passedItemCost = allItem.itemCost;
-            detailsViewController.passedItemDateAdded = allItem.dateAdded;
+            detailsViewController.title = allItem.model;
+            detailsViewController.passedItemImage = itemImage;
+            detailsViewController.passedItemMake = allItem.make;
+            detailsViewController.passedItemModel = allItem.model;
+            detailsViewController.passedItemSerial = allItem.serial;
+            detailsViewController.passedItemDetails = allItem.details;
+            detailsViewController.passedItemCost = allItem.cost;
+            detailsViewController.passedItemDateAdded = allItem.formattedDate;
+            detailsViewController.passedManagedObject = selectedObject;
         }
     }
 }
+
+//Built in method to pass data during segue
+/*- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //Verify identifier of push segue to Details view
+    if ([segue.identifier isEqualToString:@"DetailView"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        //Grab destination view controller
+        DetailsViewController *detailsViewController = segue.destinationViewController;
+        //Grab instance of recentItem object
+        Items *recentItem = [recentItemsArray objectAtIndex:indexPath.row];
+        //Cast image string into UIImage
+        UIImage *itemImage = [UIImage imageNamed:recentItem.image];
+        
+        NSManagedObject *selectedObject = [recentItemsArray objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+        
+        if (detailsViewController != nil) {
+            //Pass title string and NSStrings/image to detail view
+            detailsViewController.title = recentItem.model;
+            detailsViewController.passedItemImage = itemImage;
+            detailsViewController.passedItemMake = recentItem.make;
+            detailsViewController.passedItemModel = recentItem.model;
+            detailsViewController.passedItemSerial = recentItem.serial;
+            detailsViewController.passedItemDetails = recentItem.details;
+            detailsViewController.passedItemCost = recentItem.cost;
+            detailsViewController.passedItemDateAdded = recentItem.formattedDate;
+            detailsViewController.passedManagedObject = selectedObject;
+        }
+    }
+}*/
 
 
 @end

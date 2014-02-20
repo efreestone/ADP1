@@ -19,10 +19,12 @@
 #import "CustomCell.h"
 //Import details view controller
 #import "DetailsViewController.h"
-
+//Import app delegat
 #import "AppDelegate.h"
-
+//Import core data subclass
 #import "Items.h"
+//Import all items view controller
+#import "AllItemsViewController.h"
 
 @interface RecentViewController ()
 
@@ -39,7 +41,11 @@
 
 - (void)viewDidLoad
 {
+    //Allocate fetched results controller
     _fetchedResultsController = [[NSFetchedResultsController alloc] init];
+    
+    //Alocate all items view controller to pass fetched items array
+    AllItemsViewController *allItemsViewController = [[AllItemsViewController alloc] init];
     
     //Create instance of AppDelegate and set as delegate for access to core data
     appDelegate = [[UIApplication sharedApplication] delegate];
@@ -53,8 +59,12 @@
     [fetchRequest setEntity:entity];
     recentItemsArray = [[context executeFetchRequest:fetchRequest error:&error] mutableCopy];
     
+    //Check if fetched items array exists
     if (recentItemsArray != nil) {
+        //reload table view
         [self.tableView reloadData];
+        //Pass array of fetched objects to all items view
+        allItemsViewController.allItemsArray = recentItemsArray;
     }
     
     /*for (Items *item in recentItemsArray) {
@@ -73,6 +83,7 @@
     if (appDelegate.noDatabase == YES) {
         [self fillDefaultData];
         NSLog(@"Default Data Added");
+        allItemsViewController.allItemsArray = recentItemsArray;
     }
     
     
@@ -117,7 +128,7 @@
     [myTableView reloadData];
 }
 
-- (NSFetchedResultsController *)fetchedResultsController
+/*- (NSFetchedResultsController *)fetchedResultsController
 {
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
@@ -144,7 +155,7 @@
     
     return _fetchedResultsController;
     
-}
+}*/
 
 #pragma mark - Default Data add
 
@@ -362,13 +373,6 @@
         
         //Remove object from table view with animation. Receiving warning "local declaration of "tableView" hides instance variable". I may be missing something here but isn't this an Accessor method?
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:true];
-        
-        // Fetch the devices from persistent data store
-        /*NSManagedObjectContext *managedObjectContext = [appDelegate managedObjectContext];
-        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Items"];
-        recentItemsArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-        
-        [myTableView reloadData];*/
     }
 }
 
@@ -403,11 +407,5 @@
         }
     }
 }
-
-/*if ([[segue identifier] isEqualToString:@"UpdateDevice"]) {
-    NSManagedObject *selectedDevice = [self.devices objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
-    DeviceDetailViewController *destViewController = segue.destinationViewController;
-    destViewController.device = selectedDevice;
-}*/
 
 @end

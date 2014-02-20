@@ -19,4 +19,6 @@
 //Declare array to hold all items
 @property (nonatomic, strong) NSMutableArray *allItemsArray;
 
+@property (strong, nonatomic) IBOutlet UITableView *myTableView;
+
 @end
