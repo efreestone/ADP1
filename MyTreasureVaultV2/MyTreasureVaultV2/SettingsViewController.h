@@ -20,6 +20,9 @@
 @property (strong, nonatomic) IBOutlet UISwitch *syncAllSwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *syncImageSwitch;
 
+//Declare array to hold items from storage for sync
+@property (strong, nonatomic) NSMutableArray *allStoredArray;
+
 //Declare IBActions for switch changes
 -(IBAction)syncAllSwitch:(id)sender;
 -(IBAction)syncImageSwitch:(id)sender;

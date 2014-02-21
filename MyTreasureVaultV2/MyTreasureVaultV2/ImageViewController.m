@@ -13,6 +13,10 @@
 //
 
 #import "ImageViewController.h"
+//Import add item
+#import "AddItemViewController.h"
+//Import asset library
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface ImageViewController ()
 
@@ -49,8 +53,22 @@
 //Triggered with save button
 -(IBAction)onSave:(id)sender
 {
-    UIImageWriteToSavedPhotosAlbum(passedNewImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    //UIImageWriteToSavedPhotosAlbum(passedNewImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
     //[self dismissViewControllerAnimated:true completion:nil];
+    
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    // Request to save the image to camera roll
+    [library writeImageToSavedPhotosAlbum:[passedNewImage CGImage] orientation:(ALAssetOrientation)[passedNewImage imageOrientation] completionBlock:^(NSURL *imageURL, NSError *error){
+        if (error) {
+            [self errorAlertView];
+        } else {
+            NSLog(@"url %@", imageURL);
+            AddItemViewController *addItemViewController = [[AddItemViewController alloc] init];
+            addItemViewController.passedImageURL = imageURL;
+            [self saveSuccessfulAlertView];
+            [self dismissViewControllerAnimated:true completion:nil];
+        }
+    }];
 }
 
 //Triggered with cancel button

@@ -310,7 +310,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="save" id="0Ym-A9-9lB"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Jq-Sk-hIL">
                             <connections>
-                                <segue destination="dZL-jZ-Pma" kind="modal" id="CFC-w9-sWy"/>
+                                <segue destination="dZL-jZ-Pma" kind="modal" id="kmf-71-XxM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -466,6 +466,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dZL-jZ-Pma" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="v5a-OV-EXJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="e3v-S3-xl7">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -623,7 +624,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="CFC-w9-sWy"/>
-        <segue reference="e5m-nO-2Vw"/>
+        <segue reference="4ql-Mp-O30"/>
+        <segue reference="mZL-Ca-tK5"/>
     </inferredMetricsTieBreakers>
 </document>

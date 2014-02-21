@@ -179,35 +179,4 @@
     }
 }
 
-//Built in method to pass data during segue
-/*- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    //Verify identifier of push segue to Details view
-    if ([segue.identifier isEqualToString:@"DetailView"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        //Grab destination view controller
-        DetailsViewController *detailsViewController = segue.destinationViewController;
-        //Grab instance of recentItem object
-        Items *recentItem = [recentItemsArray objectAtIndex:indexPath.row];
-        //Cast image string into UIImage
-        UIImage *itemImage = [UIImage imageNamed:recentItem.image];
-        
-        NSManagedObject *selectedObject = [recentItemsArray objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
-        
-        if (detailsViewController != nil) {
-            //Pass title string and NSStrings/image to detail view
-            detailsViewController.title = recentItem.model;
-            detailsViewController.passedItemImage = itemImage;
-            detailsViewController.passedItemMake = recentItem.make;
-            detailsViewController.passedItemModel = recentItem.model;
-            detailsViewController.passedItemSerial = recentItem.serial;
-            detailsViewController.passedItemDetails = recentItem.details;
-            detailsViewController.passedItemCost = recentItem.cost;
-            detailsViewController.passedItemDateAdded = recentItem.formattedDate;
-            detailsViewController.passedManagedObject = selectedObject;
-        }
-    }
-}*/
-
-
 @end

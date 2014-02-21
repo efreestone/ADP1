@@ -109,6 +109,30 @@
      //Present sign in view
      [self presentViewController:signInVC animated:true completion:nil];*/
     
+    //Boilerplate login code from Parse tutorial "Login and Signup Views" to allocate/present login screen
+    if (![PFUser currentUser]) { // No user logged in
+        // Create the log in view controller
+        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+        [logInViewController setDelegate:self]; // Set ourselves as the delegate
+        
+        //Grab log in view. Adding this to fill in default log in
+        /*PFLogInView *logInView = [[PFLogInView alloc] init];
+         NSString *defaultUsername = @"test";
+         //Set default sign in
+         logInView.usernameField.text = defaultUsername;
+         logInView.passwordField.text = @"1234";*/
+        
+        // Create the sign up view controller
+        PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
+        [signUpViewController setDelegate:self]; // Set ourselves as the delegate
+        
+        // Assign our sign up controller to be displayed from the login controller
+        [logInViewController setSignUpController:signUpViewController];
+        
+        // Present the log in view controller
+        [self presentViewController:logInViewController animated:YES completion:NULL];
+    }
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -130,11 +154,18 @@
     
     [myTableView reloadData];
     
-    //Boilerplate login code from Parse tutorial "Login and Signup Views" to allocate/present login screen
+    /*//Boilerplate login code from Parse tutorial "Login and Signup Views" to allocate/present login screen
     if (![PFUser currentUser]) { // No user logged in
         // Create the log in view controller
         PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
         [logInViewController setDelegate:self]; // Set ourselves as the delegate
+        
+        //Grab log in view. Adding this to fill in default log in
+        PFLogInView *logInView = [[PFLogInView alloc] init];
+        NSString *defaultUsername = @"test";
+        //Set default sign in
+        logInView.usernameField.text = defaultUsername;
+        logInView.passwordField.text = @"1234";
         
         // Create the sign up view controller
         PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
@@ -145,7 +176,7 @@
         
         // Present the log in view controller
         [self presentViewController:logInViewController animated:YES completion:NULL];
-    }
+    }*/
 }
 
 /*- (NSFetchedResultsController *)fetchedResultsController

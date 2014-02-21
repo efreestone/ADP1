@@ -30,6 +30,8 @@
 
 //Declare passed managed object
 @property (strong, nonatomic) NSManagedObject *passedManagedObject;
+//Declare passed image url
+@property (strong, nonatomic) NSURL *passedImageURL;
 
 //Declare IBActions for save and cancel buttons
 -(IBAction)onCancel:(id)sender;

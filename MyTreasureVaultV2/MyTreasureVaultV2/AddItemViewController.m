@@ -21,6 +21,8 @@
 #import "Items.h"
 //Import recent view controller
 #import "RecentViewController.h"
+//Import Asset Library
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface AddItemViewController ()
 
@@ -34,7 +36,7 @@
     UIImage *editedImage;
 }
 
-@synthesize makeTextField, modelTextField, serialTextField, detailsTextField, costTextField, syncSwitch, passedManagedObject;
+@synthesize makeTextField, modelTextField, serialTextField, detailsTextField, costTextField, syncSwitch, passedManagedObject, passedImageURL;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -81,10 +83,6 @@
 //Triggered when save button is hit
 -(IBAction)onSave:(id)sender
 {
-    //Create and display alert when save button is hit
-    /*UIAlertView *savedAlert = [[UIAlertView alloc] initWithTitle: @"Item Would Have Saved!!" message: @"Your item would have been saved, but this bit of code hasn't been written yet." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [savedAlert show];*/
-    
     //Create instance of AppDelegate and set as delegate for access to core data
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     //Grab managed object context on app delegate
@@ -108,6 +106,7 @@
         //NSLog(@"date = %@", formattedDate);
     }
     
+    //Check if item was passed. This pass happens from the edit button on detail view
     if (self.passedManagedObject) {
         [passedManagedObject setValue: makeTextField.text forKey:@"make"];
         [passedManagedObject setValue: modelTextField.text forKey:@"model"];
@@ -117,6 +116,7 @@
         [passedManagedObject setValue: currentDate forKey:@"dateAdded"];
         [passedManagedObject setValue: formattedDate forKey:@"formattedDate"];
     } else {
+        //Create new item
         Items *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:objectContext];
         [newItem setValue: makeTextField.text forKey:@"make"];
         [newItem setValue: modelTextField.text forKey:@"model"];
@@ -125,34 +125,27 @@
         [newItem setValue: costTextField.text forKey:@"cost"];
         [newItem setValue: currentDate forKey:@"dateAdded"];
         [newItem setValue: formattedDate forKey:@"formattedDate"];
-        
-        //Currently setting image to default image
-        [newItem setValue: defaultImage forKey:@"image"];
+        //Check if passedImageURL is nil
+        if (passedImageURL == nil) {
+            //set image to default image
+            [newItem setValue: defaultImage forKey:@"image"];
+        } else {
+            NSString *imageURLString = [passedImageURL absoluteString];
+            [newItem setValue: imageURLString forKey:@"image"];
+        }
     }
     
+    //If sync item is switched to yes, sync single item to server
     if (syncSwitch.isOn) {
         PFObject *newItem = [PFObject objectWithClassName:@"NewItem"];
         newItem[@"make"] = makeTextField.text;
+        newItem[@"model"] = modelTextField.text;
+        newItem[@"serial"] = serialTextField.text;
+        newItem[@"details"] = detailsTextField.text;
+        newItem[@"cost"] = costTextField.text;
         
         [newItem saveInBackground];
-        /*PFObject *gameScore = [PFObject objectWithClassName:@"GameScore"];
-        gameScore[@"score"] = @1337;
-        gameScore[@"playerName"] = @"Sean Plott";
-        gameScore[@"cheatMode"] = @NO;
-        [gameScore saveInBackground];*/
     }
-    
-    //Set object attributes to text from text fields using setValue Method
-    /*[newItem setValue: makeTextField.text forKey:@"make"];
-    [newItem setValue: modelTextField.text forKey:@"model"];
-    [newItem setValue: serialTextField.text forKey:@"serial"];
-    [newItem setValue: detailsTextField.text forKey:@"details"];
-    [newItem setValue: costTextField.text forKey:@"cost"];
-    [newItem setValue: currentDate forKey:@"dateAdded"];
-    [newItem setValue: formattedDate forKey:@"formattedDate"];
-    
-    //Currently setting image to default image
-    [newItem setValue: defaultImage forKey:@"image"];*/
     
     //Clear out text fields
     makeTextField.text = @"";
@@ -174,8 +167,8 @@
         //NSLog(@"%@", newItem.description);
     }
     
-    //Test
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    //Test for stored item
+    /*NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:objectContext];
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [objectContext executeFetchRequest:fetchRequest error:&error];
@@ -183,7 +176,7 @@
         //NSLog(@"%@", newItem.description);
         NSLog(@"Make: %@ Model: %@", [item valueForKey:@"make"], [item valueForKey:@"model"]);
         //NSLog(@"Zip: %@", [newItem valueForKey:@"model"]);
-    }
+    }*/
     
     RecentViewController *recentViewController = [[RecentViewController alloc] init];
     
@@ -234,6 +227,20 @@
         imageViewController.passedNewImage = selectedImage;
         
         NSLog(@"%@", [selectedImage description]);
+        
+        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+        //Save the image using asset library to grab URL
+        [library writeImageToSavedPhotosAlbum:[selectedImage CGImage] orientation:(ALAssetOrientation)[selectedImage imageOrientation] completionBlock:^(NSURL *imageURL, NSError *error){
+            if (error) {
+                [self errorAlertView];
+            } else {
+                NSLog(@"url %@", imageURL);
+                //
+                passedImageURL = imageURL;
+                [self saveSuccessfulAlertView];
+                //[self dismissViewControllerAnimated:true completion:nil];
+            }
+        }];
     }
     
     //Cast edited image into a UIImage
