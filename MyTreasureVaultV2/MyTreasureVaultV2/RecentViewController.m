@@ -19,7 +19,7 @@
 #import "CustomCell.h"
 //Import details view controller
 #import "DetailsViewController.h"
-//Import app delegat
+//Import app delegate
 #import "AppDelegate.h"
 //Import core data subclass
 #import "Items.h"
@@ -68,8 +68,6 @@
     if (recentItemsArray != nil) {
         //reload table view
         [self.tableView reloadData];
-        //Pass array of fetched objects to all items view
-        allItemsViewController.allItemsArray = recentItemsArray;
     }
     
     /*for (Items *item in recentItemsArray) {
@@ -125,7 +123,7 @@
 {
     [super viewDidAppear:animated];
     
-    // Fetch the devices from persistent data store
+    // Fetch the items from persistent data store
     NSManagedObjectContext *managedObjectContext = [appDelegate managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Items"];
     recentItemsArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
@@ -181,6 +179,7 @@
 
 #pragma mark - Default Data add
 
+//custom method to save default item to core data storage
 -(void)saveDefault
 {
     //Create error object for save
@@ -432,7 +431,7 @@
 
 #pragma mark - PFLogInViewControllerDelegate
 
-//
+//These are defualt delegate methods for the Parse Login and are essentially unmodified. Added to get basic use of the login/signup framework Parse provides
 // Sent to the delegate to determine whether the log in request should be submitted to the server.
 - (BOOL)logInViewController:(PFLogInViewController *)logInController shouldBeginLogInWithUsername:(NSString *)username password:(NSString *)password {
     // Check if both fields are completed
@@ -461,6 +460,7 @@
 
 #pragma mark - PFSignUpViewControllerDelegate
 
+//These are defualt delegate methods for the Parse Signup and are essentially unmodified. Added to get basic use of the login/signup framework Parse provides
 // Sent to the delegate to determine whether the sign up request should be submitted to the server.
 - (BOOL)signUpViewController:(PFSignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary *)info {
     BOOL informationComplete = YES;

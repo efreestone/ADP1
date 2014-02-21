@@ -34,7 +34,7 @@
     UIImage *editedImage;
 }
 
-@synthesize makeTextField, modelTextField, serialTextField, detailsTextField, costTextField, passedManagedObject;
+@synthesize makeTextField, modelTextField, serialTextField, detailsTextField, costTextField, syncSwitch, passedManagedObject;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -130,19 +130,17 @@
         [newItem setValue: defaultImage forKey:@"image"];
     }
     
-    /*if (self.device) {
-        // Update existing device
-        [self.device setValue:self.nameTextField.text forKey:@"name"];
-        [self.device setValue:self.versionTextField.text forKey:@"version"];
-        [self.device setValue:self.companyTextField.text forKey:@"company"];
+    if (syncSwitch.isOn) {
+        PFObject *newItem = [PFObject objectWithClassName:@"NewItem"];
+        newItem[@"make"] = makeTextField.text;
         
-    } else {
-        // Create a new device
-        NSManagedObject *newDevice = [NSEntityDescription insertNewObjectForEntityForName:@"Device" inManagedObjectContext:context];
-        [newDevice setValue:self.nameTextField.text forKey:@"name"];
-        [newDevice setValue:self.versionTextField.text forKey:@"version"];
-        [newDevice setValue:self.companyTextField.text forKey:@"company"];
-    }*/
+        [newItem saveInBackground];
+        /*PFObject *gameScore = [PFObject objectWithClassName:@"GameScore"];
+        gameScore[@"score"] = @1337;
+        gameScore[@"playerName"] = @"Sean Plott";
+        gameScore[@"cheatMode"] = @NO;
+        [gameScore saveInBackground];*/
+    }
     
     //Set object attributes to text from text fields using setValue Method
     /*[newItem setValue: makeTextField.text forKey:@"make"];

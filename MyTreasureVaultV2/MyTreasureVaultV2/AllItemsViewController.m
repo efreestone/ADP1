@@ -69,7 +69,7 @@
 {
     [super viewDidAppear:animated];
     
-    // Fetch the devices from persistent data store
+    // Fetch the items from persistent data store
     NSManagedObjectContext *managedObjectContext = [appDelegate managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Items"];
     allItemsArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];

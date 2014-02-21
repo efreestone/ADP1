@@ -25,7 +25,10 @@
 @property (strong, nonatomic) IBOutlet UITextField *serialTextField;
 @property (strong, nonatomic) IBOutlet UITextField *detailsTextField;
 @property (strong, nonatomic) IBOutlet UITextField *costTextField;
+//Declare switch for sync
+@property (strong, nonatomic) IBOutlet UISwitch *syncSwitch;
 
+//Declare passed managed object
 @property (strong, nonatomic) NSManagedObject *passedManagedObject;
 
 //Declare IBActions for save and cancel buttons

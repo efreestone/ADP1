@@ -13,12 +13,19 @@
 //
 
 #import "SettingsViewController.h"
+//Import app delegate
+#import "AppDelegate.h"
+//Import core data subclass
+#import "Items.h"
 
 @interface SettingsViewController ()
 
 @end
 
 @implementation SettingsViewController
+
+//Synthesize for getters/setters
+@synthesize syncAllSwitch, syncImageSwitch;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,6 +46,24 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Switch Change
+
+//Triggered when sync all switch is changed
+-(IBAction)syncAllSwitch:(id)sender
+{
+    if (syncAllSwitch.isOn) {
+        NSLog(@"All switch is ON");
+    } else {
+        NSLog(@"All switch is OFF");
+    }
+}
+
+//Triggered when sync image switch is changed
+-(IBAction)syncImageSwitch:(id)sender
+{
+    NSLog(@"Image switch changed");
 }
 
 @end

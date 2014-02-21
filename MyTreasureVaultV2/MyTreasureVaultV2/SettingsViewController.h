@@ -16,4 +16,12 @@
 
 @interface SettingsViewController : UITableViewController
 
+//Declare switch IBOutlets
+@property (strong, nonatomic) IBOutlet UISwitch *syncAllSwitch;
+@property (strong, nonatomic) IBOutlet UISwitch *syncImageSwitch;
+
+//Declare IBActions for switch changes
+-(IBAction)syncAllSwitch:(id)sender;
+-(IBAction)syncImageSwitch:(id)sender;
+
 @end
