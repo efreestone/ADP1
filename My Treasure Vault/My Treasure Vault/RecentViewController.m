@@ -1,20 +1,18 @@
 // Elijah Freestone
 // ADP1 1402
-// Week 3
-// My Treasure Vault Version 2
-// February 15th, 2014
+// Week 4
+// My Treasure Vault Final
+// February 21st, 2014
 
 //
 //  RecentViewController.m
-//  MyTreasureVaultV2
+//  My Treasure Vault
 //
-//  Created by Elijah Freestone on 2/17/14.
+//  Created by Elijah Freestone on 2/21/14.
 //  Copyright (c) 2014 Elijah Freestone. All rights reserved.
 //
 
 #import "RecentViewController.h"
-//Import recent item object
-#import "RecentItems.h"
 //Import custom cell
 #import "CustomCell.h"
 //Import details view controller
@@ -71,16 +69,16 @@
     }
     
     /*for (Items *item in recentItemsArray) {
-        //NSLog(@"%@", newItem.description);
-        NSLog(@"Make: %@ Model: %@", [item valueForKey:@"make"], [item valueForKey:@"model"]);
-        //NSLog(@"Zip: %@", [newItem valueForKey:@"model"]);
-    }*/
+     //NSLog(@"%@", newItem.description);
+     NSLog(@"Make: %@ Model: %@", [item valueForKey:@"make"], [item valueForKey:@"model"]);
+     //NSLog(@"Zip: %@", [newItem valueForKey:@"model"]);
+     }*/
     
 	/*if (![[self fetchedResultsController] performFetch:&error]) {
-		// Update to handle the error appropriately.
-		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-		exit(-1);  // Fail
-	}*/
+     // Update to handle the error appropriately.
+     NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+     exit(-1);  // Fail
+     }*/
     
     //
     if (appDelegate.noDatabase == YES) {
@@ -150,58 +148,58 @@
     
     //Moved this to viewDidLoad so login screen doesn't reappear if dismissed without loggin in.
     /*//Boilerplate login code from Parse tutorial "Login and Signup Views" to allocate/present login screen
-    if (![PFUser currentUser]) { // No user logged in
-        // Create the log in view controller
-        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
-        [logInViewController setDelegate:self]; // Set ourselves as the delegate
-        
-        //Grab log in view. Adding this to fill in default log in
-        PFLogInView *logInView = [[PFLogInView alloc] init];
-        NSString *defaultUsername = @"test";
-        //Set default sign in
-        logInView.usernameField.text = defaultUsername;
-        logInView.passwordField.text = @"1234";
-        
-        // Create the sign up view controller
-        PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
-        [signUpViewController setDelegate:self]; // Set ourselves as the delegate
-        
-        // Assign our sign up controller to be displayed from the login controller
-        [logInViewController setSignUpController:signUpViewController];
-        
-        // Present the log in view controller
-        [self presentViewController:logInViewController animated:YES completion:NULL];
-    }*/
+     if (![PFUser currentUser]) { // No user logged in
+     // Create the log in view controller
+     PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+     [logInViewController setDelegate:self]; // Set ourselves as the delegate
+     
+     //Grab log in view. Adding this to fill in default log in
+     PFLogInView *logInView = [[PFLogInView alloc] init];
+     NSString *defaultUsername = @"test";
+     //Set default sign in
+     logInView.usernameField.text = defaultUsername;
+     logInView.passwordField.text = @"1234";
+     
+     // Create the sign up view controller
+     PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
+     [signUpViewController setDelegate:self]; // Set ourselves as the delegate
+     
+     // Assign our sign up controller to be displayed from the login controller
+     [logInViewController setSignUpController:signUpViewController];
+     
+     // Present the log in view controller
+     [self presentViewController:logInViewController animated:YES completion:NULL];
+     }*/
 }
 
 /*- (NSFetchedResultsController *)fetchedResultsController
-{
-    if (_fetchedResultsController != nil) {
-        return _fetchedResultsController;
-    }
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    
-    NSSortDescriptor *sortedItems = [[NSSortDescriptor alloc] initWithKey:@"recentItems.dateAdded" ascending:NO];
-    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortedItems]];
-    
-    [fetchRequest setFetchBatchSize:20];
-    
-    NSFetchedResultsController *theFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:@"Root"];
-    self.fetchedResultsController = theFetchedResultsController;
-    _fetchedResultsController.delegate = self;
-    
-    for (Items *item in recentItemsArray) {
-        //NSLog(@"%@", newItem.description);
-        NSLog(@"Make: %@ Model: %@", [item valueForKey:@"make"], [item valueForKey:@"model"]);
-        //NSLog(@"Zip: %@", [newItem valueForKey:@"model"]);
-    }
-    
-    return _fetchedResultsController;
-    
-}*/
+ {
+ if (_fetchedResultsController != nil) {
+ return _fetchedResultsController;
+ }
+ 
+ NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+ NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:context];
+ [fetchRequest setEntity:entity];
+ 
+ NSSortDescriptor *sortedItems = [[NSSortDescriptor alloc] initWithKey:@"recentItems.dateAdded" ascending:NO];
+ [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortedItems]];
+ 
+ [fetchRequest setFetchBatchSize:20];
+ 
+ NSFetchedResultsController *theFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:@"Root"];
+ self.fetchedResultsController = theFetchedResultsController;
+ _fetchedResultsController.delegate = self;
+ 
+ for (Items *item in recentItemsArray) {
+ //NSLog(@"%@", newItem.description);
+ NSLog(@"Make: %@ Model: %@", [item valueForKey:@"make"], [item valueForKey:@"model"]);
+ //NSLog(@"Zip: %@", [newItem valueForKey:@"model"]);
+ }
+ 
+ return _fetchedResultsController;
+ 
+ }*/
 
 #pragma mark - Default Data add
 
@@ -372,10 +370,10 @@
 {
     //Check length of array. This is to stop a crash because of array length when there is no items in storage. I think the crash is because the view is already loaded before the array is filled but I haven't been able to dig into the issue yet. I feel this is a hacky fix but it works until one of the 5 items is deleted, which causes a crash again so I am displaying all items for now.
     /*if ([recentItemsArray count] <= 5) {
-        return [recentItemsArray count];
-    } else {
-        return 5;
-    }*/
+     return [recentItemsArray count];
+     } else {
+     return 5;
+     }*/
     // Return the number of rows in the section.
     return [recentItemsArray count];
 }

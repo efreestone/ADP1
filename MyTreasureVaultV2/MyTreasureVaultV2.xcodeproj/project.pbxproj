@@ -18,6 +18,7 @@
 		B854E22C18B6B421005BB035 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B854E22B18B6B421005BB035 /* StoreKit.framework */; };
 		B854E22E18B6B431005BB035 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B854E22D18B6B431005BB035 /* SystemConfiguration.framework */; };
 		B89FBCD118B4120E00D1B7BB /* Items.m in Sources */ = {isa = PBXBuildFile; fileRef = B89FBCD018B4120E00D1B7BB /* Items.m */; };
+		B8BBC0AD18B6E1D6002961E5 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8BBC0AC18B6E1D6002961E5 /* AssetsLibrary.framework */; };
 		B8F20EFD18B2B0F100CC1958 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F20EFC18B2B0F100CC1958 /* Foundation.framework */; };
 		B8F20EFF18B2B0F100CC1958 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F20EFE18B2B0F100CC1958 /* CoreGraphics.framework */; };
 		B8F20F0118B2B0F100CC1958 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F20F0018B2B0F100CC1958 /* UIKit.framework */; };
@@ -83,6 +84,7 @@
 		B854E22D18B6B431005BB035 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B89FBCCF18B4120E00D1B7BB /* Items.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Items.h; sourceTree = "<group>"; };
 		B89FBCD018B4120E00D1B7BB /* Items.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Items.m; sourceTree = "<group>"; };
+		B8BBC0AC18B6E1D6002961E5 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		B8F20EF918B2B0F100CC1958 /* MyTreasureVaultV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyTreasureVaultV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F20EFC18B2B0F100CC1958 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B8F20EFE18B2B0F100CC1958 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -142,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8BBC0AD18B6E1D6002961E5 /* AssetsLibrary.framework in Frameworks */,
 				B854E22E18B6B431005BB035 /* SystemConfiguration.framework in Frameworks */,
 				B854E22C18B6B421005BB035 /* StoreKit.framework in Frameworks */,
 				B854E22A18B6B413005BB035 /* Security.framework in Frameworks */,
@@ -195,6 +198,7 @@
 		B8F20EFB18B2B0F100CC1958 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B8BBC0AC18B6E1D6002961E5 /* AssetsLibrary.framework */,
 				B854E22D18B6B431005BB035 /* SystemConfiguration.framework */,
 				B854E22B18B6B421005BB035 /* StoreKit.framework */,
 				B854E22918B6B413005BB035 /* Security.framework */,

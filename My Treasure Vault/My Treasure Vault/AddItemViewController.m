@@ -1,14 +1,14 @@
 // Elijah Freestone
 // ADP1 1402
-// Week 3
-// My Treasure Vault Version 2
-// February 15th, 2014
+// Week 4
+// My Treasure Vault Final
+// February 21st, 2014
 
 //
 //  AddItemViewController.m
-//  MyTreasureVaultV2
+//  My Treasure Vault
 //
-//  Created by Elijah Freestone on 2/17/14.
+//  Created by Elijah Freestone on 2/21/14.
 //  Copyright (c) 2014 Elijah Freestone. All rights reserved.
 //
 
@@ -169,14 +169,14 @@
     
     //Test for stored item
     /*NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:objectContext];
-    [fetchRequest setEntity:entity];
-    NSArray *fetchedObjects = [objectContext executeFetchRequest:fetchRequest error:&error];
-    for (Items *item in fetchedObjects) {
-        //NSLog(@"%@", newItem.description);
-        NSLog(@"Make: %@ Model: %@", [item valueForKey:@"make"], [item valueForKey:@"model"]);
-        //NSLog(@"Zip: %@", [newItem valueForKey:@"model"]);
-    }*/
+     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:objectContext];
+     [fetchRequest setEntity:entity];
+     NSArray *fetchedObjects = [objectContext executeFetchRequest:fetchRequest error:&error];
+     for (Items *item in fetchedObjects) {
+     //NSLog(@"%@", newItem.description);
+     NSLog(@"Make: %@ Model: %@", [item valueForKey:@"make"], [item valueForKey:@"model"]);
+     //NSLog(@"Zip: %@", [newItem valueForKey:@"model"]);
+     }*/
     
     RecentViewController *recentViewController = [[RecentViewController alloc] init];
     
