@@ -56,7 +56,7 @@
 #pragma mark - Switch Change
 
 //Triggered when sync all switch is changed
--(IBAction)syncAllSwitch:(id)sender
+-(IBAction)onSyncAll:(id)sender
 {
     if (syncAllSwitch.isOn) {
         //Allocate app delegate
@@ -89,7 +89,7 @@
 }
 
 //Triggered when sync image switch is changed
--(IBAction)syncImageSwitch:(id)sender
+-(IBAction)onSyncImage:(id)sender
 {
     NSLog(@"Image switch changed");
     UIAlertView *syncAlert = [[UIAlertView alloc] initWithTitle: @"Images would have synced" message: @"Your Images would have been synced, but this bit of code hasn't been written yet." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];

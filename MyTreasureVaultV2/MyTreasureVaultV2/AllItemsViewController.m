@@ -90,21 +90,6 @@
     return [self.allItemsArray count];
 }
 
-/*- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	CustomCell *cell = (CustomCell *) [tableView dequeueReusableCellWithIdentifier:@"AllItemCell"];
-	AllItems *allItem = [self.allItemsArray objectAtIndex:indexPath.row];
-    cell.cellImage.image = allItem.imageOne;
-	cell.makeModelLabel.text = [NSString stringWithFormat:@"%@ %@", allItem.itemMake, allItem.itemModel];
-	cell.detailsLabel.text = allItem.itemDetails;
-    cell.dateAddedLabel.text = allItem.dateAdded;
-    
-    //Override to remove extra seperator lines after the last cell
-    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectMake(0,0,0,0)]];
-    
-    return cell;
-}*/
-
 //Built in method to allocate and reuse table view cells and apply item info
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

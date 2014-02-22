@@ -24,7 +24,7 @@
 @property (strong, nonatomic) NSMutableArray *allStoredArray;
 
 //Declare IBActions for switch changes
--(IBAction)syncAllSwitch:(id)sender;
--(IBAction)syncImageSwitch:(id)sender;
+-(IBAction)onSyncAll:(id)sender;
+-(IBAction)onSyncImage:(id)sender;
 
 @end

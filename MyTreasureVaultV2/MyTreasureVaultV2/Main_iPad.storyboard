@@ -62,11 +62,11 @@
             </objects>
             <point key="canvasLocation" x="327" y="-892"/>
         </scene>
-        <!--Navigation Controller - settings-->
+        <!--Navigation Controller - Settings-->
         <scene sceneID="Xqz-eI-gjM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DHF-3R-hXn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="settings" id="vgG-Mp-7qc"/>
+                    <tabBarItem key="tabBarItem" title="Settings" id="vgG-Mp-7qc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zI6-S1-cff">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -261,7 +261,7 @@
                                                     <rect key="frame" x="360" y="275" width="51" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
-                                                        <action selector="syncAllSwitch:" destination="tnR-Wd-UaK" eventType="valueChanged" id="wsP-BC-U8f"/>
+                                                        <action selector="onSyncAll:" destination="tnR-Wd-UaK" eventType="valueChanged" id="w75-lh-k7m"/>
                                                     </connections>
                                                 </switch>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Yes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ns1-DD-iPy">
@@ -292,7 +292,7 @@
                                                     <rect key="frame" x="360" y="495" width="51" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
-                                                        <action selector="syncImageSwitch:" destination="tnR-Wd-UaK" eventType="valueChanged" id="2gr-cV-ess"/>
+                                                        <action selector="onSyncImage:" destination="tnR-Wd-UaK" eventType="valueChanged" id="ozS-io-Grz"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -315,8 +315,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="syncAllSwitch" destination="pB7-rN-3Sg" id="ztv-Y4-FH5"/>
-                        <outlet property="syncImageSwitch" destination="ovF-6l-1wV" id="xbZ-V9-f8l"/>
+                        <outlet property="syncAllSwitch" destination="pB7-rN-3Sg" id="3jg-g1-HlG"/>
+                        <outlet property="syncImageSwitch" destination="ovF-6l-1wV" id="6Nd-aj-8Ow"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WD7-l5-CuM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -624,7 +624,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="4ql-Mp-O30"/>
+        <segue reference="kmf-71-XxM"/>
         <segue reference="mZL-Ca-tK5"/>
     </inferredMetricsTieBreakers>
 </document>

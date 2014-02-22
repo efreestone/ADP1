@@ -109,18 +109,12 @@
      //Present sign in view
      [self presentViewController:signInVC animated:true completion:nil];*/
     
+    //This code should be in viewDidAppear but was moved to viewDidLoad to stop the login screen from reappearing when dismissed with the X in top left. Log in isnt required but this has casued Parse to output error messages in the console. Everything does function as it is supposed to though.
     //Boilerplate login code from Parse tutorial "Login and Signup Views" to allocate/present login screen
     if (![PFUser currentUser]) { // No user logged in
         // Create the log in view controller
         PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
         [logInViewController setDelegate:self]; // Set ourselves as the delegate
-        
-        //Grab log in view. Adding this to fill in default log in
-        /*PFLogInView *logInView = [[PFLogInView alloc] init];
-         NSString *defaultUsername = @"test";
-         //Set default sign in
-         logInView.usernameField.text = defaultUsername;
-         logInView.passwordField.text = @"1234";*/
         
         // Create the sign up view controller
         PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
@@ -154,6 +148,7 @@
     
     [myTableView reloadData];
     
+    //Moved this to viewDidLoad so login screen doesn't reappear if dismissed without loggin in.
     /*//Boilerplate login code from Parse tutorial "Login and Signup Views" to allocate/present login screen
     if (![PFUser currentUser]) { // No user logged in
         // Create the log in view controller
@@ -375,7 +370,7 @@
 //Built in method to set number of rows in section in table view
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //Check length of array. This is to stop a crash because of array length when there is no items in storage. I think the crash is because the view is already loaded before the array is filled but I haven't been able to dig into the issue yet. I feel this is a hacky fix but it works for now.
+    //Check length of array. This is to stop a crash because of array length when there is no items in storage. I think the crash is because the view is already loaded before the array is filled but I haven't been able to dig into the issue yet. I feel this is a hacky fix but it works until one of the 5 items is deleted, which causes a crash again so I am displaying all items for now.
     /*if ([recentItemsArray count] <= 5) {
         return [recentItemsArray count];
     } else {
@@ -412,6 +407,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSLog(@"We want to delete row = %d", indexPath.row);
         
+        //Remove the object from storage
         [context deleteObject:[recentItemsArray objectAtIndex:indexPath.row]];
         
         NSError *error = nil;

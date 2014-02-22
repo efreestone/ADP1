@@ -542,6 +542,9 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oxk-d9-kNB">
                                                     <rect key="frame" x="136" y="133" width="51" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="onSyncAll:" destination="cSA-D8-h8U" eventType="valueChanged" id="ljQ-Zn-Jbh"/>
+                                                    </connections>
                                                 </switch>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Yes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86W-7v-R9p">
                                                     <rect key="frame" x="193" y="138" width="42" height="21"/>
@@ -570,6 +573,9 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vgH-Nv-Zzy">
                                                     <rect key="frame" x="136" y="231" width="51" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="onSyncImage:" destination="cSA-D8-h8U" eventType="valueChanged" id="6E7-DC-8dK"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -594,8 +600,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="syncAllSwitch" destination="oxk-d9-kNB" id="d1b-1d-CQl"/>
-                        <outlet property="syncImageSwitch" destination="vgH-Nv-Zzy" id="yfM-Wa-p4W"/>
+                        <outlet property="syncAllSwitch" destination="oxk-d9-kNB" id="gOK-6Q-0Tg"/>
+                        <outlet property="syncImageSwitch" destination="vgH-Nv-Zzy" id="dlH-Nv-gHA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jGJ-cC-EhQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

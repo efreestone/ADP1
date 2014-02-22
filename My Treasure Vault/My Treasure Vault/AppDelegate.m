@@ -1,3 +1,9 @@
+// Elijah Freestone
+// ADP1 1402
+// Week 4
+// My Treasure Vault Final
+// February 21st, 2014
+
 //
 //  AppDelegate.m
 //  My Treasure Vault
@@ -7,6 +13,12 @@
 //
 
 #import "AppDelegate.h"
+//Import Items Core Data subclass
+#import "Items.h"
+//Import Recent view controller
+#import "RecentViewController.h"
+//Import parse framework
+#import <Parse/Parse.h>
 
 @implementation AppDelegate
 
@@ -14,12 +26,20 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+@synthesize noDatabase;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    //Set up Parse Framework id and key
+    [Parse setApplicationId:@"WJomiNXzmFqumHIDGOoQQZewIDUeFF3Oxf8Lqz0n" clientKey:@"CWXP2lXmrKD6PYwZifBxgubYDqcGAPpP8733Frmv"];
+    //Track stats for app opens
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    /*UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+     UIViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
+     loginVC.modalPresentationStyle = UIModalPresentationFullScreen;
+     [self.window.rootViewController presentModalViewController:loginVC animated:YES];*/
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
     return YES;
 }
 
@@ -31,7 +51,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -57,11 +77,11 @@
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-             // Replace this implementation with code to handle the error appropriately.
-             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
-        } 
+        }
     }
 }
 
@@ -105,13 +125,24 @@
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"My_Treasure_Vault.sqlite"];
     
+    //RecentViewController *recentView = [[RecentViewController alloc] init];
+    //recentView.databaseExists = YES;
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]]) {
+        NSLog(@"SQLite DB doesnt exist");
+        noDatabase = YES;
+    } /*else {
+       NSLog(@"Yep SQLite DB is there");
+       recentView.noDatabase = NO;
+       }*/
+    
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
         /*
          Replace this implementation with code to handle the error appropriately.
          
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
          
          Typical reasons for an error here include:
          * The persistent store is not accessible;
@@ -133,7 +164,7 @@
          */
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
-    }    
+    }
     
     return _persistentStoreCoordinator;
 }

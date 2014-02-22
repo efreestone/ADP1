@@ -1,3 +1,9 @@
+// Elijah Freestone
+// ADP1 1402
+// Week 4
+// My Treasure Vault Final
+// February 21st, 2014
+
 //
 //  SettingsViewController.m
 //  My Treasure Vault
@@ -7,16 +13,28 @@
 //
 
 #import "SettingsViewController.h"
+//Import app delegate
+#import "AppDelegate.h"
+//Import core data subclass
+#import "Items.h"
+//Import Parse framework
+#import <Parse/Parse.h>
 
 @interface SettingsViewController ()
 
 @end
 
-@implementation SettingsViewController
+@implementation SettingsViewController {
+    AppDelegate *appDelegate;
+    Items *allItems;
+}
 
-- (id)initWithStyle:(UITableViewStyle)style
+//Synthesize for getters/setters
+@synthesize syncAllSwitch, syncImageSwitch, allStoredArray;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -26,12 +44,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,81 +53,47 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+#pragma mark - Switch Change
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//Triggered when sync all switch is changed
+-(IBAction)onSyncAll:(id)sender
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    if (syncAllSwitch.isOn) {
+        //Allocate app delegate
+        appDelegate = [[AppDelegate alloc] init];
+        //Allocate Items object
+        allItems = [[Items alloc] init];
+        
+        // Fetch the items from persistent data store
+        NSManagedObjectContext *managedObjectContext = [appDelegate managedObjectContext];
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Items"];
+        allStoredArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+        //NSLog(@"%@", [allStoredArray description]);
+        
+        for (Items *item in allStoredArray) {
+            NSLog(@"Make: %@ Model: %@", [item valueForKey:@"make"], [item valueForKey:@"model"]);
+            PFObject *newItem = [PFObject objectWithClassName:@"NewItem"];
+            newItem[@"make"] = [item valueForKey:@"make"];
+            newItem[@"model"] = [item valueForKey:@"model"];
+            newItem[@"serial"] = [item valueForKey:@"serial"];
+            newItem[@"details"] = [item valueForKey:@"details"];
+            newItem[@"cost"] = [item valueForKey:@"cost"];
+            
+            [newItem saveInBackground];
+        }
+        
+        //NSLog(@"All switch is ON");
+    } else {
+        NSLog(@"All switch is OFF");
+    }
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//Triggered when sync image switch is changed
+-(IBAction)onSyncImage:(id)sender
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    NSLog(@"Image switch changed");
+    UIAlertView *syncAlert = [[UIAlertView alloc] initWithTitle: @"Images would have synced" message: @"Your Images would have been synced, but this bit of code hasn't been written yet." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [syncAlert show];
 }
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 @end

@@ -18,14 +18,15 @@
 
 @interface RecentViewController : UITableViewController
 
+//Declare table view
 @property (strong, nonatomic) IBOutlet UITableView *myTableView;
-//Declare default data fill method
 
 //Declare array to hold recent items
 @property (nonatomic, strong) NSMutableArray *recentItemsArray;
 
 //@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
+//Declare default data fill methods
 -(void)fillDefaultData;
 -(void)saveDefault;
 

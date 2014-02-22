@@ -1,3 +1,9 @@
+// Elijah Freestone
+// ADP1 1402
+// Week 4
+// My Treasure Vault Final
+// February 21st, 2014
+
 //
 //  AllItemsViewController.m
 //  My Treasure Vault
@@ -7,31 +13,48 @@
 //
 
 #import "AllItemsViewController.h"
+//Import custom cell
+#import "CustomCell.h"
+//Import details view controller
+#import "DetailsViewController.h"
+//Import core data subclass Items
+#import "Items.h"
+//Import app delegate
+#import "AppDelegate.h"
 
 @interface AllItemsViewController ()
 
 @end
 
-@implementation AllItemsViewController
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+@implementation AllItemsViewController {
+    NSManagedObjectContext *context;
+    AppDelegate *appDelegate;
 }
+
+//Synthesize recent items array for getter/setter
+@synthesize allItemsArray, myTableView;
 
 - (void)viewDidLoad
 {
+    //Create instance of AppDelegate and set as delegate for access to core data
+    appDelegate = [[UIApplication sharedApplication] delegate];
+    //Grab managed object context on app delegate. This is used to check if an sqlite file already exists for the app
+    context = [appDelegate managedObjectContext];
+    
+    NSError *error;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    allItemsArray = [[context executeFetchRequest:fetchRequest error:&error] mutableCopy];
+    
+    //NSLog(@"All items: %@", [allItemsArray description]);
+    
+    //Move edit button to left side of nav bar (right is + sign for add item)
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,81 +63,103 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    // Fetch the items from persistent data store
+    NSManagedObjectContext *managedObjectContext = [appDelegate managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Items"];
+    allItemsArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
+    [myTableView reloadData];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.allItemsArray count];
 }
 
+//Built in method to allocate and reuse table view cells and apply item info
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    //Allocate custom cell
+    CustomCell *cell = (CustomCell *) [tableView dequeueReusableCellWithIdentifier:@"AllItemCell"];
+    Items *allItem = [self.allItemsArray objectAtIndex:indexPath.row];
+    //Cast image string into UIImage
+    UIImage *itemImage = [UIImage imageNamed:allItem.image];
+    //Apply image
+    cell.cellImage.image = itemImage;
+    //Apply make and model
+    cell.makeModelLabel.text = [NSString stringWithFormat:@"%@ %@", allItem.make, allItem.model];
+    cell.detailsLabel.text = allItem.details;
+    cell.dateAddedLabel.text = allItem.formattedDate;
     
-    // Configure the cell...
+    //Override to remove extra seperator lines after the last cell
+    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectMake(0,0,0,0)]];
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
+//Built in function to check editing style (-=delete, +=add)
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //Check if in delete mode
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+        [context deleteObject:[allItemsArray objectAtIndex:indexPath.row]];
+        
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+            return;
+        }
+        
+        //Remove the deleted object from recentItemsArray
+        [allItemsArray removeObjectAtIndex:indexPath.row];
+        
+        //Remove object from table view with animation. Receiving warning "local declaration of "tableView" hides instance variable". I may be missing something here but isn't this an Accessor method?
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:true];
+    }
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+#pragma mark - Segue
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
+//Built in method to pass data during segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    //Verify identifier of push segue to Details view
+    if ([segue.identifier isEqualToString:@"DetailView"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        //Grab destination view controller
+        DetailsViewController *detailsViewController = segue.destinationViewController;
+        //Grab instance of recentItem object
+        Items *allItem = [allItemsArray objectAtIndex:indexPath.row];
+        //Cast image string into UIImage
+        UIImage *itemImage = [UIImage imageNamed:allItem.image];
+        
+        NSManagedObject *selectedObject = [allItemsArray objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+        
+        if (detailsViewController != nil) {
+            //Pass title string and NSStrings/image to detail view
+            detailsViewController.title = allItem.model;
+            detailsViewController.passedItemImage = itemImage;
+            detailsViewController.passedItemMake = allItem.make;
+            detailsViewController.passedItemModel = allItem.model;
+            detailsViewController.passedItemSerial = allItem.serial;
+            detailsViewController.passedItemDetails = allItem.details;
+            detailsViewController.passedItemCost = allItem.cost;
+            detailsViewController.passedItemDateAdded = allItem.formattedDate;
+            detailsViewController.passedManagedObject = selectedObject;
+        }
+    }
 }
-
- */
 
 @end

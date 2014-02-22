@@ -85,11 +85,12 @@
         //Cast image string into UIImage
         //UIImage *itemImage = [UIImage imageNamed:recentItem.image];
         
+        //Pass managed object to Add Items to be parsed and displayed in text fields
         if (addItemViewController != nil) {
             //Pass title string and NSStrings/image to detail view
             //addItemViewController.title = recentItem.model;
             //[addItemViewController.makeTextField setText: passedItemMake];
-            addItemViewController.makeTextField.text = passedItemMake;
+            //addItemViewController.makeTextField.text = passedItemMake;
             //addItemViewController.modelTextField.text = passedItemModel;
             //addItemViewController.serialTextField.text = passedItemSerial;
             //addItemViewController.detailsTextField.text = passedItemDetails;
@@ -99,22 +100,6 @@
         }
     }
 }
-
-/*if ([segue.identifier isEqualToString:@"AddPlayer"])
-{
-    UINavigationController *navigationController = segue.destinationViewController;
-    PlayerDetailsViewController *playerDetailsViewController = [[navigationController viewControllers] objectAtIndex:0];
-    playerDetailsViewController.delegate = self;
-}*/
-
-/*- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"UpdateDevice"]) {
-        NSManagedObject *selectedDevice = [self.devices objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
-        DeviceDetailViewController *destViewController = segue.destinationViewController;
-        destViewController.device = selectedDevice;
-    }
-}*/
 
 @end
 
