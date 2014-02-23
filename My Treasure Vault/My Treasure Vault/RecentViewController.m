@@ -55,12 +55,12 @@
     //Grab managed object context on app delegate. This is used to check if an sqlite file already exists for the app
     context = [appDelegate managedObjectContext];
     
-    NSError *error;
+    /*NSError *error;
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
-    recentItemsArray = [[context executeFetchRequest:fetchRequest error:&error] mutableCopy];
+    recentItemsArray = [[context executeFetchRequest:fetchRequest error:&error] mutableCopy];*/
     
     //Check if fetched items array exists
     if (recentItemsArray != nil) {
@@ -109,7 +109,7 @@
     
     //This code should be in viewDidAppear but was moved to viewDidLoad to stop the login screen from reappearing when dismissed with the X in top left. Log in isnt required but this has casued Parse to output error messages in the console. Everything does function as it is supposed to though.
     //Boilerplate login code from Parse tutorial "Login and Signup Views" to allocate/present login screen
-    if (![PFUser currentUser]) { // No user logged in
+    /*if (![PFUser currentUser]) { // No user logged in
         // Create the log in view controller
         PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
         [logInViewController setDelegate:self]; // Set ourselves as the delegate
@@ -123,7 +123,7 @@
         
         // Present the log in view controller
         [self presentViewController:logInViewController animated:YES completion:NULL];
-    }
+    }*/
     
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -142,12 +142,17 @@
     // Fetch the items from persistent data store
     NSManagedObjectContext *managedObjectContext = [appDelegate managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Items"];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"dateAdded" ascending:NO];
+    
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+    
     recentItemsArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     
     [myTableView reloadData];
     
     //Moved this to viewDidLoad so login screen doesn't reappear if dismissed without loggin in.
-    /*//Boilerplate login code from Parse tutorial "Login and Signup Views" to allocate/present login screen
+    //Boilerplate login code from Parse tutorial "Login and Signup Views" to allocate/present login screen
      if (![PFUser currentUser]) { // No user logged in
      // Create the log in view controller
      PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
@@ -169,7 +174,7 @@
      
      // Present the log in view controller
      [self presentViewController:logInViewController animated:YES completion:NULL];
-     }*/
+     }
 }
 
 /*- (NSFetchedResultsController *)fetchedResultsController
@@ -221,6 +226,7 @@
 {
     NSString *dateString;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
     NSDate *dateAddedNS;
     dateString = @"";
     dateAddedNS = [dateFormatter dateFromString:dateString];

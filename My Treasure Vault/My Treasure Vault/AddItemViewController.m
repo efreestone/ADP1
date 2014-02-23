@@ -143,6 +143,8 @@
         newItem[@"serial"] = serialTextField.text;
         newItem[@"details"] = detailsTextField.text;
         newItem[@"cost"] = costTextField.text;
+        newItem[@"dateAdded"] = currentDate;
+        newItem[@"formattedDate"] = formattedDate;
         
         [newItem saveInBackground];
     }
