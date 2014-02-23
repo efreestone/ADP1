@@ -34,16 +34,11 @@
 }
 
 //Synthesize recent items array for getter/setter
-@synthesize recentItemsArray, myTableView;
+@synthesize fetchedItemsArray, recentItemsArray, myTableView;
 //@synthesize fetchedResultsController = _fetchedResultsController;
 
 - (void)viewDidLoad
 {
-    //Testing Parse
-    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    testObject[@"foo"] = @"bar";
-    //[testObject saveInBackground];
-    
     //Allocate fetched results controller
     //_fetchedResultsController = [[NSFetchedResultsController alloc] init];
     
@@ -149,31 +144,33 @@
     
     recentItemsArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     
+    //recentItemsArray = [fetchedItemsArray subarrayWithRange:NSMakeRange(0, 5)];
+    
     [myTableView reloadData];
     
     //Moved this to viewDidLoad so login screen doesn't reappear if dismissed without loggin in.
     //Boilerplate login code from Parse tutorial "Login and Signup Views" to allocate/present login screen
-     if (![PFUser currentUser]) { // No user logged in
-     // Create the log in view controller
-     PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
-     [logInViewController setDelegate:self]; // Set ourselves as the delegate
+    if (![PFUser currentUser]) { // No user logged in
+        // Create the log in view controller
+        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+        [logInViewController setDelegate:self]; // Set ourselves as the delegate
      
-     //Grab log in view. Adding this to fill in default log in
-     PFLogInView *logInView = [[PFLogInView alloc] init];
-     NSString *defaultUsername = @"test";
-     //Set default sign in
-     logInView.usernameField.text = defaultUsername;
-     logInView.passwordField.text = @"1234";
+        //Grab log in view. Adding this to fill in default log in
+        //PFLogInView *logInView = [[PFLogInView alloc] init];
+        //NSString *defaultUsername = @"test";
+        //Set default sign in
+        //logInView.usernameField.text = defaultUsername;
+        //logInView.passwordField.text = @"1234";
      
-     // Create the sign up view controller
-     PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
-     [signUpViewController setDelegate:self]; // Set ourselves as the delegate
+        // Create the sign up view controller
+        PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
+        [signUpViewController setDelegate:self]; // Set ourselves as the delegate
      
-     // Assign our sign up controller to be displayed from the login controller
-     [logInViewController setSignUpController:signUpViewController];
+        // Assign our sign up controller to be displayed from the login controller
+        [logInViewController setSignUpController:signUpViewController];
      
-     // Present the log in view controller
-     [self presentViewController:logInViewController animated:YES completion:NULL];
+        // Present the log in view controller
+        [self presentViewController:logInViewController animated:YES completion:NULL];
      }
 }
 
@@ -382,6 +379,7 @@
      }*/
     // Return the number of rows in the section.
     return [recentItemsArray count];
+    //return 5;
 }
 
 //Built in method to allocate and reuse table view cells and apply item info
@@ -408,6 +406,9 @@
 //Built in function to check editing style (-=delete, +=add)
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     //Check if in delete mode
+    
+    int rowSelected = indexPath.row;
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSLog(@"We want to delete row = %d", indexPath.row);
         
@@ -420,11 +421,20 @@
             return;
         }
         
+        NSMutableDictionary *newInsert = [recentItemsArray objectAtIndex:rowSelected];
+        NSLog(@"new insert: %@", [newInsert description]);
+        
         //Remove the deleted object from recentItemsArray
+        //[fetchedItemsArray removeObjectAtIndex:indexPath.row];
         [recentItemsArray removeObjectAtIndex:indexPath.row];
+        
+        //recentItemsArray = [fetchedItemsArray subarrayWithRange:NSMakeRange(0, 5)];
+        //[recentItemsArray insertObject:newInsert atIndex:rowSelected];
+        
         
         //Remove object from table view with animation. Receiving warning "local declaration of "tableView" hides instance variable". I may be missing something here but isn't this an Accessor method?
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:true];
+        //[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:true];
     }
 }
 

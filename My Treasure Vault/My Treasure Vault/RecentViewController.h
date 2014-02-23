@@ -21,6 +21,8 @@
 //Declare table view
 @property (strong, nonatomic) IBOutlet UITableView *myTableView;
 
+//Declare array to hold fetched items
+@property (nonatomic, strong) NSMutableArray *fetchedItemsArray;
 //Declare array to hold recent items
 @property (nonatomic, strong) NSMutableArray *recentItemsArray;
 
