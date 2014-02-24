@@ -41,12 +41,12 @@
     //Grab managed object context on app delegate. This is used to check if an sqlite file already exists for the app
     context = [appDelegate managedObjectContext];
     
-    NSError *error;
+    /*NSError *error;
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
-    allItemsArray = [[context executeFetchRequest:fetchRequest error:&error] mutableCopy];
+    allItemsArray = [[context executeFetchRequest:fetchRequest error:&error] mutableCopy];*/
     
     //NSLog(@"All items: %@", [allItemsArray description]);
     
@@ -70,6 +70,11 @@
     // Fetch the items from persistent data store
     NSManagedObjectContext *managedObjectContext = [appDelegate managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Items"];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"dateAdded" ascending:NO];
+    
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+    
     allItemsArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     
     [myTableView reloadData];

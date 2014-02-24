@@ -136,13 +136,14 @@
     
     // Fetch the items from persistent data store
     NSManagedObjectContext *managedObjectContext = [appDelegate managedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Items"];
+    NSFetchRequest *recentFetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Items"];
     
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"dateAdded" ascending:NO];
     
-    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+    [recentFetchRequest setSortDescriptors:@[sortDescriptor]];
+    [recentFetchRequest setFetchLimit:5];
     
-    recentItemsArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    recentItemsArray = [[managedObjectContext executeFetchRequest:recentFetchRequest error:nil] mutableCopy];
     
     //recentItemsArray = [fetchedItemsArray subarrayWithRange:NSMakeRange(0, 5)];
     
