@@ -34,7 +34,7 @@
 }
 
 //Synthesize recent items array for getter/setter
-@synthesize fetchedItemsArray, recentItemsArray, myTableView;
+@synthesize recentItemsArray, myTableView;
 //@synthesize fetchedResultsController = _fetchedResultsController;
 
 - (void)viewDidLoad
@@ -137,15 +137,13 @@
     // Fetch the items from persistent data store
     NSManagedObjectContext *managedObjectContext = [appDelegate managedObjectContext];
     NSFetchRequest *recentFetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Items"];
-    
+    //Set sort descriptor to use dateAdded (NSDate) to sort newest first
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"dateAdded" ascending:NO];
-    
     [recentFetchRequest setSortDescriptors:@[sortDescriptor]];
+    //Set limit of fetch to 5
     [recentFetchRequest setFetchLimit:5];
-    
+    //Cast fetched items into mutable array to display
     recentItemsArray = [[managedObjectContext executeFetchRequest:recentFetchRequest error:nil] mutableCopy];
-    
-    //recentItemsArray = [fetchedItemsArray subarrayWithRange:NSMakeRange(0, 5)];
     
     [myTableView reloadData];
     
@@ -224,10 +222,10 @@
 {
     NSString *dateString;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
+    [dateFormatter setLocale:[NSLocale currentLocale]];
     NSDate *dateAddedNS;
-    dateString = @"";
-    dateAddedNS = [dateFormatter dateFromString:dateString];
     
     NSString *defaultImage = @"defaultImage.png";
     
@@ -240,7 +238,8 @@
     [newDefaultItem setValue: @"123ABCD456789" forKey:@"serial"];
     [newDefaultItem setValue: @"Black 16GB smartphone" forKey:@"details"];
     [newDefaultItem setValue: @"$350" forKey:@"cost"];
-    dateString = @"2014-02-11 12:00:00 +0000";
+    dateString = @"2014-02-11 12:00:00";
+    dateAddedNS = [dateFormatter dateFromString:dateString];
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"02-11-2014" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
@@ -253,7 +252,8 @@
     [newDefaultItem setValue: @"A12BCD34EF567" forKey:@"serial"];
     [newDefaultItem setValue: @"Silver 15inch laptop, late 2011 model" forKey:@"details"];
     [newDefaultItem setValue: @"$1500" forKey:@"cost"];
-    dateString = @"2014-02-01 12:00:00 +0000";
+    dateString = @"2014-02-01 12:00:00";
+    dateAddedNS = [dateFormatter dateFromString:dateString];
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"02-01-2014" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
@@ -266,7 +266,8 @@
     [newDefaultItem setValue: @"ISO123456ABCD" forKey:@"serial"];
     [newDefaultItem setValue: @"Cherryburst electric guitar with case, Seymour Duncan pickups" forKey:@"details"];
     [newDefaultItem setValue: @"$750" forKey:@"cost"];
-    dateString = @"2014-01-10 12:00:00 +0000";
+    dateString = @"2014-01-10 12:00:00";
+    dateAddedNS = [dateFormatter dateFromString:dateString];
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"01-10-2014" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
@@ -279,7 +280,8 @@
     [newDefaultItem setValue: @"A12BCD34EF567" forKey:@"serial"];
     [newDefaultItem setValue: @"Black 160GB MP3 player" forKey:@"details"];
     [newDefaultItem setValue: @"$200" forKey:@"cost"];
-    dateString = @"2014-12-25 12:00:00 +0000";
+    dateString = @"2013-12-25 12:00:00";
+    dateAddedNS = [dateFormatter dateFromString:dateString];
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"12-25-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
@@ -291,7 +293,8 @@
     [newDefaultItem setValue: @"9876ABCD54321" forKey:@"serial"];
     [newDefaultItem setValue: @"Black 7inch Android tablet" forKey:@"details"];
     [newDefaultItem setValue: @"$140" forKey:@"cost"];
-    dateString = @"2014-12-25 12:00:00 +0000";
+    dateString = @"2013-12-25 12:00:00";
+    dateAddedNS = [dateFormatter dateFromString:dateString];
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"12-25-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
@@ -303,11 +306,13 @@
     [newDefaultItem setValue: @"1234567890" forKey:@"serial"];
     [newDefaultItem setValue: @"40inch slim LED HDTV" forKey:@"details"];
     [newDefaultItem setValue: @"$600" forKey:@"cost"];
-    dateString = @"2014-12-25 12:00:00 +0000";
+    dateString = @"2013-12-25 12:00:00";
+    dateAddedNS = [dateFormatter dateFromString:dateString];
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"12-25-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
     [self saveDefault];
+    //NSLog(@"Default Samsung: %@", [newDefaultItem description]);
     //Item 7
     newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
     [newDefaultItem setValue: @"Apple" forKey:@"make"];
@@ -315,7 +320,8 @@
     [newDefaultItem setValue: @"ABCDEFG0987" forKey:@"serial"];
     [newDefaultItem setValue: @"Black and silver tablet" forKey:@"details"];
     [newDefaultItem setValue: @"$500" forKey:@"cost"];
-    dateString = @"2014-11-21 12:00:00 +0000";
+    dateString = @"2013-11-21 12:00:00";
+    dateAddedNS = [dateFormatter dateFromString:dateString];
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"11-21-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
@@ -327,7 +333,8 @@
     [newDefaultItem setValue: @"1029384756BLAH" forKey:@"serial"];
     [newDefaultItem setValue: @"Black 23inch LED Monitor" forKey:@"details"];
     [newDefaultItem setValue: @"$180" forKey:@"cost"];
-    dateString = @"2014-10-13 12:00:00 +0000";
+    dateString = @"2013-10-13 12:00:00";
+    dateAddedNS = [dateFormatter dateFromString:dateString];
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"10-13-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
@@ -339,7 +346,8 @@
     [newDefaultItem setValue: @"BIGTABLET1234" forKey:@"serial"];
     [newDefaultItem setValue: @"21inch All-in-one PC/ really big tablet" forKey:@"details"];
     [newDefaultItem setValue: @"$1200" forKey:@"cost"];
-    dateString = @"2014-10-10 12:00:00 +0000";
+    dateString = @"2013-10-10 12:00:00";
+    dateAddedNS = [dateFormatter dateFromString:dateString];
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"10-10-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
@@ -351,12 +359,12 @@
     [newDefaultItem setValue: @"SNOWBEAST09876" forKey:@"serial"];
     [newDefaultItem setValue: @"Silver 1993 all wheel drive wagon" forKey:@"details"];
     [newDefaultItem setValue: @"$2000" forKey:@"cost"];
-    dateString = @"2014-08-22 12:00:00 +0000";
+    dateString = @"2013-08-22 12:00:00";
+    dateAddedNS = [dateFormatter dateFromString:dateString];
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"08-22-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
     [self saveDefault];
-    
     
     //[myTableView reloadData];
 }
@@ -372,15 +380,8 @@
 //Built in method to set number of rows in section in table view
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //Check length of array. This is to stop a crash because of array length when there is no items in storage. I think the crash is because the view is already loaded before the array is filled but I haven't been able to dig into the issue yet. I feel this is a hacky fix but it works until one of the 5 items is deleted, which causes a crash again so I am displaying all items for now.
-    /*if ([recentItemsArray count] <= 5) {
-     return [recentItemsArray count];
-     } else {
-     return 5;
-     }*/
     // Return the number of rows in the section.
     return [recentItemsArray count];
-    //return 5;
 }
 
 //Built in method to allocate and reuse table view cells and apply item info
@@ -426,12 +427,7 @@
         NSLog(@"new insert: %@", [newInsert description]);
         
         //Remove the deleted object from recentItemsArray
-        //[fetchedItemsArray removeObjectAtIndex:indexPath.row];
         [recentItemsArray removeObjectAtIndex:indexPath.row];
-        
-        //recentItemsArray = [fetchedItemsArray subarrayWithRange:NSMakeRange(0, 5)];
-        //[recentItemsArray insertObject:newInsert atIndex:rowSelected];
-        
         
         //Remove object from table view with animation. Receiving warning "local declaration of "tableView" hides instance variable". I may be missing something here but isn't this an Accessor method?
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:true];
