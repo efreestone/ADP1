@@ -131,6 +131,8 @@
             [newItem setValue: defaultImage forKey:@"image"];
         } else {
             NSString *imageURLString = [passedImageURL absoluteString];
+            NSData *imageData = [[NSData alloc] initWithContentsOfURL:passedImageURL];
+            UIImage *imageFromURL = [[UIImage alloc] initWithData:imageData];
             [newItem setValue: imageURLString forKey:@"image"];
         }
     }
