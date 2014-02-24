@@ -54,7 +54,7 @@
 {
     [super viewDidAppear:animated];
     
-    NSLog(@"it works");
+    //NSLog(@"it works");
 }
 
 - (void)didReceiveMemoryWarning

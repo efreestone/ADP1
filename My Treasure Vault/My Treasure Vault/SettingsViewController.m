@@ -78,6 +78,8 @@
             newItem[@"serial"] = [item valueForKey:@"serial"];
             newItem[@"details"] = [item valueForKey:@"details"];
             newItem[@"cost"] = [item valueForKey:@"cost"];
+            newItem[@"dateAdded"] = [item valueForKey:@"dateAdded"];
+            newItem[@"formattedDate"] = [item valueForKey:@"formattedDate"];
             
             [newItem saveInBackground];
         }

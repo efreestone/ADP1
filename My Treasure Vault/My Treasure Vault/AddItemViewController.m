@@ -131,6 +131,8 @@
             [newItem setValue: defaultImage forKey:@"image"];
         } else {
             NSString *imageURLString = [passedImageURL absoluteString];
+            NSData *imageData = [[NSData alloc] initWithContentsOfURL:passedImageURL];
+            UIImage *imageFromURL = [[UIImage alloc] initWithData:imageData];
             [newItem setValue: imageURLString forKey:@"image"];
         }
     }
@@ -143,6 +145,8 @@
         newItem[@"serial"] = serialTextField.text;
         newItem[@"details"] = detailsTextField.text;
         newItem[@"cost"] = costTextField.text;
+        newItem[@"dateAdded"] = currentDate;
+        newItem[@"formattedDate"] = formattedDate;
         
         [newItem saveInBackground];
     }

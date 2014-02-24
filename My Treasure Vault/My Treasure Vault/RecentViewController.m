@@ -39,11 +39,6 @@
 
 - (void)viewDidLoad
 {
-    //Testing Parse
-    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    testObject[@"foo"] = @"bar";
-    //[testObject saveInBackground];
-    
     //Allocate fetched results controller
     //_fetchedResultsController = [[NSFetchedResultsController alloc] init];
     
@@ -55,12 +50,12 @@
     //Grab managed object context on app delegate. This is used to check if an sqlite file already exists for the app
     context = [appDelegate managedObjectContext];
     
-    NSError *error;
+    /*NSError *error;
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
-    recentItemsArray = [[context executeFetchRequest:fetchRequest error:&error] mutableCopy];
+    recentItemsArray = [[context executeFetchRequest:fetchRequest error:&error] mutableCopy];*/
     
     //Check if fetched items array exists
     if (recentItemsArray != nil) {
@@ -109,7 +104,7 @@
     
     //This code should be in viewDidAppear but was moved to viewDidLoad to stop the login screen from reappearing when dismissed with the X in top left. Log in isnt required but this has casued Parse to output error messages in the console. Everything does function as it is supposed to though.
     //Boilerplate login code from Parse tutorial "Login and Signup Views" to allocate/present login screen
-    if (![PFUser currentUser]) { // No user logged in
+    /*if (![PFUser currentUser]) { // No user logged in
         // Create the log in view controller
         PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
         [logInViewController setDelegate:self]; // Set ourselves as the delegate
@@ -123,7 +118,7 @@
         
         // Present the log in view controller
         [self presentViewController:logInViewController animated:YES completion:NULL];
-    }
+    }*/
     
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -141,35 +136,41 @@
     
     // Fetch the items from persistent data store
     NSManagedObjectContext *managedObjectContext = [appDelegate managedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Items"];
-    recentItemsArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    NSFetchRequest *recentFetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Items"];
+    //Set sort descriptor to use dateAdded (NSDate) to sort newest first
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"dateAdded" ascending:NO];
+    [recentFetchRequest setSortDescriptors:@[sortDescriptor]];
+    //Set limit of fetch to 5
+    [recentFetchRequest setFetchLimit:5];
+    //Cast fetched items into mutable array to display
+    recentItemsArray = [[managedObjectContext executeFetchRequest:recentFetchRequest error:nil] mutableCopy];
     
     [myTableView reloadData];
     
     //Moved this to viewDidLoad so login screen doesn't reappear if dismissed without loggin in.
-    /*//Boilerplate login code from Parse tutorial "Login and Signup Views" to allocate/present login screen
-     if (![PFUser currentUser]) { // No user logged in
-     // Create the log in view controller
-     PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
-     [logInViewController setDelegate:self]; // Set ourselves as the delegate
+    //Boilerplate login code from Parse tutorial "Login and Signup Views" to allocate/present login screen
+    if (![PFUser currentUser]) { // No user logged in
+        // Create the log in view controller
+        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+        [logInViewController setDelegate:self]; // Set ourselves as the delegate
      
-     //Grab log in view. Adding this to fill in default log in
-     PFLogInView *logInView = [[PFLogInView alloc] init];
-     NSString *defaultUsername = @"test";
-     //Set default sign in
-     logInView.usernameField.text = defaultUsername;
-     logInView.passwordField.text = @"1234";
+        //Grab log in view. Adding this to fill in default log in
+        //PFLogInView *logInView = [[PFLogInView alloc] init];
+        //NSString *defaultUsername = @"test";
+        //Set default sign in
+        //logInView.usernameField.text = defaultUsername;
+        //logInView.passwordField.text = @"1234";
      
-     // Create the sign up view controller
-     PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
-     [signUpViewController setDelegate:self]; // Set ourselves as the delegate
+        // Create the sign up view controller
+        PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
+        [signUpViewController setDelegate:self]; // Set ourselves as the delegate
      
-     // Assign our sign up controller to be displayed from the login controller
-     [logInViewController setSignUpController:signUpViewController];
+        // Assign our sign up controller to be displayed from the login controller
+        [logInViewController setSignUpController:signUpViewController];
      
-     // Present the log in view controller
-     [self presentViewController:logInViewController animated:YES completion:NULL];
-     }*/
+        // Present the log in view controller
+        [self presentViewController:logInViewController animated:YES completion:NULL];
+     }
 }
 
 /*- (NSFetchedResultsController *)fetchedResultsController
@@ -221,9 +222,10 @@
 {
     NSString *dateString;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
+    [dateFormatter setLocale:[NSLocale currentLocale]];
     NSDate *dateAddedNS;
-    dateString = @"";
-    dateAddedNS = [dateFormatter dateFromString:dateString];
     
     NSString *defaultImage = @"defaultImage.png";
     
@@ -236,7 +238,8 @@
     [newDefaultItem setValue: @"123ABCD456789" forKey:@"serial"];
     [newDefaultItem setValue: @"Black 16GB smartphone" forKey:@"details"];
     [newDefaultItem setValue: @"$350" forKey:@"cost"];
-    dateString = @"2014-02-11 12:00:00 +0000";
+    dateString = @"2014-02-11 12:00:00";
+    dateAddedNS = [dateFormatter dateFromString:dateString];
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"02-11-2014" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
@@ -249,7 +252,8 @@
     [newDefaultItem setValue: @"A12BCD34EF567" forKey:@"serial"];
     [newDefaultItem setValue: @"Silver 15inch laptop, late 2011 model" forKey:@"details"];
     [newDefaultItem setValue: @"$1500" forKey:@"cost"];
-    dateString = @"2014-02-01 12:00:00 +0000";
+    dateString = @"2014-02-01 12:00:00";
+    dateAddedNS = [dateFormatter dateFromString:dateString];
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"02-01-2014" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
@@ -262,7 +266,8 @@
     [newDefaultItem setValue: @"ISO123456ABCD" forKey:@"serial"];
     [newDefaultItem setValue: @"Cherryburst electric guitar with case, Seymour Duncan pickups" forKey:@"details"];
     [newDefaultItem setValue: @"$750" forKey:@"cost"];
-    dateString = @"2014-01-10 12:00:00 +0000";
+    dateString = @"2014-01-10 12:00:00";
+    dateAddedNS = [dateFormatter dateFromString:dateString];
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"01-10-2014" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
@@ -275,7 +280,8 @@
     [newDefaultItem setValue: @"A12BCD34EF567" forKey:@"serial"];
     [newDefaultItem setValue: @"Black 160GB MP3 player" forKey:@"details"];
     [newDefaultItem setValue: @"$200" forKey:@"cost"];
-    dateString = @"2014-12-25 12:00:00 +0000";
+    dateString = @"2013-12-25 12:00:00";
+    dateAddedNS = [dateFormatter dateFromString:dateString];
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"12-25-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
@@ -287,7 +293,8 @@
     [newDefaultItem setValue: @"9876ABCD54321" forKey:@"serial"];
     [newDefaultItem setValue: @"Black 7inch Android tablet" forKey:@"details"];
     [newDefaultItem setValue: @"$140" forKey:@"cost"];
-    dateString = @"2014-12-25 12:00:00 +0000";
+    dateString = @"2013-12-25 12:00:00";
+    dateAddedNS = [dateFormatter dateFromString:dateString];
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"12-25-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
@@ -299,11 +306,13 @@
     [newDefaultItem setValue: @"1234567890" forKey:@"serial"];
     [newDefaultItem setValue: @"40inch slim LED HDTV" forKey:@"details"];
     [newDefaultItem setValue: @"$600" forKey:@"cost"];
-    dateString = @"2014-12-25 12:00:00 +0000";
+    dateString = @"2013-12-25 12:00:00";
+    dateAddedNS = [dateFormatter dateFromString:dateString];
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"12-25-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
     [self saveDefault];
+    //NSLog(@"Default Samsung: %@", [newDefaultItem description]);
     //Item 7
     newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
     [newDefaultItem setValue: @"Apple" forKey:@"make"];
@@ -311,7 +320,8 @@
     [newDefaultItem setValue: @"ABCDEFG0987" forKey:@"serial"];
     [newDefaultItem setValue: @"Black and silver tablet" forKey:@"details"];
     [newDefaultItem setValue: @"$500" forKey:@"cost"];
-    dateString = @"2014-11-21 12:00:00 +0000";
+    dateString = @"2013-11-21 12:00:00";
+    dateAddedNS = [dateFormatter dateFromString:dateString];
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"11-21-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
@@ -323,7 +333,8 @@
     [newDefaultItem setValue: @"1029384756BLAH" forKey:@"serial"];
     [newDefaultItem setValue: @"Black 23inch LED Monitor" forKey:@"details"];
     [newDefaultItem setValue: @"$180" forKey:@"cost"];
-    dateString = @"2014-10-13 12:00:00 +0000";
+    dateString = @"2013-10-13 12:00:00";
+    dateAddedNS = [dateFormatter dateFromString:dateString];
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"10-13-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
@@ -335,7 +346,8 @@
     [newDefaultItem setValue: @"BIGTABLET1234" forKey:@"serial"];
     [newDefaultItem setValue: @"21inch All-in-one PC/ really big tablet" forKey:@"details"];
     [newDefaultItem setValue: @"$1200" forKey:@"cost"];
-    dateString = @"2014-10-10 12:00:00 +0000";
+    dateString = @"2013-10-10 12:00:00";
+    dateAddedNS = [dateFormatter dateFromString:dateString];
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"10-10-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
@@ -347,12 +359,12 @@
     [newDefaultItem setValue: @"SNOWBEAST09876" forKey:@"serial"];
     [newDefaultItem setValue: @"Silver 1993 all wheel drive wagon" forKey:@"details"];
     [newDefaultItem setValue: @"$2000" forKey:@"cost"];
-    dateString = @"2014-08-22 12:00:00 +0000";
+    dateString = @"2013-08-22 12:00:00";
+    dateAddedNS = [dateFormatter dateFromString:dateString];
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"08-22-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
     [self saveDefault];
-    
     
     //[myTableView reloadData];
 }
@@ -368,12 +380,6 @@
 //Built in method to set number of rows in section in table view
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //Check length of array. This is to stop a crash because of array length when there is no items in storage. I think the crash is because the view is already loaded before the array is filled but I haven't been able to dig into the issue yet. I feel this is a hacky fix but it works until one of the 5 items is deleted, which causes a crash again so I am displaying all items for now.
-    /*if ([recentItemsArray count] <= 5) {
-     return [recentItemsArray count];
-     } else {
-     return 5;
-     }*/
     // Return the number of rows in the section.
     return [recentItemsArray count];
 }
@@ -402,6 +408,9 @@
 //Built in function to check editing style (-=delete, +=add)
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     //Check if in delete mode
+    
+    int rowSelected = indexPath.row;
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSLog(@"We want to delete row = %d", indexPath.row);
         
@@ -414,11 +423,15 @@
             return;
         }
         
+        NSMutableDictionary *newInsert = [recentItemsArray objectAtIndex:rowSelected];
+        NSLog(@"new insert: %@", [newInsert description]);
+        
         //Remove the deleted object from recentItemsArray
         [recentItemsArray removeObjectAtIndex:indexPath.row];
         
         //Remove object from table view with animation. Receiving warning "local declaration of "tableView" hides instance variable". I may be missing something here but isn't this an Accessor method?
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:true];
+        //[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:true];
     }
 }
 
