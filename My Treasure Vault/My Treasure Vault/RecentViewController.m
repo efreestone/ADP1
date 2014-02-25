@@ -251,7 +251,7 @@
     [self saveDefault];
     //NSLog(@"Default: %@", [newDefaultItem description]);
     //Item 2
-    /*newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
+    newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
     [newDefaultItem setValue: @"Apple" forKey:@"make"];
     [newDefaultItem setValue: @"MacBook Pro" forKey:@"model"];
     [newDefaultItem setValue: @"A12BCD34EF567" forKey:@"serial"];
@@ -262,6 +262,7 @@
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"02-01-2014" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [newDefaultItem setValue: nullData forKey:@"imageData"];
     [self saveDefault];
     //NSLog(@"Default: %@", [newDefaultItem description]);
     //Item 3
@@ -276,6 +277,7 @@
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"01-10-2014" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [newDefaultItem setValue: nullData forKey:@"imageData"];
     [self saveDefault];
     //NSLog(@"Default: %@", [newDefaultItem description]);
     //Item 4
@@ -290,6 +292,7 @@
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"12-25-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [newDefaultItem setValue: nullData forKey:@"imageData"];
     [self saveDefault];
     //Item 5
     newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
@@ -303,6 +306,7 @@
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"12-25-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [newDefaultItem setValue: nullData forKey:@"imageData"];
     [self saveDefault];
     //Item 6
     newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
@@ -316,6 +320,7 @@
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"12-25-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [newDefaultItem setValue: nullData forKey:@"imageData"];
     [self saveDefault];
     //NSLog(@"Default Samsung: %@", [newDefaultItem description]);
     //Item 7
@@ -330,6 +335,7 @@
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"11-21-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [newDefaultItem setValue: nullData forKey:@"imageData"];
     [self saveDefault];
     //Item 8
     newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
@@ -343,6 +349,7 @@
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"10-13-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [newDefaultItem setValue: nullData forKey:@"imageData"];
     [self saveDefault];
     //Item 9
     newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
@@ -356,6 +363,7 @@
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"10-10-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [newDefaultItem setValue: nullData forKey:@"imageData"];
     [self saveDefault];
     //Item 10
     newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
@@ -369,7 +377,8 @@
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"08-22-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
-    [self saveDefault];*/
+    [newDefaultItem setValue: nullData forKey:@"imageData"];
+    [self saveDefault];
     
     //[myTableView reloadData];
 }
@@ -401,9 +410,10 @@
         //Cast image from data. Not sure why but this sets it in landscape mode
         UIImage *imageFromData = [UIImage imageWithData:recentItem.imageData];
         //Rotate imageFromData to be in portrait
-        itemImage = [[UIImage alloc] initWithCGImage: imageFromData.CGImage scale: 1.0 orientation: UIImageOrientationLeft];
-        //itemImage = [UIImage imageWithData:recentItem.imageData];
+        //itemImage = [[UIImage alloc] initWithCGImage: imageFromData.CGImage scale: 1.0 orientation: UIImageOrientationLeft];
+        itemImage = [UIImage imageWithData:recentItem.imageData];
     } else {
+        //Apply default image not stored locally. Not stored core data or synced to Parse
         itemImage = [UIImage imageNamed:recentItem.image];
     }
     

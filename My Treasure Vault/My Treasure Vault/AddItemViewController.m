@@ -60,7 +60,7 @@
         costTextField.text = [passedManagedObject valueForKey:@"cost"];
     }
     
-    NSLog(@"Make: %@", makeTextField.text);
+    //NSLog(@"Make: %@", makeTextField.text);
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
@@ -135,7 +135,12 @@
             //NSData *imageData = [[NSData alloc] initWithContentsOfURL:passedImageURL];
             //UIImage *imageFromURL = [[UIImage alloc] initWithData:imageData];
             //NSData *imageData = UIImagePNGRepresentation(yourUIImage);
-            imageData = UIImagePNGRepresentation(selectedImage);
+            UIImage *rotatedImage = [[UIImage alloc] initWithCGImage: selectedImage.CGImage scale: 1.0 orientation: UIImageOrientationLeft];
+            //NSLog(@"%@", [rotatedImage description]);
+            imageData = UIImageJPEGRepresentation(rotatedImage, 0.005f);
+            NSLog(@"imageData: %lu", (unsigned long)[imageData length]);
+            UIImage *resizedImage = [UIImage imageWithData:imageData];
+            NSLog(@"%@", [resizedImage description]);
             [newItem setValue: imageURLString forKey:@"image"];
             [newItem setValue: imageData forKey:@"imageData"];
         }
@@ -152,7 +157,7 @@
         newItem[@"dateAdded"] = currentDate;
         newItem[@"formattedDate"] = formattedDate;
         newItem[@"imageData"] = imageData;
-        
+        //Save item to Parse
         [newItem saveInBackground];
     }
     

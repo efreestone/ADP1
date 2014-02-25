@@ -430,7 +430,6 @@
                                 </state>
                                 <connections>
                                     <action selector="onClick:" destination="mEX-d8-Iw3" eventType="touchUpInside" id="ZLc-II-x3g"/>
-                                    <segue destination="Dbj-xM-OC1" kind="push" identifier="CameraView" id="ZNt-RM-ud8"/>
                                 </connections>
                             </button>
                         </subviews>
