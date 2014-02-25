@@ -70,6 +70,7 @@
         allStoredArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
         //NSLog(@"%@", [allStoredArray description]);
         
+        //Loop through core data and create new PFObject to send to Parse
         for (Items *item in allStoredArray) {
             NSLog(@"Make: %@ Model: %@", [item valueForKey:@"make"], [item valueForKey:@"model"]);
             PFObject *newItem = [PFObject objectWithClassName:@"NewItem"];
@@ -81,21 +82,25 @@
             newItem[@"dateAdded"] = [item valueForKey:@"dateAdded"];
             newItem[@"formattedDate"] = [item valueForKey:@"formattedDate"];
             if (syncImageSwitch.isOn) {
-                NSString *imageName = [NSString stringWithFormat:@"%@.jpg", [item valueForKey:@"make"]];
-                UIImage *uploadImage = [UIImage imageWithData:[item valueForKey:@"imageData"]];
-                PFFile *imageFile = [PFFile fileWithName: imageName data:[item valueForKey:@"imageData"]];
-                newItem[@"imageFile"] = imageFile;
-                //PFObject *userPhoto = [PFObject objectWithClassName:@"UserPhoto"];
-                //[userPhoto setObject:imageFile forKey:@"imageFile"];
-                //newItem[@"imageData"] = [item valueForKey:@"imageData"];
-                //[self uploadImage:uploadImage];
-                
+                //Check if imageData is set to NSNull object. This is to always skip syncing default item image.
+                if ([item valueForKey:@"imageData"] != NULL) {
+                    NSLog(@"NULL didn't work");
+                    NSString *imageName = [NSString stringWithFormat:@"%@.png", [item valueForKey:@"make"]];
+                    //UIImage *uploadImage = [UIImage imageWithData:[item valueForKey:@"imageData"]];
+                    PFFile *imageFile = [PFFile fileWithName: imageName data:[item valueForKey:@"imageData"]];
+                    newItem[@"imageFile"] = imageFile;
+                    //PFObject *userPhoto = [PFObject objectWithClassName:@"UserPhoto"];
+                    //[userPhoto setObject:imageFile forKey:@"imageFile"];
+                    //newItem[@"imageData"] = [item valueForKey:@"imageData"];
+                    //[self uploadImage:uploadImage];
+                } else {
+                    NSLog(@"Image Data set to NULL so no image was synced");
+                }
             }
             //newItem[@"imageData"] = [item valueForKey:@"imageData"];
-            
+            //Start save
             [newItem saveInBackground];
         }
-        
         //NSLog(@"All switch is ON");
     } else {
         NSLog(@"All switch is OFF");

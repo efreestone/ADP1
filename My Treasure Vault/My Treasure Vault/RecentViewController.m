@@ -229,7 +229,9 @@
     
     NSString *defaultImage = @"defaultImage.png";
     
-    NSData *nullData = NULL;
+    //NSData *defaultImageData = UIImagePNGRepresentation(selectedImage);
+    
+    NSNull *nullData;
     
     Items *newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
     
