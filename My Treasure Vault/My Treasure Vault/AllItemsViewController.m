@@ -99,8 +99,20 @@
     //Allocate custom cell
     CustomCell *cell = (CustomCell *) [tableView dequeueReusableCellWithIdentifier:@"AllItemCell"];
     Items *allItem = [self.allItemsArray objectAtIndex:indexPath.row];
+    UIImage *itemImage;
+    //Check if imageData exists
+    if (allItem.imageData != nil) {
+        //Cast image from data. Not sure why but this sets it in landscape mode
+        UIImage *imageFromData = [UIImage imageWithData:allItem.imageData];
+        //Rotate imageFromData to be in portrait
+        itemImage = [[UIImage alloc] initWithCGImage: imageFromData.CGImage scale: 1.0 orientation: UIImageOrientationLeft];
+        //itemImage = [UIImage imageWithData:recentItem.imageData];
+    } else {
+        itemImage = [UIImage imageNamed:allItem.image];
+    }
+    
     //Cast image string into UIImage
-    UIImage *itemImage = [UIImage imageNamed:allItem.image];
+    //UIImage *itemImage = [UIImage imageNamed:allItem.image];
     //Apply image
     cell.cellImage.image = itemImage;
     //Apply make and model
@@ -147,8 +159,20 @@
         DetailsViewController *detailsViewController = segue.destinationViewController;
         //Grab instance of recentItem object
         Items *allItem = [allItemsArray objectAtIndex:indexPath.row];
+        UIImage *itemImage;
+        //Check if imageData exists
+        if (allItem.imageData != nil) {
+            //Cast image from data. Not sure why but this sets it in landscape mode
+            UIImage *imageFromData = [UIImage imageWithData:allItem.imageData];
+            //Rotate imageFromData to be in portrait
+            itemImage = [[UIImage alloc] initWithCGImage: imageFromData.CGImage scale: 1.0 orientation: UIImageOrientationLeft];
+            //itemImage = [UIImage imageWithData:recentItem.imageData];
+        } else {
+            itemImage = [UIImage imageNamed:allItem.image];
+        }
+        
         //Cast image string into UIImage
-        UIImage *itemImage = [UIImage imageNamed:allItem.image];
+        //UIImage *itemImage = [UIImage imageNamed:allItem.image];
         
         NSManagedObject *selectedObject = [allItemsArray objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
         

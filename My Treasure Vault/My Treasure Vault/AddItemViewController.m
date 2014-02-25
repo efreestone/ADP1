@@ -34,6 +34,7 @@
     //Declare images
     UIImage *selectedImage;
     UIImage *editedImage;
+    NSData *imageData;
 }
 
 @synthesize makeTextField, modelTextField, serialTextField, detailsTextField, costTextField, syncSwitch, passedManagedObject, passedImageURL;
@@ -131,9 +132,12 @@
             [newItem setValue: defaultImage forKey:@"image"];
         } else {
             NSString *imageURLString = [passedImageURL absoluteString];
-            NSData *imageData = [[NSData alloc] initWithContentsOfURL:passedImageURL];
-            UIImage *imageFromURL = [[UIImage alloc] initWithData:imageData];
+            //NSData *imageData = [[NSData alloc] initWithContentsOfURL:passedImageURL];
+            //UIImage *imageFromURL = [[UIImage alloc] initWithData:imageData];
+            //NSData *imageData = UIImagePNGRepresentation(yourUIImage);
+            imageData = UIImagePNGRepresentation(selectedImage);
             [newItem setValue: imageURLString forKey:@"image"];
+            [newItem setValue: imageData forKey:@"imageData"];
         }
     }
     
@@ -147,6 +151,7 @@
         newItem[@"cost"] = costTextField.text;
         newItem[@"dateAdded"] = currentDate;
         newItem[@"formattedDate"] = formattedDate;
+        newItem[@"imageData"] = imageData;
         
         [newItem saveInBackground];
     }

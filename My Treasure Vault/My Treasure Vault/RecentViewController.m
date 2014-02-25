@@ -229,6 +229,8 @@
     
     NSString *defaultImage = @"defaultImage.png";
     
+    NSData *nullData = NULL;
+    
     Items *newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
     
     //Set object attributes to text from text fields using setValue Method
@@ -243,10 +245,11 @@
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"02-11-2014" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [newDefaultItem setValue: nullData forKey:@"imageData"];
     [self saveDefault];
     //NSLog(@"Default: %@", [newDefaultItem description]);
     //Item 2
-    newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
+    /*newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
     [newDefaultItem setValue: @"Apple" forKey:@"make"];
     [newDefaultItem setValue: @"MacBook Pro" forKey:@"model"];
     [newDefaultItem setValue: @"A12BCD34EF567" forKey:@"serial"];
@@ -364,7 +367,7 @@
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"08-22-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
-    [self saveDefault];
+    [self saveDefault];*/
     
     //[myTableView reloadData];
 }
@@ -390,8 +393,20 @@
     //Allocate custom cell
     CustomCell *cell = (CustomCell *) [tableView dequeueReusableCellWithIdentifier:@"RecentCell"];
     Items *recentItem = [self.recentItemsArray objectAtIndex:indexPath.row];
+    UIImage *itemImage;
+    //Check if imageData exists
+    if (recentItem.imageData != nil) {
+        //Cast image from data. Not sure why but this sets it in landscape mode
+        UIImage *imageFromData = [UIImage imageWithData:recentItem.imageData];
+        //Rotate imageFromData to be in portrait
+        itemImage = [[UIImage alloc] initWithCGImage: imageFromData.CGImage scale: 1.0 orientation: UIImageOrientationLeft];
+        //itemImage = [UIImage imageWithData:recentItem.imageData];
+    } else {
+        itemImage = [UIImage imageNamed:recentItem.image];
+    }
+    
     //Cast image string into UIImage
-    UIImage *itemImage = [UIImage imageNamed:recentItem.image];
+    //UIImage *itemImage = [UIImage imageNamed:recentItem.image];
     //Apply image
     cell.cellImage.image = itemImage;
     //Apply make and model
@@ -447,8 +462,19 @@
         DetailsViewController *detailsViewController = segue.destinationViewController;
         //Grab instance of recentItem object
         Items *recentItem = [recentItemsArray objectAtIndex:indexPath.row];
+        UIImage *itemImage;
+        //Check if imageData exists
+        if (recentItem.imageData != nil) {
+            //Cast image from data. Not sure why but this sets it in landscape mode
+            UIImage *imageFromData = [UIImage imageWithData:recentItem.imageData];
+            //Rotate imageFromData to be in portrait
+            itemImage = [[UIImage alloc] initWithCGImage: imageFromData.CGImage scale: 1.0 orientation: UIImageOrientationLeft];
+            //itemImage = [UIImage imageWithData:recentItem.imageData];
+        } else {
+            itemImage = [UIImage imageNamed:recentItem.image];
+        }
         //Cast image string into UIImage
-        UIImage *itemImage = [UIImage imageNamed:recentItem.image];
+        //UIImage *itemImage = [UIImage imageNamed:recentItem.image];
         
         NSManagedObject *selectedObject = [recentItemsArray objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
         

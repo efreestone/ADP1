@@ -80,6 +80,18 @@
             newItem[@"cost"] = [item valueForKey:@"cost"];
             newItem[@"dateAdded"] = [item valueForKey:@"dateAdded"];
             newItem[@"formattedDate"] = [item valueForKey:@"formattedDate"];
+            if (syncImageSwitch.isOn) {
+                NSString *imageName = [NSString stringWithFormat:@"%@.jpg", [item valueForKey:@"make"]];
+                UIImage *uploadImage = [UIImage imageWithData:[item valueForKey:@"imageData"]];
+                PFFile *imageFile = [PFFile fileWithName: imageName data:[item valueForKey:@"imageData"]];
+                newItem[@"imageFile"] = imageFile;
+                //PFObject *userPhoto = [PFObject objectWithClassName:@"UserPhoto"];
+                //[userPhoto setObject:imageFile forKey:@"imageFile"];
+                //newItem[@"imageData"] = [item valueForKey:@"imageData"];
+                //[self uploadImage:uploadImage];
+                
+            }
+            //newItem[@"imageData"] = [item valueForKey:@"imageData"];
             
             [newItem saveInBackground];
         }
