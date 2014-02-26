@@ -288,7 +288,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ovF-6l-1wV">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ovF-6l-1wV">
                                                     <rect key="frame" x="360" y="495" width="51" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
@@ -624,6 +624,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="mZL-Ca-tK5"/>
-        <segue reference="c9Q-Md-2Fp"/>
+        <segue reference="kmf-71-XxM"/>
     </inferredMetricsTieBreakers>
 </document>
