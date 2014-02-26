@@ -137,10 +137,11 @@
             if (passedImageURL == nil) {
                 //set image to default image
                 [newItem setValue: defaultImageString forKey:@"image"];
+                //Create default UIImage
                 UIImage *defaultImage = [UIImage imageNamed:defaultImageString];
+                //Compress default image into NSData with highest comp rate
                 imageData = UIImageJPEGRepresentation(defaultImage, 0.0);
                 NSLog(@"default image data = %lu", (unsigned long)[imageData length]);
-                NSLog(@"PMO 2: %@", [passedManagedObject description]);
             } else {
                 NSString *imageURLString = [passedImageURL absoluteString];
                 //NSData *imageData = [[NSData alloc] initWithContentsOfURL:passedImageURL];
@@ -157,7 +158,6 @@
                 //NSLog(@"resized image: %lu", (unsigned long)[resizedData length]);
                 [newItem setValue: imageURLString forKey:@"image"];
                 [newItem setValue: imageData forKey:@"imageData"];
-                NSLog(@"PMO 3: %@", [passedManagedObject description]);
             }
         }
     
