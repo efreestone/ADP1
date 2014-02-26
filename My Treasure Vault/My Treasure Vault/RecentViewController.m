@@ -408,12 +408,12 @@
     //Check if imageData exists
     if (recentItem.imageData != nil) {
         //Cast image from data. Not sure why but this sets it in landscape mode
-        UIImage *imageFromData = [UIImage imageWithData:recentItem.imageData];
+        //UIImage *imageFromData = [UIImage imageWithData:recentItem.imageData];
         //Rotate imageFromData to be in portrait
         //itemImage = [[UIImage alloc] initWithCGImage: imageFromData.CGImage scale: 1.0 orientation: UIImageOrientationLeft];
         itemImage = [UIImage imageWithData:recentItem.imageData];
     } else {
-        //Apply default image not stored locally. Not stored core data or synced to Parse
+        //Apply default image not stored locally. Not stored in core data or synced to Parse
         itemImage = [UIImage imageNamed:recentItem.image];
     }
     
@@ -478,9 +478,10 @@
         //Check if imageData exists
         if (recentItem.imageData != nil) {
             //Cast image from data. Not sure why but this sets it in landscape mode
-            UIImage *imageFromData = [UIImage imageWithData:recentItem.imageData];
+            itemImage = [UIImage imageWithData:recentItem.imageData];
+            //UIImage *imageFromData = [UIImage imageWithData:recentItem.imageData];
             //Rotate imageFromData to be in portrait
-            itemImage = [[UIImage alloc] initWithCGImage: imageFromData.CGImage scale: 1.0 orientation: UIImageOrientationLeft];
+            //itemImage = [[UIImage alloc] initWithCGImage: imageFromData.CGImage scale: 1.0 orientation: UIImageOrientationLeft];
             //itemImage = [UIImage imageWithData:recentItem.imageData];
         } else {
             itemImage = [UIImage imageNamed:recentItem.image];
