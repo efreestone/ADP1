@@ -61,6 +61,9 @@
         costTextField.text = [passedManagedObject valueForKey:@"cost"];
     }
     
+    //Set make text field to be first responder
+    [makeTextField becomeFirstResponder];
+    
     //NSLog(@"Make: %@", makeTextField.text);
     
     [super viewDidLoad];
@@ -108,136 +111,129 @@
         //NSLog(@"date = %@", formattedDate);
     }
     
-    //Check if item was passed. This pass happens from the edit button on detail view
-    if (self.passedManagedObject) {
-        [passedManagedObject setValue: makeTextField.text forKey:@"make"];
-        [passedManagedObject setValue: modelTextField.text forKey:@"model"];
-        [passedManagedObject setValue: serialTextField.text forKey:@"serial"];
-        [passedManagedObject setValue: detailsTextField.text forKey:@"details"];
-        [passedManagedObject setValue: costTextField.text forKey:@"cost"];
-        [passedManagedObject setValue: currentDate forKey:@"dateAdded"];
-        [passedManagedObject setValue: formattedDate forKey:@"formattedDate"];
-    } else {
-        //Create new item
-        Items *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:objectContext];
-        [newItem setValue: makeTextField.text forKey:@"make"];
-        [newItem setValue: modelTextField.text forKey:@"model"];
-        [newItem setValue: serialTextField.text forKey:@"serial"];
-        [newItem setValue: detailsTextField.text forKey:@"details"];
-        [newItem setValue: costTextField.text forKey:@"cost"];
-        [newItem setValue: currentDate forKey:@"dateAdded"];
-        [newItem setValue: formattedDate forKey:@"formattedDate"];
-        //Check if passedImageURL is nil
-        if (passedImageURL == nil) {
-            //set image to default image
-            [newItem setValue: defaultImageString forKey:@"image"];
-            UIImage *defaultImage = [UIImage imageNamed:defaultImageString];
-            imageData = UIImageJPEGRepresentation(defaultImage, 0.0);
-            NSLog(@"default image data = %lu", (unsigned long)[imageData length]);
+    if (![makeTextField.text  isEqual: @""] && ![modelTextField.text isEqual: @""]) {
+        //Check if item was passed. This pass happens from the edit button on detail view
+        if (self.passedManagedObject) {
+            NSLog(@"PMO 1: %@", [passedManagedObject description]);
+            [passedManagedObject setValue: makeTextField.text forKey:@"make"];
+            [passedManagedObject setValue: modelTextField.text forKey:@"model"];
+            [passedManagedObject setValue: serialTextField.text forKey:@"serial"];
+            [passedManagedObject setValue: detailsTextField.text forKey:@"details"];
+            [passedManagedObject setValue: costTextField.text forKey:@"cost"];
+            [passedManagedObject setValue: currentDate forKey:@"dateAdded"];
+            [passedManagedObject setValue: formattedDate forKey:@"formattedDate"];
+            [passedManagedObject setValue: imageData forKey:@"imageData"];
         } else {
-            NSString *imageURLString = [passedImageURL absoluteString];
-            //NSData *imageData = [[NSData alloc] initWithContentsOfURL:passedImageURL];
-            //UIImage *imageFromURL = [[UIImage alloc] initWithData:imageData];
-            //NSData *imageData = UIImagePNGRepresentation(yourUIImage);
-            //UIImage *rotatedImage = [[UIImage alloc] initWithCGImage: scaledImage.CGImage scale: 0.5 orientation: UIImageOrientationLeft];
-            //NSLog(@"%@", [rotatedImage description]);
+            //Create new item
+            Items *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:objectContext];
+            [newItem setValue: makeTextField.text forKey:@"make"];
+            [newItem setValue: modelTextField.text forKey:@"model"];
+            [newItem setValue: serialTextField.text forKey:@"serial"];
+            [newItem setValue: detailsTextField.text forKey:@"details"];
+            [newItem setValue: costTextField.text forKey:@"cost"];
+            [newItem setValue: currentDate forKey:@"dateAdded"];
+            [newItem setValue: formattedDate forKey:@"formattedDate"];
+            //Check if passedImageURL is nil
+            if (passedImageURL == nil) {
+                //set image to default image
+                [newItem setValue: defaultImageString forKey:@"image"];
+                UIImage *defaultImage = [UIImage imageNamed:defaultImageString];
+                imageData = UIImageJPEGRepresentation(defaultImage, 0.0);
+                NSLog(@"default image data = %lu", (unsigned long)[imageData length]);
+                NSLog(@"PMO 2: %@", [passedManagedObject description]);
+            } else {
+                NSString *imageURLString = [passedImageURL absoluteString];
+                //NSData *imageData = [[NSData alloc] initWithContentsOfURL:passedImageURL];
+                //UIImage *imageFromURL = [[UIImage alloc] initWithData:imageData];
+                //NSData *imageData = UIImagePNGRepresentation(yourUIImage);
+                //UIImage *rotatedImage = [[UIImage alloc] initWithCGImage: scaledImage.CGImage scale: 0.5 orientation: UIImageOrientationLeft];
+                //NSLog(@"%@", [rotatedImage description]);
             
-            //Package and compress image into NSData
-            imageData = UIImageJPEGRepresentation(scaledImage, 0.5);
-            NSLog(@"imageData: %lu", (unsigned long)[imageData length]);
-            //UIImage *resizedImage = [UIImage imageWithData:imageData];
-            //NSData *resizedData = UIImagePNGRepresentation(resizedImage);
-            //NSLog(@"resized image: %lu", (unsigned long)[resizedData length]);
-            [newItem setValue: imageURLString forKey:@"image"];
-            [newItem setValue: imageData forKey:@"imageData"];
+                //Package and compress image into NSData
+                imageData = UIImageJPEGRepresentation(scaledImage, 0.5);
+                NSLog(@"imageData: %lu", (unsigned long)[imageData length]);
+                //UIImage *resizedImage = [UIImage imageWithData:imageData];
+                //NSData *resizedData = UIImagePNGRepresentation(resizedImage);
+                //NSLog(@"resized image: %lu", (unsigned long)[resizedData length]);
+                [newItem setValue: imageURLString forKey:@"image"];
+                [newItem setValue: imageData forKey:@"imageData"];
+                NSLog(@"PMO 3: %@", [passedManagedObject description]);
+            }
         }
-    }
     
-    //If sync item is switched to yes, sync single item to server
-    if (syncSwitch.isOn) {
-        //Create new object to upload to Parse
-        PFObject *newPFObject = [PFObject objectWithClassName:@"NewItem"];
-        //Set values for new object
-        newPFObject[@"make"] = makeTextField.text;
-        newPFObject[@"model"] = modelTextField.text;
-        newPFObject[@"serial"] = serialTextField.text;
-        newPFObject[@"details"] = detailsTextField.text;
-        newPFObject[@"cost"] = costTextField.text;
-        newPFObject[@"dateAdded"] = currentDate;
-        newPFObject[@"formattedDate"] = formattedDate;
-        newPFObject[@"imageData"] = imageData;
+        //If sync item is switched to yes, sync single item to server
+        if (syncSwitch.isOn) {
+            //Create new object to upload to Parse
+            PFObject *newPFObject = [PFObject objectWithClassName:@"NewItem"];
+            //Set values for new object
+            newPFObject[@"make"] = makeTextField.text;
+            newPFObject[@"model"] = modelTextField.text;
+            newPFObject[@"serial"] = serialTextField.text;
+            newPFObject[@"details"] = detailsTextField.text;
+            newPFObject[@"cost"] = costTextField.text;
+            newPFObject[@"dateAdded"] = currentDate;
+            newPFObject[@"formattedDate"] = formattedDate;
+            newPFObject[@"imageData"] = imageData;
         
-        //Create string for use in naming images
-        NSString *imageName;// = [NSString stringWithFormat:@"%@.png", makeTextField.text];
-        //Check if scaled image exists. If yes, image from camera was added
-        if (scaledImage != nil) {
-            NSLog(@"scaled image exists");
-            //Set image name to "make" of item
-            imageName = [NSString stringWithFormat:@"%@.png", makeTextField.text];
-            //Create PFFile of image data to upload
-            PFFile *imageFile = [PFFile fileWithName: imageName data:imageData];
-            newPFObject[@"imageFile"] = imageFile;
-        } else {
-            //Set image name to default
-            imageName = @"default.png";
-            //Create PFFile with default image data. I didn't want to ever upload the defualt image, nut for some reason setting the "imageFile" to NSNull object did not work here.
-            PFFile *imageFile = [PFFile fileWithName: imageName data:imageData];
-            newPFObject[@"imageFile"] = imageFile;
+            //Create string for use in naming images
+            NSString *imageName;// = [NSString stringWithFormat:@"%@.png", makeTextField.text];
+            //Check if scaled image exists. If yes, image from camera was added
+            if (scaledImage != nil) {
+                NSLog(@"scaled image exists");
+                //Set image name to "make" of item
+                imageName = [NSString stringWithFormat:@"%@.png", makeTextField.text];
+                //Create PFFile of image data to upload
+                PFFile *imageFile = [PFFile fileWithName: imageName data:imageData];
+                newPFObject[@"imageFile"] = imageFile;
+            } else {
+                //Set image name to default
+                imageName = @"default.png";
+                //Create PFFile with default image data. I didn't want to ever upload the defualt image, nut for some reason setting the "imageFile" to NSNull object did not work here.
+                PFFile *imageFile = [PFFile fileWithName: imageName data:imageData];
+                newPFObject[@"imageFile"] = imageFile;
             
-            //NSLog(@"NO scaled image.");
-            //NSString *nullName = @"null";
-            //NSNull *nullData;
-            //NSData *nullData2 = nullData;
-            //imageData = [NSNull null];
-            //[newItem setValue: nullData forKey:@"imageData"];
-            //PFFile *nullFile = nullData;
-            //PFFile *nullFile = [PFFile fileWithName: nullName data:nullData2];
-            //newItem[@"imageFile"] = nullFile;
+                //NSLog(@"NO scaled image.");
+                //NSString *nullName = @"null";
+                //NSNull *nullData;
+                //NSData *nullData2 = nullData;
+                //imageData = [NSNull null];
+                //[newItem setValue: nullData forKey:@"imageData"];
+                //PFFile *nullFile = nullData;
+                //PFFile *nullFile = [PFFile fileWithName: nullName data:nullData2];
+                //newItem[@"imageFile"] = nullFile;
             
-            //PFFile *nullFile = [PFFile fileWithName: nullName data:[NSNull null]];
-            //newPFObject[@"imageFile"] = nullFile;
+                //PFFile *nullFile = [PFFile fileWithName: nullName data:[NSNull null]];
+                //newPFObject[@"imageFile"] = nullFile;
+            }
+            //Save item to Parse
+            [newPFObject saveInBackground];
         }
-        //Save item to Parse
-        [newPFObject saveInBackground];
-    }
     
-    //Clear out text fields
-    makeTextField.text = @"";
-    modelTextField.text = @"";
-    serialTextField.text = @"";
-    detailsTextField.text = @"";
-    costTextField.text = @"";
-    //Create error object for save
-    NSError *error;
-    //Save item to device after error check
-    if ([objectContext save:&error] == NO) {
-        //Log out error
-        NSLog(@"Save failed: %@", [error localizedDescription]);
+        //Clear out text fields
+        makeTextField.text = @"";
+        modelTextField.text = @"";
+        serialTextField.text = @"";
+        detailsTextField.text = @"";
+        costTextField.text = @"";
+        //Create error object for save
+        NSError *error;
+        //Save item to device after error check
+        if ([objectContext save:&error] == NO) {
+            //Log out error
+            NSLog(@"Save failed: %@", [error localizedDescription]);
+        } else {
+            //Create and show save success alert
+            UIAlertView *savedAlert = [[UIAlertView alloc] initWithTitle: @"Item Saved" message: @"Your item was saved successfully!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [savedAlert show];
+            //[objectContext save:&error];
+            //NSLog(@"%@", newItem.description);
+        }
+        //Dismiss view controller
+        [self dismissViewControllerAnimated:YES completion:nil];
     } else {
-        //Create and show save success alert
-        UIAlertView *savedAlert = [[UIAlertView alloc] initWithTitle: @"Item Saved" message: @"Your item was saved successfully!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [savedAlert show];
-        //[objectContext save:&error];
-        //NSLog(@"%@", newItem.description);
+        //Show required alert
+        [self requiredFieldAlertView];
     }
-    
-    //Test for stored item
-    /*NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:objectContext];
-     [fetchRequest setEntity:entity];
-     NSArray *fetchedObjects = [objectContext executeFetchRequest:fetchRequest error:&error];
-     for (Items *item in fetchedObjects) {
-     //NSLog(@"%@", newItem.description);
-     NSLog(@"Make: %@ Model: %@", [item valueForKey:@"make"], [item valueForKey:@"model"]);
-     //NSLog(@"Zip: %@", [newItem valueForKey:@"model"]);
-     }*/
-    
-    RecentViewController *recentViewController = [[RecentViewController alloc] init];
-    
-    [recentViewController.myTableView reloadData];
-    
-    //Dismiss view controller
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Camera
@@ -308,7 +304,7 @@
                 NSLog(@"url %@", imageURL);
                 //Pass image URL
                 passedImageURL = imageURL;
-                [self saveSuccessfulAlertView];
+                [self imageSavedAlertView];
                 //[self dismissViewControllerAnimated:true completion:nil];
             }
         }];
@@ -341,7 +337,7 @@
         //NSLog(@"Error saving file");
     } else {
         //Show saved alert
-        [self saveSuccessfulAlertView];
+        [self imageSavedAlertView];
         //NSLog(@"Save was completed");
     }
 }
@@ -357,12 +353,21 @@
     [noCameraAlert show];
 }
 
-//Create and show save successful alert
--(void)saveSuccessfulAlertView {
+//Create and show required field alert
+-(void)requiredFieldAlertView
+{
+    //Create alert
+    UIAlertView *requiredFieldAlert = [[UIAlertView alloc] initWithTitle:@"Required fields missing" message:@"Make and Model fields ar required. Please fill these out before saving." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    //Show alert
+    [requiredFieldAlert show];
+}
+
+//Create and show save successful alert for image
+-(void)imageSavedAlertView {
     //Create saved alert
-    UIAlertView *saveSuccessfulAlert = [[UIAlertView alloc] initWithTitle:@"Saved!" message:@"Your image was successfully saved to your album" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView *imageSavedAlert = [[UIAlertView alloc] initWithTitle:@"Saved!" message:@"Your image was successfully saved to your album" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     //Show saved alert
-    [saveSuccessfulAlert show];
+    [imageSavedAlert show];
 }
 
 //Create and show error alert view
