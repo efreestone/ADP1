@@ -89,10 +89,6 @@
                     //UIImage *uploadImage = [UIImage imageWithData:[item valueForKey:@"imageData"]];
                     PFFile *imageFile = [PFFile fileWithName: imageName data:[item valueForKey:@"imageData"]];
                     newItem[@"imageFile"] = imageFile;
-                    //PFObject *userPhoto = [PFObject objectWithClassName:@"UserPhoto"];
-                    //[userPhoto setObject:imageFile forKey:@"imageFile"];
-                    //newItem[@"imageData"] = [item valueForKey:@"imageData"];
-                    //[self uploadImage:uploadImage];
                 } else {
                     NSLog(@"Image Data set to NULL so no image was synced");
                 }

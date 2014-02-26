@@ -36,6 +36,7 @@
     UIImage *editedImage;
     NSData *imageData;
     UIImage *scaledImage;
+    Items *newItem;
 }
 
 @synthesize makeTextField, modelTextField, serialTextField, detailsTextField, costTextField, syncSwitch, passedManagedObject, passedImageURL;
@@ -115,6 +116,7 @@
         //Check if item was passed. This pass happens from the edit button on detail view
         if (self.passedManagedObject) {
             NSLog(@"PMO 1: %@", [passedManagedObject description]);
+            //Edit mode.  Fill text fields with passed object values
             [passedManagedObject setValue: makeTextField.text forKey:@"make"];
             [passedManagedObject setValue: modelTextField.text forKey:@"model"];
             [passedManagedObject setValue: serialTextField.text forKey:@"serial"];
@@ -122,10 +124,16 @@
             [passedManagedObject setValue: costTextField.text forKey:@"cost"];
             [passedManagedObject setValue: currentDate forKey:@"dateAdded"];
             [passedManagedObject setValue: formattedDate forKey:@"formattedDate"];
-            [passedManagedObject setValue: imageData forKey:@"imageData"];
+            //[passedManagedObject setValue: imageData forKey:@"imageData"];
+            if (scaledImage != nil) { //[[passedManagedObject valueForKey:@"image"] isEqualToString:@"defaultImage.png"] &&
+                imageData = UIImageJPEGRepresentation(scaledImage, 0.5);
+                [passedManagedObject setValue: imageData forKey:@"imageData"];
+                [passedManagedObject setValue: @"" forKey:@"image"];
+            }
+            
         } else {
             //Create new item
-            Items *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:objectContext];
+            newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:objectContext];
             [newItem setValue: makeTextField.text forKey:@"make"];
             [newItem setValue: modelTextField.text forKey:@"model"];
             [newItem setValue: serialTextField.text forKey:@"serial"];
@@ -144,22 +152,15 @@
                 NSLog(@"default image data = %lu", (unsigned long)[imageData length]);
             } else {
                 NSString *imageURLString = [passedImageURL absoluteString];
-                //NSData *imageData = [[NSData alloc] initWithContentsOfURL:passedImageURL];
-                //UIImage *imageFromURL = [[UIImage alloc] initWithData:imageData];
-                //NSData *imageData = UIImagePNGRepresentation(yourUIImage);
-                //UIImage *rotatedImage = [[UIImage alloc] initWithCGImage: scaledImage.CGImage scale: 0.5 orientation: UIImageOrientationLeft];
-                //NSLog(@"%@", [rotatedImage description]);
-            
                 //Package and compress image into NSData
                 imageData = UIImageJPEGRepresentation(scaledImage, 0.5);
                 NSLog(@"imageData: %lu", (unsigned long)[imageData length]);
-                //UIImage *resizedImage = [UIImage imageWithData:imageData];
-                //NSData *resizedData = UIImagePNGRepresentation(resizedImage);
-                //NSLog(@"resized image: %lu", (unsigned long)[resizedData length]);
                 [newItem setValue: imageURLString forKey:@"image"];
                 [newItem setValue: imageData forKey:@"imageData"];
             }
+            
         }
+        
     
         //If sync item is switched to yes, sync single item to server
         if (syncSwitch.isOn) {
@@ -173,7 +174,7 @@
             newPFObject[@"cost"] = costTextField.text;
             newPFObject[@"dateAdded"] = currentDate;
             newPFObject[@"formattedDate"] = formattedDate;
-            newPFObject[@"imageData"] = imageData;
+            //newPFObject[@"imageData"] = imageData;
         
             //Create string for use in naming images
             NSString *imageName;// = [NSString stringWithFormat:@"%@.png", makeTextField.text];
@@ -191,19 +192,6 @@
                 //Create PFFile with default image data. I didn't want to ever upload the defualt image, nut for some reason setting the "imageFile" to NSNull object did not work here.
                 PFFile *imageFile = [PFFile fileWithName: imageName data:imageData];
                 newPFObject[@"imageFile"] = imageFile;
-            
-                //NSLog(@"NO scaled image.");
-                //NSString *nullName = @"null";
-                //NSNull *nullData;
-                //NSData *nullData2 = nullData;
-                //imageData = [NSNull null];
-                //[newItem setValue: nullData forKey:@"imageData"];
-                //PFFile *nullFile = nullData;
-                //PFFile *nullFile = [PFFile fileWithName: nullName data:nullData2];
-                //newItem[@"imageFile"] = nullFile;
-            
-                //PFFile *nullFile = [PFFile fileWithName: nullName data:[NSNull null]];
-                //newPFObject[@"imageFile"] = nullFile;
             }
             //Save item to Parse
             [newPFObject saveInBackground];
