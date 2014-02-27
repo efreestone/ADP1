@@ -19,6 +19,8 @@
 //Declare switch IBOutlets
 @property (strong, nonatomic) IBOutlet UISwitch *syncAllSwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *syncImageSwitch;
+//Declare save button
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 
 //Declare array to hold items from storage for sync
 @property (strong, nonatomic) NSMutableArray *allStoredArray;
@@ -26,5 +28,7 @@
 //Declare IBActions for switch changes
 -(IBAction)onSyncAll:(id)sender;
 -(IBAction)onSyncImage:(id)sender;
+//Decalre IBAction for save
+-(IBAction)onSave:(id)sender;
 
 @end

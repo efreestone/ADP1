@@ -304,8 +304,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="h9G-Uy-Hmd">
-                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="D6I-FA-gFl"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZbO-WN-kwz"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="D6I-FA-gFl">
+                            <connections>
+                                <action selector="onSave:" destination="a5n-3d-sQm" id="fEe-ak-M8I"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZbO-WN-kwz">
+                            <connections>
+                                <segue destination="9JV-ZK-jQi" kind="modal" id="6oG-xw-eeW"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="syncAllSwitch" destination="k1K-1R-QhC" id="buz-rp-Ua1"/>
@@ -617,7 +625,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="olI-0b-Jxz"/>
+        <segue reference="6oG-xw-eeW"/>
         <segue reference="6oW-BP-BTb"/>
     </inferredMetricsTieBreakers>
 </document>

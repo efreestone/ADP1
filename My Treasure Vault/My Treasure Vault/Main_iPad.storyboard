@@ -310,7 +310,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="ksR-Ir-NZ9">
-                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="0Ym-A9-9lB"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="0Ym-A9-9lB">
+                            <connections>
+                                <action selector="onSave:" destination="tnR-Wd-UaK" id="nt9-rq-3v5"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Jq-Sk-hIL">
                             <connections>
                                 <segue destination="dZL-jZ-Pma" kind="modal" id="kmf-71-XxM"/>
@@ -318,6 +322,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="saveButton" destination="0Ym-A9-9lB" id="fuZ-zG-RYa"/>
                         <outlet property="syncAllSwitch" destination="pB7-rN-3Sg" id="3jg-g1-HlG"/>
                         <outlet property="syncImageSwitch" destination="ovF-6l-1wV" id="6Nd-aj-8Ow"/>
                     </connections>

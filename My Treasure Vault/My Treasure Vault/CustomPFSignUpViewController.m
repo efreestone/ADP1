@@ -36,7 +36,7 @@
 - (void)viewDidLoad
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        [self.signUpView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"loginBackground.png"]]];
+        [self.signUpView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"loginBackground-568h.png"]]];
         //[self.logInView setBackgroundColor:[UIColor blueColor]];
         NSLog(@"is iPhone");
         [self.signUpView setLogo:nil];
