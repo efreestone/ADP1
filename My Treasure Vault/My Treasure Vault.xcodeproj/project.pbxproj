@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B803BB8118BBFE8A00004D1D /* Items.m in Sources */ = {isa = PBXBuildFile; fileRef = B803BB8018BBFE8A00004D1D /* Items.m */; };
 		B828F94E18B842DF002CE947 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B828F94D18B842DF002CE947 /* Foundation.framework */; };
 		B828F95018B842E0002CE947 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B828F94F18B842E0002CE947 /* CoreGraphics.framework */; };
 		B828F95218B842E0002CE947 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B828F95118B842E0002CE947 /* UIKit.framework */; };
@@ -24,12 +25,15 @@
 		B828F97918B842E0002CE947 /* My_Treasure_VaultTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B828F97818B842E0002CE947 /* My_Treasure_VaultTests.m */; };
 		B828F98318B84329002CE947 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B828F98218B84329002CE947 /* Main_iPhone.storyboard */; };
 		B828F98518B84342002CE947 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B828F98418B84342002CE947 /* Main_iPad.storyboard */; };
+		B879D39818BEB36400F27590 /* CustomPFLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B879D39718BEB36400F27590 /* CustomPFLoginViewController.m */; };
+		B879D39A18BED88E00F27590 /* LoginFieldBG.png in Resources */ = {isa = PBXBuildFile; fileRef = B879D39918BED88E00F27590 /* LoginFieldBG.png */; };
+		B879D39E18BEEA0200F27590 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B879D39D18BEEA0200F27590 /* logo.png */; };
+		B879D3A018BEF36D00F27590 /* loginBackground~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B879D39F18BEF36D00F27590 /* loginBackground~iPad.png */; };
 		B89578C818B843BD0062EB8F /* RecentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89578C718B843BD0062EB8F /* RecentViewController.m */; };
 		B89578CB18B844450062EB8F /* AllItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89578CA18B844450062EB8F /* AllItemsViewController.m */; };
 		B89578CE18B844670062EB8F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89578CD18B844670062EB8F /* SettingsViewController.m */; };
 		B89578D118B844960062EB8F /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89578D018B844960062EB8F /* AddItemViewController.m */; };
 		B89578D418B844B60062EB8F /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B89578D318B844B60062EB8F /* DetailsViewController.m */; };
-		B89578D718B846940062EB8F /* Items.m in Sources */ = {isa = PBXBuildFile; fileRef = B89578D618B846940062EB8F /* Items.m */; };
 		B89578E718B847020062EB8F /* camera-button-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = B89578D918B847020062EB8F /* camera-button-highlighted.png */; };
 		B89578E818B847020062EB8F /* camera-button.png in Resources */ = {isa = PBXBuildFile; fileRef = B89578DA18B847020062EB8F /* camera-button.png */; };
 		B89578E918B847020062EB8F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B89578DB18B847020062EB8F /* Default-568h@2x.png */; };
@@ -57,6 +61,8 @@
 		B895790C18B848A40062EB8F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B895790B18B848A40062EB8F /* StoreKit.framework */; };
 		B895790E18B848B10062EB8F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B895790D18B848B10062EB8F /* SystemConfiguration.framework */; };
 		B895791018B848EC0062EB8F /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B895790F18B848EC0062EB8F /* AssetsLibrary.framework */; };
+		B8F4BBBB18BF02A60081C36A /* loginBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F4BBBA18BF02A60081C36A /* loginBackground.png */; };
+		B8F4BBBF18BF03580081C36A /* loginBackground-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F4BBBE18BF03580081C36A /* loginBackground-568h.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +76,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B803BB7F18BBFE8A00004D1D /* Items.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Items.h; sourceTree = "<group>"; };
+		B803BB8018BBFE8A00004D1D /* Items.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Items.m; sourceTree = "<group>"; };
 		B828F94A18B842DF002CE947 /* My Treasure Vault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Treasure Vault.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B828F94D18B842DF002CE947 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B828F94F18B842E0002CE947 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -90,6 +98,11 @@
 		B828F97818B842E0002CE947 /* My_Treasure_VaultTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = My_Treasure_VaultTests.m; sourceTree = "<group>"; };
 		B828F98218B84329002CE947 /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 		B828F98418B84342002CE947 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
+		B879D39618BEB36400F27590 /* CustomPFLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPFLoginViewController.h; sourceTree = "<group>"; };
+		B879D39718BEB36400F27590 /* CustomPFLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPFLoginViewController.m; sourceTree = "<group>"; };
+		B879D39918BED88E00F27590 /* LoginFieldBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoginFieldBG.png; sourceTree = "<group>"; };
+		B879D39D18BEEA0200F27590 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		B879D39F18BEF36D00F27590 /* loginBackground~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBackground~iPad.png"; sourceTree = "<group>"; };
 		B89578C618B843BD0062EB8F /* RecentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentViewController.h; sourceTree = "<group>"; };
 		B89578C718B843BD0062EB8F /* RecentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentViewController.m; sourceTree = "<group>"; };
 		B89578C918B844450062EB8F /* AllItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllItemsViewController.h; sourceTree = "<group>"; };
@@ -100,8 +113,6 @@
 		B89578D018B844960062EB8F /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemViewController.m; sourceTree = "<group>"; };
 		B89578D218B844B60062EB8F /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		B89578D318B844B60062EB8F /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
-		B89578D518B846940062EB8F /* Items.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Items.h; sourceTree = "<group>"; };
-		B89578D618B846940062EB8F /* Items.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Items.m; sourceTree = "<group>"; };
 		B89578D918B847020062EB8F /* camera-button-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-button-highlighted.png"; sourceTree = "<group>"; };
 		B89578DA18B847020062EB8F /* camera-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-button.png"; sourceTree = "<group>"; };
 		B89578DB18B847020062EB8F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -131,6 +142,8 @@
 		B895790B18B848A40062EB8F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		B895790D18B848B10062EB8F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B895790F18B848EC0062EB8F /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		B8F4BBBA18BF02A60081C36A /* loginBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBackground.png; sourceTree = "<group>"; };
+		B8F4BBBE18BF03580081C36A /* loginBackground-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBackground-568h.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,15 +243,17 @@
 				B89578D218B844B60062EB8F /* DetailsViewController.h */,
 				B89578D318B844B60062EB8F /* DetailsViewController.m */,
 				B828F96418B842E0002CE947 /* Images.xcassets */,
+				B803BB7F18BBFE8A00004D1D /* Items.h */,
+				B803BB8018BBFE8A00004D1D /* Items.m */,
 				B828F96118B842E0002CE947 /* My_Treasure_Vault.xcdatamodeld */,
-				B89578D518B846940062EB8F /* Items.h */,
-				B89578D618B846940062EB8F /* Items.m */,
 				B89578D818B847020062EB8F /* images */,
 				B828F95618B842E0002CE947 /* Supporting Files */,
 				B89578F518B847460062EB8F /* CustomCell.h */,
 				B89578F618B847460062EB8F /* CustomCell.m */,
 				B89578F818B8477D0062EB8F /* ImageViewController.h */,
 				B89578F918B8477D0062EB8F /* ImageViewController.m */,
+				B879D39618BEB36400F27590 /* CustomPFLoginViewController.h */,
+				B879D39718BEB36400F27590 /* CustomPFLoginViewController.m */,
 			);
 			path = "My Treasure Vault";
 			sourceTree = "<group>";
@@ -275,6 +290,11 @@
 		B89578D818B847020062EB8F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B8F4BBBE18BF03580081C36A /* loginBackground-568h.png */,
+				B8F4BBBA18BF02A60081C36A /* loginBackground.png */,
+				B879D39F18BEF36D00F27590 /* loginBackground~iPad.png */,
+				B879D39D18BEEA0200F27590 /* logo.png */,
+				B879D39918BED88E00F27590 /* LoginFieldBG.png */,
 				B89578D918B847020062EB8F /* camera-button-highlighted.png */,
 				B89578DA18B847020062EB8F /* camera-button.png */,
 				B89578DB18B847020062EB8F /* Default-568h@2x.png */,
@@ -375,17 +395,22 @@
 				B89578E718B847020062EB8F /* camera-button-highlighted.png in Resources */,
 				B89578F418B847020062EB8F /* signin-button.png in Resources */,
 				B89578F018B847020062EB8F /* Icon-76@2x.png in Resources */,
+				B8F4BBBB18BF02A60081C36A /* loginBackground.png in Resources */,
 				B828F95A18B842E0002CE947 /* InfoPlist.strings in Resources */,
 				B89578EA18B847020062EB8F /* Default-Landscape@2x~iPad.png in Resources */,
 				B89578ED18B847020062EB8F /* Default@2x.png in Resources */,
 				B828F98518B84342002CE947 /* Main_iPad.storyboard in Resources */,
+				B879D39E18BEEA0200F27590 /* logo.png in Resources */,
 				B89578EE18B847020062EB8F /* defaultImage.png in Resources */,
 				B89578F318B847020062EB8F /* signin-button-highlighted.png in Resources */,
 				B828F96518B842E0002CE947 /* Images.xcassets in Resources */,
 				B89578EC18B847020062EB8F /* Default-Portrait~iPad.png in Resources */,
+				B879D39A18BED88E00F27590 /* LoginFieldBG.png in Resources */,
 				B89578F118B847020062EB8F /* Icon.png in Resources */,
 				B89578E918B847020062EB8F /* Default-568h@2x.png in Resources */,
 				B828F98318B84329002CE947 /* Main_iPhone.storyboard in Resources */,
+				B8F4BBBF18BF03580081C36A /* loginBackground-568h.png in Resources */,
+				B879D3A018BEF36D00F27590 /* loginBackground~iPad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,15 +429,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B803BB8118BBFE8A00004D1D /* Items.m in Sources */,
 				B89578CB18B844450062EB8F /* AllItemsViewController.m in Sources */,
 				B828F96018B842E0002CE947 /* AppDelegate.m in Sources */,
 				B89578D118B844960062EB8F /* AddItemViewController.m in Sources */,
-				B89578D718B846940062EB8F /* Items.m in Sources */,
 				B89578FA18B8477D0062EB8F /* ImageViewController.m in Sources */,
 				B89578F718B847460062EB8F /* CustomCell.m in Sources */,
 				B89578C818B843BD0062EB8F /* RecentViewController.m in Sources */,
 				B89578CE18B844670062EB8F /* SettingsViewController.m in Sources */,
 				B828F95C18B842E0002CE947 /* main.m in Sources */,
+				B879D39818BEB36400F27590 /* CustomPFLoginViewController.m in Sources */,
 				B828F96318B842E0002CE947 /* My_Treasure_Vault.xcdatamodeld in Sources */,
 				B89578D418B844B60062EB8F /* DetailsViewController.m in Sources */,
 			);
@@ -533,8 +559,6 @@
 		B828F97D18B842E0002CE947 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/elijahfreestone/Downloads,
@@ -550,8 +574,6 @@
 		B828F97E18B842E0002CE947 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/elijahfreestone/Downloads,

@@ -23,6 +23,8 @@
 #import "Items.h"
 //Import all items view controller
 #import "AllItemsViewController.h"
+//
+#import "CustomPFLoginViewController.h"
 
 @interface RecentViewController () <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
@@ -151,8 +153,11 @@
     //Boilerplate login code from Parse tutorial "Login and Signup Views" to allocate/present login screen
     if (![PFUser currentUser]) { // No user logged in
         // Create the log in view controller
-        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+        CustomPFLoginViewController *logInViewController = [[CustomPFLoginViewController alloc] init];
         [logInViewController setDelegate:self]; // Set ourselves as the delegate
+        
+        //PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+        //[logInViewController setDelegate:self]; // Set ourselves as the delegate
      
         //Grab log in view. Adding this to fill in default log in
         //PFLogInView *logInView = [[PFLogInView alloc] init];
@@ -229,6 +234,10 @@
     
     NSString *defaultImage = @"defaultImage.png";
     
+    //NSData *defaultImageData = UIImagePNGRepresentation(selectedImage);
+    
+    NSNull *nullData;
+    
     Items *newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
     
     //Set object attributes to text from text fields using setValue Method
@@ -243,6 +252,7 @@
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"02-11-2014" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [newDefaultItem setValue: nullData forKey:@"imageData"];
     [self saveDefault];
     //NSLog(@"Default: %@", [newDefaultItem description]);
     //Item 2
@@ -257,6 +267,7 @@
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"02-01-2014" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [newDefaultItem setValue: nullData forKey:@"imageData"];
     [self saveDefault];
     //NSLog(@"Default: %@", [newDefaultItem description]);
     //Item 3
@@ -271,6 +282,7 @@
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"01-10-2014" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [newDefaultItem setValue: nullData forKey:@"imageData"];
     [self saveDefault];
     //NSLog(@"Default: %@", [newDefaultItem description]);
     //Item 4
@@ -285,6 +297,7 @@
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"12-25-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [newDefaultItem setValue: nullData forKey:@"imageData"];
     [self saveDefault];
     //Item 5
     newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
@@ -298,6 +311,7 @@
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"12-25-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [newDefaultItem setValue: nullData forKey:@"imageData"];
     [self saveDefault];
     //Item 6
     newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
@@ -311,6 +325,7 @@
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"12-25-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [newDefaultItem setValue: nullData forKey:@"imageData"];
     [self saveDefault];
     //NSLog(@"Default Samsung: %@", [newDefaultItem description]);
     //Item 7
@@ -325,6 +340,7 @@
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"11-21-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [newDefaultItem setValue: nullData forKey:@"imageData"];
     [self saveDefault];
     //Item 8
     newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
@@ -338,6 +354,7 @@
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"10-13-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [newDefaultItem setValue: nullData forKey:@"imageData"];
     [self saveDefault];
     //Item 9
     newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
@@ -351,6 +368,7 @@
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"10-10-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [newDefaultItem setValue: nullData forKey:@"imageData"];
     [self saveDefault];
     //Item 10
     newDefaultItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:context];
@@ -364,6 +382,7 @@
     [newDefaultItem setValue: dateAddedNS forKey:@"dateAdded"];
     [newDefaultItem setValue: @"08-22-2013" forKey:@"formattedDate"];
     [newDefaultItem setValue: defaultImage forKey:@"image"];
+    [newDefaultItem setValue: nullData forKey:@"imageData"];
     [self saveDefault];
     
     //[myTableView reloadData];
@@ -390,8 +409,21 @@
     //Allocate custom cell
     CustomCell *cell = (CustomCell *) [tableView dequeueReusableCellWithIdentifier:@"RecentCell"];
     Items *recentItem = [self.recentItemsArray objectAtIndex:indexPath.row];
+    UIImage *itemImage;
+    //Check if imageData exists
+    if (recentItem.imageData != nil) {
+        //Cast image from data. Not sure why but this sets it in landscape mode
+        //UIImage *imageFromData = [UIImage imageWithData:recentItem.imageData];
+        //Rotate imageFromData to be in portrait
+        //itemImage = [[UIImage alloc] initWithCGImage: imageFromData.CGImage scale: 1.0 orientation: UIImageOrientationLeft];
+        itemImage = [UIImage imageWithData:recentItem.imageData];
+    } else {
+        //Apply default image not stored locally. Not stored in core data or synced to Parse
+        itemImage = [UIImage imageNamed:recentItem.image];
+    }
+    
     //Cast image string into UIImage
-    UIImage *itemImage = [UIImage imageNamed:recentItem.image];
+    //UIImage *itemImage = [UIImage imageNamed:recentItem.image];
     //Apply image
     cell.cellImage.image = itemImage;
     //Apply make and model
@@ -447,8 +479,20 @@
         DetailsViewController *detailsViewController = segue.destinationViewController;
         //Grab instance of recentItem object
         Items *recentItem = [recentItemsArray objectAtIndex:indexPath.row];
+        UIImage *itemImage;
+        //Check if imageData exists
+        if (recentItem.imageData != nil) {
+            //Cast image from data. Not sure why but this sets it in landscape mode
+            itemImage = [UIImage imageWithData:recentItem.imageData];
+            //UIImage *imageFromData = [UIImage imageWithData:recentItem.imageData];
+            //Rotate imageFromData to be in portrait
+            //itemImage = [[UIImage alloc] initWithCGImage: imageFromData.CGImage scale: 1.0 orientation: UIImageOrientationLeft];
+            //itemImage = [UIImage imageWithData:recentItem.imageData];
+        } else {
+            itemImage = [UIImage imageNamed:recentItem.image];
+        }
         //Cast image string into UIImage
-        UIImage *itemImage = [UIImage imageNamed:recentItem.image];
+        //UIImage *itemImage = [UIImage imageNamed:recentItem.image];
         
         NSManagedObject *selectedObject = [recentItemsArray objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
         
