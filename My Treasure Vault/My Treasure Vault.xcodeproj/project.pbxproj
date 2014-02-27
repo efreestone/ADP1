@@ -31,6 +31,9 @@
 		B82D1DB018BFBD45002EE367 /* mainBackground~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B82D1DAF18BFBD45002EE367 /* mainBackground~iPad.png */; };
 		B82D1DB218BFBF65002EE367 /* loginBackground~iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B82D1DB118BFBF65002EE367 /* loginBackground~iPad@2x.png */; };
 		B82D1DB418BFC514002EE367 /* loginBackground-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B82D1DB318BFC514002EE367 /* loginBackground-568h@2x.png */; };
+		B82D1DB718BFC69D002EE367 /* mainBackground-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = B82D1DB518BFC69D002EE367 /* mainBackground-568h.png */; };
+		B82D1DB818BFC69D002EE367 /* mainBackground-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B82D1DB618BFC69D002EE367 /* mainBackground-568h@2x.png */; };
+		B82D1DBA18BFC730002EE367 /* mainBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B82D1DB918BFC730002EE367 /* mainBackground.png */; };
 		B879D39818BEB36400F27590 /* CustomPFLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B879D39718BEB36400F27590 /* CustomPFLoginViewController.m */; };
 		B879D39A18BED88E00F27590 /* LoginFieldBG.png in Resources */ = {isa = PBXBuildFile; fileRef = B879D39918BED88E00F27590 /* LoginFieldBG.png */; };
 		B879D39E18BEEA0200F27590 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B879D39D18BEEA0200F27590 /* logo.png */; };
@@ -111,6 +114,9 @@
 		B82D1DAF18BFBD45002EE367 /* mainBackground~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainBackground~iPad.png"; sourceTree = "<group>"; };
 		B82D1DB118BFBF65002EE367 /* loginBackground~iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBackground~iPad@2x.png"; sourceTree = "<group>"; };
 		B82D1DB318BFC514002EE367 /* loginBackground-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBackground-568h@2x.png"; sourceTree = "<group>"; };
+		B82D1DB518BFC69D002EE367 /* mainBackground-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainBackground-568h.png"; sourceTree = "<group>"; };
+		B82D1DB618BFC69D002EE367 /* mainBackground-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainBackground-568h@2x.png"; sourceTree = "<group>"; };
+		B82D1DB918BFC730002EE367 /* mainBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainBackground.png; sourceTree = "<group>"; };
 		B879D39618BEB36400F27590 /* CustomPFLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPFLoginViewController.h; sourceTree = "<group>"; };
 		B879D39718BEB36400F27590 /* CustomPFLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPFLoginViewController.m; sourceTree = "<group>"; };
 		B879D39918BED88E00F27590 /* LoginFieldBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoginFieldBG.png; sourceTree = "<group>"; };
@@ -324,6 +330,9 @@
 				B82D1DB118BFBF65002EE367 /* loginBackground~iPad@2x.png */,
 				B879D39918BED88E00F27590 /* LoginFieldBG.png */,
 				B879D39D18BEEA0200F27590 /* logo.png */,
+				B82D1DB518BFC69D002EE367 /* mainBackground-568h.png */,
+				B82D1DB618BFC69D002EE367 /* mainBackground-568h@2x.png */,
+				B82D1DB918BFC730002EE367 /* mainBackground.png */,
 				B82D1DAF18BFBD45002EE367 /* mainBackground~iPad.png */,
 				B82D1DAB18BFB95A002EE367 /* mainBackground~iPad@2x.png */,
 				B89578E518B847020062EB8F /* signin-button-highlighted.png */,
@@ -408,6 +417,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B82D1DB818BFC69D002EE367 /* mainBackground-568h@2x.png in Resources */,
 				B89578EB18B847020062EB8F /* Default-Portrait@2x~iPad.png in Resources */,
 				B89578F218B847020062EB8F /* Icon@2x.png in Resources */,
 				B89578EF18B847020062EB8F /* Icon-76.png in Resources */,
@@ -419,6 +429,7 @@
 				B89578F018B847020062EB8F /* Icon-76@2x.png in Resources */,
 				B8F4BBBB18BF02A60081C36A /* loginBackground.png in Resources */,
 				B828F95A18B842E0002CE947 /* InfoPlist.strings in Resources */,
+				B82D1DB718BFC69D002EE367 /* mainBackground-568h.png in Resources */,
 				B89578EA18B847020062EB8F /* Default-Landscape@2x~iPad.png in Resources */,
 				B89578ED18B847020062EB8F /* Default@2x.png in Resources */,
 				B828F98518B84342002CE947 /* Main_iPad.storyboard in Resources */,
@@ -431,6 +442,7 @@
 				B89578EC18B847020062EB8F /* Default-Portrait~iPad.png in Resources */,
 				B879D39A18BED88E00F27590 /* LoginFieldBG.png in Resources */,
 				B82D1DB218BFBF65002EE367 /* loginBackground~iPad@2x.png in Resources */,
+				B82D1DBA18BFC730002EE367 /* mainBackground.png in Resources */,
 				B89578F118B847020062EB8F /* Icon.png in Resources */,
 				B89578E918B847020062EB8F /* Default-568h@2x.png in Resources */,
 				B828F98318B84329002CE947 /* Main_iPhone.storyboard in Resources */,
