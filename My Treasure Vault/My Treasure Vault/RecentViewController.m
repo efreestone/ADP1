@@ -23,6 +23,8 @@
 #import "Items.h"
 //Import all items view controller
 #import "AllItemsViewController.h"
+//
+#import "CustomPFLoginViewController.h"
 
 @interface RecentViewController () <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
@@ -151,8 +153,11 @@
     //Boilerplate login code from Parse tutorial "Login and Signup Views" to allocate/present login screen
     if (![PFUser currentUser]) { // No user logged in
         // Create the log in view controller
-        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+        CustomPFLoginViewController *logInViewController = [[CustomPFLoginViewController alloc] init];
         [logInViewController setDelegate:self]; // Set ourselves as the delegate
+        
+        //PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+        //[logInViewController setDelegate:self]; // Set ourselves as the delegate
      
         //Grab log in view. Adding this to fill in default log in
         //PFLogInView *logInView = [[PFLogInView alloc] init];
