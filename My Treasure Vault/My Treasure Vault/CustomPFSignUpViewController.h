@@ -1,3 +1,9 @@
+// Elijah Freestone
+// ADP1 1402
+// Week 4
+// My Treasure Vault Final
+// February 21st, 2014
+
 //
 //  CustomPFSignUpViewController.h
 //  My Treasure Vault
@@ -9,5 +15,7 @@
 #import <Parse/Parse.h>
 
 @interface CustomPFSignUpViewController : PFSignUpViewController
+
+@property (nonatomic, strong) UIImageView *fieldsBackground;
 
 @end

@@ -36,6 +36,12 @@
 
 - (void)viewDidLoad
 {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"mainBackground.png"]]];
+    } else {
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"mainBackground~iPad.png"]]];
+    }
+    
     //Create instance of AppDelegate and set as delegate for access to core data
     appDelegate = [[UIApplication sharedApplication] delegate];
     //Grab managed object context on app delegate. This is used to check if an sqlite file already exists for the app

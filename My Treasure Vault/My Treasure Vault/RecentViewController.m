@@ -25,6 +25,8 @@
 #import "AllItemsViewController.h"
 //
 #import "CustomPFLoginViewController.h"
+//
+#import "CustomPFSignUpViewController.h"
 
 @interface RecentViewController () <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
@@ -41,6 +43,11 @@
 
 - (void)viewDidLoad
 {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"mainBackground.png"]]];
+    } else {
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"mainBackground~iPad.png"]]];
+    }
     //Allocate fetched results controller
     //_fetchedResultsController = [[NSFetchedResultsController alloc] init];
     
@@ -167,7 +174,7 @@
         //logInView.passwordField.text = @"1234";
      
         // Create the sign up view controller
-        PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
+        CustomPFSignUpViewController *signUpViewController = [[CustomPFSignUpViewController alloc] init];
         [signUpViewController setDelegate:self]; // Set ourselves as the delegate
      
         // Assign our sign up controller to be displayed from the login controller

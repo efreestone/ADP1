@@ -52,8 +52,16 @@
 
 - (void)viewDidLoad
 {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"mainBackground.png"]]];
+    } else {
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"mainBackground~iPad.png"]]];
+    }
+    
+    //Allocate image view controller
     imageViewController = [[ImageViewController alloc] init];
     
+    //If coming from detail view edit button, set text fields to passed values
     if (passedManagedObject != nil) {
         makeTextField.text = [passedManagedObject valueForKey:@"make"];
         modelTextField.text = [passedManagedObject valueForKey:@"model"];

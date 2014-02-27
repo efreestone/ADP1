@@ -1,3 +1,9 @@
+// Elijah Freestone
+// ADP1 1402
+// Week 4
+// My Treasure Vault Final
+// February 21st, 2014
+
 //
 //  CustomPFLoginViewController.m
 //  My Treasure Vault
@@ -44,7 +50,7 @@
          [self.logInView.logInButton setTitle:@"" forState:UIControlStateNormal];
          [self.logInView.logInButton setTitle:@"" forState:UIControlStateHighlighted];*/
     } else {
-        //[self.logInView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"loginBackground~iPad.png"]]];
+        [self.logInView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"loginBackground~iPad.png"]]];
         [self.logInView setLogo:nil];
         //[self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo.png"]]];
         

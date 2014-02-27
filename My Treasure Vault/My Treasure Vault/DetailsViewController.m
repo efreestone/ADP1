@@ -37,6 +37,12 @@
 
 - (void)viewDidLoad
 {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"mainBackground.png"]]];
+    } else {
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"mainBackground~iPad.png"]]];
+    }
+    
     //Set labels and image to passed item info
     itemImageView.image = passedItemImage;
     makeLabel.text = passedItemMake;
