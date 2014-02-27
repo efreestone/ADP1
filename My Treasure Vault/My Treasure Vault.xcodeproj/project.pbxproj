@@ -70,6 +70,12 @@
 		B895790C18B848A40062EB8F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B895790B18B848A40062EB8F /* StoreKit.framework */; };
 		B895790E18B848B10062EB8F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B895790D18B848B10062EB8F /* SystemConfiguration.framework */; };
 		B895791018B848EC0062EB8F /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B895790F18B848EC0062EB8F /* AssetsLibrary.framework */; };
+		B8BDF7B718BFE11F0008C0A5 /* allItemsTab.png in Resources */ = {isa = PBXBuildFile; fileRef = B8BDF7B418BFE11F0008C0A5 /* allItemsTab.png */; };
+		B8BDF7B818BFE11F0008C0A5 /* recentTab.png in Resources */ = {isa = PBXBuildFile; fileRef = B8BDF7B518BFE11F0008C0A5 /* recentTab.png */; };
+		B8BDF7B918BFE11F0008C0A5 /* settingsTab.png in Resources */ = {isa = PBXBuildFile; fileRef = B8BDF7B618BFE11F0008C0A5 /* settingsTab.png */; };
+		B8BDF7BD18BFE3710008C0A5 /* allItemsTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B8BDF7BA18BFE3710008C0A5 /* allItemsTab@2x.png */; };
+		B8BDF7BE18BFE3710008C0A5 /* recentTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B8BDF7BB18BFE3710008C0A5 /* recentTab@2x.png */; };
+		B8BDF7BF18BFE3710008C0A5 /* settingsTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B8BDF7BC18BFE3710008C0A5 /* settingsTab@2x.png */; };
 		B8F4BBBB18BF02A60081C36A /* loginBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F4BBBA18BF02A60081C36A /* loginBackground.png */; };
 		B8F4BBBF18BF03580081C36A /* loginBackground-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F4BBBE18BF03580081C36A /* loginBackground-568h.png */; };
 /* End PBXBuildFile section */
@@ -161,6 +167,12 @@
 		B895790B18B848A40062EB8F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		B895790D18B848B10062EB8F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B895790F18B848EC0062EB8F /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		B8BDF7B418BFE11F0008C0A5 /* allItemsTab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = allItemsTab.png; sourceTree = "<group>"; };
+		B8BDF7B518BFE11F0008C0A5 /* recentTab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recentTab.png; sourceTree = "<group>"; };
+		B8BDF7B618BFE11F0008C0A5 /* settingsTab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsTab.png; sourceTree = "<group>"; };
+		B8BDF7BA18BFE3710008C0A5 /* allItemsTab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "allItemsTab@2x.png"; sourceTree = "<group>"; };
+		B8BDF7BB18BFE3710008C0A5 /* recentTab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recentTab@2x.png"; sourceTree = "<group>"; };
+		B8BDF7BC18BFE3710008C0A5 /* settingsTab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsTab@2x.png"; sourceTree = "<group>"; };
 		B8F4BBBA18BF02A60081C36A /* loginBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBackground.png; sourceTree = "<group>"; };
 		B8F4BBBE18BF03580081C36A /* loginBackground-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBackground-568h.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -311,6 +323,10 @@
 		B89578D818B847020062EB8F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B8BDF7BA18BFE3710008C0A5 /* allItemsTab@2x.png */,
+				B8BDF7BB18BFE3710008C0A5 /* recentTab@2x.png */,
+				B8BDF7BC18BFE3710008C0A5 /* settingsTab@2x.png */,
+				B8BDF7B418BFE11F0008C0A5 /* allItemsTab.png */,
 				B89578D918B847020062EB8F /* camera-button-highlighted.png */,
 				B89578DA18B847020062EB8F /* camera-button.png */,
 				B89578DB18B847020062EB8F /* Default-568h@2x.png */,
@@ -335,6 +351,8 @@
 				B82D1DB918BFC730002EE367 /* mainBackground.png */,
 				B82D1DAF18BFBD45002EE367 /* mainBackground~iPad.png */,
 				B82D1DAB18BFB95A002EE367 /* mainBackground~iPad@2x.png */,
+				B8BDF7B518BFE11F0008C0A5 /* recentTab.png */,
+				B8BDF7B618BFE11F0008C0A5 /* settingsTab.png */,
 				B89578E518B847020062EB8F /* signin-button-highlighted.png */,
 				B89578E618B847020062EB8F /* signin-button.png */,
 				B82D1DA918BFB6A5002EE367 /* SignUpFieldBG.png */,
@@ -426,6 +444,9 @@
 				B82D1DB418BFC514002EE367 /* loginBackground-568h@2x.png in Resources */,
 				B89578E718B847020062EB8F /* camera-button-highlighted.png in Resources */,
 				B89578F418B847020062EB8F /* signin-button.png in Resources */,
+				B8BDF7BE18BFE3710008C0A5 /* recentTab@2x.png in Resources */,
+				B8BDF7B818BFE11F0008C0A5 /* recentTab.png in Resources */,
+				B8BDF7BF18BFE3710008C0A5 /* settingsTab@2x.png in Resources */,
 				B89578F018B847020062EB8F /* Icon-76@2x.png in Resources */,
 				B8F4BBBB18BF02A60081C36A /* loginBackground.png in Resources */,
 				B828F95A18B842E0002CE947 /* InfoPlist.strings in Resources */,
@@ -437,8 +458,11 @@
 				B879D39E18BEEA0200F27590 /* logo.png in Resources */,
 				B89578EE18B847020062EB8F /* defaultImage.png in Resources */,
 				B89578F318B847020062EB8F /* signin-button-highlighted.png in Resources */,
+				B8BDF7B718BFE11F0008C0A5 /* allItemsTab.png in Resources */,
+				B8BDF7B918BFE11F0008C0A5 /* settingsTab.png in Resources */,
 				B82D1DAA18BFB6A5002EE367 /* SignUpFieldBG.png in Resources */,
 				B828F96518B842E0002CE947 /* Images.xcassets in Resources */,
+				B8BDF7BD18BFE3710008C0A5 /* allItemsTab@2x.png in Resources */,
 				B89578EC18B847020062EB8F /* Default-Portrait~iPad.png in Resources */,
 				B879D39A18BED88E00F27590 /* LoginFieldBG.png in Resources */,
 				B82D1DB218BFBF65002EE367 /* loginBackground~iPad@2x.png in Resources */,

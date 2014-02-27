@@ -109,10 +109,10 @@
     //Check if imageData exists
     if (allItem.imageData != nil) {
         //Cast image from data. Not sure why but this sets it in landscape mode
-        UIImage *imageFromData = [UIImage imageWithData:allItem.imageData];
+        //UIImage *imageFromData = [UIImage imageWithData:allItem.imageData];
         //Rotate imageFromData to be in portrait
-        itemImage = [[UIImage alloc] initWithCGImage: imageFromData.CGImage scale: 1.0 orientation: UIImageOrientationLeft];
-        //itemImage = [UIImage imageWithData:recentItem.imageData];
+        //itemImage = [[UIImage alloc] initWithCGImage: imageFromData.CGImage scale: 1.0 orientation: UIImageOrientationLeft];
+        itemImage = [UIImage imageWithData:allItem.imageData];
     } else {
         itemImage = [UIImage imageNamed:allItem.image];
     }

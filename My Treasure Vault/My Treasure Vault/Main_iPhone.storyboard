@@ -168,7 +168,7 @@
         <scene sceneID="jMu-nW-eAY">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VQf-H5-Agd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recent" id="TJu-Rx-vaP"/>
+                    <tabBarItem key="tabBarItem" title="Recent" image="recentTab.png" id="TJu-Rx-vaP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SqU-p0-3CI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -187,7 +187,7 @@
         <scene sceneID="1YP-Fs-5A7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dnl-OY-oNG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="All Items" id="Mf1-5V-5w7"/>
+                    <tabBarItem key="tabBarItem" title="All Items" image="allItemsTab.png" id="Mf1-5V-5w7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5w9-iC-GXX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -206,7 +206,7 @@
         <scene sceneID="xFN-Ur-zOh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Way-n6-8JA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="IR8-zO-nZ3"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settingsTab.png" id="IR8-zO-nZ3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FUd-Iz-hCr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -605,8 +605,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="allItemsTab.png" width="30" height="30"/>
         <image name="camera-button-highlighted.png" width="288" height="88"/>
         <image name="camera-button.png" width="288" height="88"/>
+        <image name="recentTab.png" width="30" height="30"/>
+        <image name="settingsTab.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
