@@ -37,6 +37,7 @@
 
 - (void)viewDidLoad
 {
+    //Check device type and apply background accordingly
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"mainBackground-568h.png"]]];
     } else {
@@ -84,24 +85,12 @@
         //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         //Grab destination view controllers nav
         UINavigationController *navController = segue.destinationViewController;
+        //Allocate add item view
         AddItemViewController *addItemViewController = [[navController viewControllers] objectAtIndex:0];
-        //addItemViewController.delegate = self;
-        //Grab instance of recentItem object
-        //Items *recentItem = [recentItemsArray objectAtIndex:indexPath.row];
-        //Cast image string into UIImage
-        //UIImage *itemImage = [UIImage imageNamed:recentItem.image];
         
         //Pass managed object to Add Items to be parsed and displayed in text fields
         if (addItemViewController != nil) {
-            //Pass title string and NSStrings/image to detail view
-            //addItemViewController.title = recentItem.model;
-            //[addItemViewController.makeTextField setText: passedItemMake];
-            //addItemViewController.makeTextField.text = passedItemMake;
-            //addItemViewController.modelTextField.text = passedItemModel;
-            //addItemViewController.serialTextField.text = passedItemSerial;
-            //addItemViewController.detailsTextField.text = passedItemDetails;
-            //addItemViewController.costTextField.text = passedItemCost;
-            //addItemViewController.passedItemDateAdded = recentItem.formattedDate;
+            //Pass entire managed object to add item for display and editing
             addItemViewController.passedManagedObject = passedManagedObject;
         }
     }

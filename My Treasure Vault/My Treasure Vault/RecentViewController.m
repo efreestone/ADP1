@@ -23,9 +23,9 @@
 #import "Items.h"
 //Import all items view controller
 #import "AllItemsViewController.h"
-//
+//Import log in subclass
 #import "CustomPFLoginViewController.h"
-//
+//Import sign in subclass
 #import "CustomPFSignUpViewController.h"
 
 @interface RecentViewController () <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
@@ -39,32 +39,20 @@
 
 //Synthesize recent items array for getter/setter
 @synthesize recentItemsArray, myTableView;
-//@synthesize fetchedResultsController = _fetchedResultsController;
 
 - (void)viewDidLoad
 {
+    //Check device type and apply background accordingly
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"mainBackground-568h.png"]]];
     } else {
         [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"mainBackground~iPad.png"]]];
     }
-    //Allocate fetched results controller
-    //_fetchedResultsController = [[NSFetchedResultsController alloc] init];
-    
-    //Alocate all items view controller to pass fetched items array
-    AllItemsViewController *allItemsViewController = [[AllItemsViewController alloc] init];
     
     //Create instance of AppDelegate and set as delegate for access to core data
     appDelegate = [[UIApplication sharedApplication] delegate];
     //Grab managed object context on app delegate. This is used to check if an sqlite file already exists for the app
     context = [appDelegate managedObjectContext];
-    
-    /*NSError *error;
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    recentItemsArray = [[context executeFetchRequest:fetchRequest error:&error] mutableCopy];*/
     
     //Check if fetched items array exists
     if (recentItemsArray != nil) {
@@ -72,54 +60,25 @@
         [self.tableView reloadData];
     }
     
-    /*for (Items *item in recentItemsArray) {
-     //NSLog(@"%@", newItem.description);
-     NSLog(@"Make: %@ Model: %@", [item valueForKey:@"make"], [item valueForKey:@"model"]);
-     //NSLog(@"Zip: %@", [newItem valueForKey:@"model"]);
-     }*/
-    
-	/*if (![[self fetchedResultsController] performFetch:&error]) {
-     // Update to handle the error appropriately.
-     NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-     exit(-1);  // Fail
-     }*/
-    
-    //
+    //Check if a database exists and create defualt items if it doesn't
     if (appDelegate.noDatabase == YES) {
+        //Call method to create default data
         [self fillDefaultData];
         NSLog(@"Default Data Added");
-        allItemsViewController.allItemsArray = recentItemsArray;
     }
-    
     
     //Move edit button to left side of nav bar (right is + sign for add item)
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
-    //Present log in screen over home/recent. Not currently active or required. Clicking Sign In dismisses the view while clicking cancel shows an alert view
-    //Declare storyboard
-    /*UIStoryboard *storyboard;
-     //Check device and set storyboard accordingly
-     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-     storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-     } else {
-     storyboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
-     }
-     //Allocate sign in view controller
-     UIViewController *signInVC = [storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
-     //Set transition style to flip
-     signInVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-     //Present sign in view
-     [self presentViewController:signInVC animated:true completion:nil];*/
-    
     //This code should be in viewDidAppear but was moved to viewDidLoad to stop the login screen from reappearing when dismissed with the X in top left. Log in isnt required but this has casued Parse to output error messages in the console. Everything does function as it is supposed to though.
     //Boilerplate login code from Parse tutorial "Login and Signup Views" to allocate/present login screen
-    /*if (![PFUser currentUser]) { // No user logged in
-        // Create the log in view controller
-        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+    if (![PFUser currentUser]) { // No user logged in
+        // Create the log in view controller with custom subclass
+        CustomPFLoginViewController *logInViewController = [[CustomPFLoginViewController alloc] init];
         [logInViewController setDelegate:self]; // Set ourselves as the delegate
         
         // Create the sign up view controller
-        PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
+        CustomPFSignUpViewController *signUpViewController = [[CustomPFSignUpViewController alloc] init];
         [signUpViewController setDelegate:self]; // Set ourselves as the delegate
         
         // Assign our sign up controller to be displayed from the login controller
@@ -127,7 +86,7 @@
         
         // Present the log in view controller
         [self presentViewController:logInViewController animated:YES completion:NULL];
-    }*/
+    }
     
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -158,20 +117,10 @@
     
     //Moved this to viewDidLoad so login screen doesn't reappear if dismissed without loggin in.
     //Boilerplate login code from Parse tutorial "Login and Signup Views" to allocate/present login screen
-    if (![PFUser currentUser]) { // No user logged in
-        // Create the log in view controller
+    /*if (![PFUser currentUser]) { // No user logged in
+        // Create the log in view controller with custom subclass
         CustomPFLoginViewController *logInViewController = [[CustomPFLoginViewController alloc] init];
         [logInViewController setDelegate:self]; // Set ourselves as the delegate
-        
-        //PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
-        //[logInViewController setDelegate:self]; // Set ourselves as the delegate
-     
-        //Grab log in view. Adding this to fill in default log in
-        //PFLogInView *logInView = [[PFLogInView alloc] init];
-        //NSString *defaultUsername = @"test";
-        //Set default sign in
-        //logInView.usernameField.text = defaultUsername;
-        //logInView.passwordField.text = @"1234";
      
         // Create the sign up view controller
         CustomPFSignUpViewController *signUpViewController = [[CustomPFSignUpViewController alloc] init];
@@ -182,37 +131,8 @@
      
         // Present the log in view controller
         [self presentViewController:logInViewController animated:YES completion:NULL];
-     }
+     }*/
 }
-
-/*- (NSFetchedResultsController *)fetchedResultsController
- {
- if (_fetchedResultsController != nil) {
- return _fetchedResultsController;
- }
- 
- NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
- NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:context];
- [fetchRequest setEntity:entity];
- 
- NSSortDescriptor *sortedItems = [[NSSortDescriptor alloc] initWithKey:@"recentItems.dateAdded" ascending:NO];
- [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortedItems]];
- 
- [fetchRequest setFetchBatchSize:20];
- 
- NSFetchedResultsController *theFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:context sectionNameKeyPath:nil cacheName:@"Root"];
- self.fetchedResultsController = theFetchedResultsController;
- _fetchedResultsController.delegate = self;
- 
- for (Items *item in recentItemsArray) {
- //NSLog(@"%@", newItem.description);
- NSLog(@"Make: %@ Model: %@", [item valueForKey:@"make"], [item valueForKey:@"model"]);
- //NSLog(@"Zip: %@", [newItem valueForKey:@"model"]);
- }
- 
- return _fetchedResultsController;
- 
- }*/
 
 #pragma mark - Default Data add
 
@@ -419,18 +339,13 @@
     UIImage *itemImage;
     //Check if imageData exists
     if (recentItem.imageData != nil) {
-        //Cast image from data. Not sure why but this sets it in landscape mode
-        //UIImage *imageFromData = [UIImage imageWithData:recentItem.imageData];
-        //Rotate imageFromData to be in portrait
-        //itemImage = [[UIImage alloc] initWithCGImage: imageFromData.CGImage scale: 1.0 orientation: UIImageOrientationLeft];
+        //Set image from imageData
         itemImage = [UIImage imageWithData:recentItem.imageData];
     } else {
         //Apply default image not stored locally. Not stored in core data or synced to Parse
         itemImage = [UIImage imageNamed:recentItem.image];
     }
     
-    //Cast image string into UIImage
-    //UIImage *itemImage = [UIImage imageNamed:recentItem.image];
     //Apply image
     cell.cellImage.image = itemImage;
     //Apply make and model
@@ -491,16 +406,12 @@
         if (recentItem.imageData != nil) {
             //Cast image from data. Not sure why but this sets it in landscape mode
             itemImage = [UIImage imageWithData:recentItem.imageData];
-            //UIImage *imageFromData = [UIImage imageWithData:recentItem.imageData];
-            //Rotate imageFromData to be in portrait
-            //itemImage = [[UIImage alloc] initWithCGImage: imageFromData.CGImage scale: 1.0 orientation: UIImageOrientationLeft];
-            //itemImage = [UIImage imageWithData:recentItem.imageData];
         } else {
+            //Set image to default image
             itemImage = [UIImage imageNamed:recentItem.image];
         }
-        //Cast image string into UIImage
-        //UIImage *itemImage = [UIImage imageNamed:recentItem.image];
         
+        //Grab selected managed object
         NSManagedObject *selectedObject = [recentItemsArray objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
         
         if (detailsViewController != nil) {

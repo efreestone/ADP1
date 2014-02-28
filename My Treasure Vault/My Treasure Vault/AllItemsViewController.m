@@ -36,6 +36,7 @@
 
 - (void)viewDidLoad
 {
+    //Check device type and apply background accordingly
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"mainBackground-568h.png"]]];
     } else {
@@ -46,13 +47,6 @@
     appDelegate = [[UIApplication sharedApplication] delegate];
     //Grab managed object context on app delegate. This is used to check if an sqlite file already exists for the app
     context = [appDelegate managedObjectContext];
-    
-    /*NSError *error;
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    allItemsArray = [[context executeFetchRequest:fetchRequest error:&error] mutableCopy];*/
     
     //NSLog(@"All items: %@", [allItemsArray description]);
     
@@ -76,13 +70,13 @@
     // Fetch the items from persistent data store
     NSManagedObjectContext *managedObjectContext = [appDelegate managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Items"];
-    
+    //Set sort to use dateAdded (NSDate) to sort items
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"dateAdded" ascending:NO];
     
     [fetchRequest setSortDescriptors:@[sortDescriptor]];
-    
+    //Fill all items array with fetched items
     allItemsArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    
+    //Reload the table and show fetched items
     [myTableView reloadData];
 }
 
@@ -108,17 +102,13 @@
     UIImage *itemImage;
     //Check if imageData exists
     if (allItem.imageData != nil) {
-        //Cast image from data. Not sure why but this sets it in landscape mode
-        //UIImage *imageFromData = [UIImage imageWithData:allItem.imageData];
-        //Rotate imageFromData to be in portrait
-        //itemImage = [[UIImage alloc] initWithCGImage: imageFromData.CGImage scale: 1.0 orientation: UIImageOrientationLeft];
+        //Set image based on imageData
         itemImage = [UIImage imageWithData:allItem.imageData];
     } else {
+        //Set image to default
         itemImage = [UIImage imageNamed:allItem.image];
     }
-    
-    //Cast image string into UIImage
-    //UIImage *itemImage = [UIImage imageNamed:allItem.image];
+
     //Apply image
     cell.cellImage.image = itemImage;
     //Apply make and model
@@ -176,9 +166,6 @@
         } else {
             itemImage = [UIImage imageNamed:allItem.image];
         }
-        
-        //Cast image string into UIImage
-        //UIImage *itemImage = [UIImage imageNamed:allItem.image];
         
         NSManagedObject *selectedObject = [allItemsArray objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
         

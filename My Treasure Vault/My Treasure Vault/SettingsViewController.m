@@ -44,6 +44,7 @@
 
 - (void)viewDidLoad
 {
+    //Check device type and apply background accordingly
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"mainBackground-568h.png"]]];
     } else {
@@ -62,7 +63,7 @@
 
 //Manually override cell background color. Seeting cell BG to clear in storyboard worked fine in iPhone sim but iPad and iPad sim both still had a white background.
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    //UIImage *pattern = [UIImage imageNamed:@"image.png"];
+    //Set static cell background to clear
     [cell setBackgroundColor:[UIColor clearColor]];
 }
 
@@ -82,34 +83,6 @@
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Items"];
         allStoredArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
         //NSLog(@"%@", [allStoredArray description]);
-        
-        //Loop through core data and create new PFObject to send to Parse
-        /*for (Items *item in allStoredArray) {
-            NSLog(@"Make: %@ Model: %@", [item valueForKey:@"make"], [item valueForKey:@"model"]);
-            newItem = [PFObject objectWithClassName:@"NewItem"];
-            newItem[@"make"] = [item valueForKey:@"make"];
-            newItem[@"model"] = [item valueForKey:@"model"];
-            newItem[@"serial"] = [item valueForKey:@"serial"];
-            newItem[@"details"] = [item valueForKey:@"details"];
-            newItem[@"cost"] = [item valueForKey:@"cost"];
-            newItem[@"dateAdded"] = [item valueForKey:@"dateAdded"];
-            newItem[@"formattedDate"] = [item valueForKey:@"formattedDate"];
-            if (syncImageSwitch.isOn) {
-                //Check if imageData is set to NSNull object. This is to always skip syncing default item image.
-                if ([item valueForKey:@"imageData"] != NULL) {
-                    NSLog(@"NULL didn't work");
-                    NSString *imageName = [NSString stringWithFormat:@"%@.png", [item valueForKey:@"make"]];
-                    //UIImage *uploadImage = [UIImage imageWithData:[item valueForKey:@"imageData"]];
-                    PFFile *imageFile = [PFFile fileWithName: imageName data:[item valueForKey:@"imageData"]];
-                    newItem[@"imageFile"] = imageFile;
-                } else {
-                    NSLog(@"Image Data set to NULL so no image was synced");
-                }
-            }
-            //newItem[@"imageData"] = [item valueForKey:@"imageData"];
-            //Start save
-            [newItem saveInBackground];
-        }*/
         //NSLog(@"All switch is ON");
     } else {
         NSLog(@"All switch is OFF");
@@ -126,10 +99,12 @@
 //Triggered on Save click if sync all if on
 -(IBAction)onSave:(id)sender
 {
+    //Check if all sync switch is on
     if (syncAllSwitch.isOn) {
-        //Loop through core data and create new PFObject to send to Parse
+        //Loop through core data and create new PFObject to send to Parse for each item
         for (Items *item in allStoredArray) {
             NSLog(@"Make: %@ Model: %@", [item valueForKey:@"make"], [item valueForKey:@"model"]);
+            //Create PFObject for each item
             newItem = [PFObject objectWithClassName:@"NewItem"];
             newItem[@"make"] = [item valueForKey:@"make"];
             newItem[@"model"] = [item valueForKey:@"model"];
@@ -138,6 +113,7 @@
             newItem[@"cost"] = [item valueForKey:@"cost"];
             newItem[@"dateAdded"] = [item valueForKey:@"dateAdded"];
             newItem[@"formattedDate"] = [item valueForKey:@"formattedDate"];
+            //If sync image is on, create PFFile of image to upload
             if (syncImageSwitch.isOn) {
                 //Check if imageData is set to NSNull object. This is to always skip syncing default item image.
                 if ([item valueForKey:@"imageData"] != NULL) {
@@ -150,10 +126,10 @@
                     NSLog(@"Image Data set to NULL so no image was synced");
                 }
             }
-            //newItem[@"imageData"] = [item valueForKey:@"imageData"];
             //Start save
             [newItem saveInBackground];
         }
+        //Show sync alert
         [self syncAlertView];
     }
 }
@@ -164,6 +140,7 @@
 -(void)syncAlertView
 {
     NSString *syncText;
+    //Change message of sync alert based on if images are included or not
     if (syncImageSwitch.isOn) {
         syncText = @"Your Items and Images are syncing to the Cloud Server.";
     } else {
@@ -178,6 +155,7 @@
 //Create and show no image alert
 -(void)noImageSyncAlertView
 {
+    //Check if sync image is on and create alerts accordingly
     if (syncImageSwitch.isOn) {
         UIAlertView *yesImageSyncAlert = [[UIAlertView alloc] initWithTitle: @"Images will sync" message: @"Your Images will be included in the sync to the Cloud Server." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [yesImageSyncAlert show];
