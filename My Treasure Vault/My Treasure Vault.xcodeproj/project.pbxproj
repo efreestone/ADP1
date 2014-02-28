@@ -25,6 +25,15 @@
 		B828F97918B842E0002CE947 /* My_Treasure_VaultTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B828F97818B842E0002CE947 /* My_Treasure_VaultTests.m */; };
 		B828F98318B84329002CE947 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B828F98218B84329002CE947 /* Main_iPhone.storyboard */; };
 		B828F98518B84342002CE947 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B828F98418B84342002CE947 /* Main_iPad.storyboard */; };
+		B82D1DA818BFB212002EE367 /* CustomPFSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82D1DA718BFB212002EE367 /* CustomPFSignUpViewController.m */; };
+		B82D1DAA18BFB6A5002EE367 /* SignUpFieldBG.png in Resources */ = {isa = PBXBuildFile; fileRef = B82D1DA918BFB6A5002EE367 /* SignUpFieldBG.png */; };
+		B82D1DAC18BFB95A002EE367 /* mainBackground~iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B82D1DAB18BFB95A002EE367 /* mainBackground~iPad@2x.png */; };
+		B82D1DB018BFBD45002EE367 /* mainBackground~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B82D1DAF18BFBD45002EE367 /* mainBackground~iPad.png */; };
+		B82D1DB218BFBF65002EE367 /* loginBackground~iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B82D1DB118BFBF65002EE367 /* loginBackground~iPad@2x.png */; };
+		B82D1DB418BFC514002EE367 /* loginBackground-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B82D1DB318BFC514002EE367 /* loginBackground-568h@2x.png */; };
+		B82D1DB718BFC69D002EE367 /* mainBackground-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = B82D1DB518BFC69D002EE367 /* mainBackground-568h.png */; };
+		B82D1DB818BFC69D002EE367 /* mainBackground-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B82D1DB618BFC69D002EE367 /* mainBackground-568h@2x.png */; };
+		B82D1DBA18BFC730002EE367 /* mainBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B82D1DB918BFC730002EE367 /* mainBackground.png */; };
 		B879D39818BEB36400F27590 /* CustomPFLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B879D39718BEB36400F27590 /* CustomPFLoginViewController.m */; };
 		B879D39A18BED88E00F27590 /* LoginFieldBG.png in Resources */ = {isa = PBXBuildFile; fileRef = B879D39918BED88E00F27590 /* LoginFieldBG.png */; };
 		B879D39E18BEEA0200F27590 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B879D39D18BEEA0200F27590 /* logo.png */; };
@@ -61,6 +70,12 @@
 		B895790C18B848A40062EB8F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B895790B18B848A40062EB8F /* StoreKit.framework */; };
 		B895790E18B848B10062EB8F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B895790D18B848B10062EB8F /* SystemConfiguration.framework */; };
 		B895791018B848EC0062EB8F /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B895790F18B848EC0062EB8F /* AssetsLibrary.framework */; };
+		B8BDF7B718BFE11F0008C0A5 /* allItemsTab.png in Resources */ = {isa = PBXBuildFile; fileRef = B8BDF7B418BFE11F0008C0A5 /* allItemsTab.png */; };
+		B8BDF7B818BFE11F0008C0A5 /* recentTab.png in Resources */ = {isa = PBXBuildFile; fileRef = B8BDF7B518BFE11F0008C0A5 /* recentTab.png */; };
+		B8BDF7B918BFE11F0008C0A5 /* settingsTab.png in Resources */ = {isa = PBXBuildFile; fileRef = B8BDF7B618BFE11F0008C0A5 /* settingsTab.png */; };
+		B8BDF7BD18BFE3710008C0A5 /* allItemsTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B8BDF7BA18BFE3710008C0A5 /* allItemsTab@2x.png */; };
+		B8BDF7BE18BFE3710008C0A5 /* recentTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B8BDF7BB18BFE3710008C0A5 /* recentTab@2x.png */; };
+		B8BDF7BF18BFE3710008C0A5 /* settingsTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B8BDF7BC18BFE3710008C0A5 /* settingsTab@2x.png */; };
 		B8F4BBBB18BF02A60081C36A /* loginBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F4BBBA18BF02A60081C36A /* loginBackground.png */; };
 		B8F4BBBF18BF03580081C36A /* loginBackground-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F4BBBE18BF03580081C36A /* loginBackground-568h.png */; };
 /* End PBXBuildFile section */
@@ -98,6 +113,16 @@
 		B828F97818B842E0002CE947 /* My_Treasure_VaultTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = My_Treasure_VaultTests.m; sourceTree = "<group>"; };
 		B828F98218B84329002CE947 /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 		B828F98418B84342002CE947 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
+		B82D1DA618BFB212002EE367 /* CustomPFSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPFSignUpViewController.h; sourceTree = "<group>"; };
+		B82D1DA718BFB212002EE367 /* CustomPFSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPFSignUpViewController.m; sourceTree = "<group>"; };
+		B82D1DA918BFB6A5002EE367 /* SignUpFieldBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SignUpFieldBG.png; sourceTree = "<group>"; };
+		B82D1DAB18BFB95A002EE367 /* mainBackground~iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainBackground~iPad@2x.png"; sourceTree = "<group>"; };
+		B82D1DAF18BFBD45002EE367 /* mainBackground~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainBackground~iPad.png"; sourceTree = "<group>"; };
+		B82D1DB118BFBF65002EE367 /* loginBackground~iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBackground~iPad@2x.png"; sourceTree = "<group>"; };
+		B82D1DB318BFC514002EE367 /* loginBackground-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBackground-568h@2x.png"; sourceTree = "<group>"; };
+		B82D1DB518BFC69D002EE367 /* mainBackground-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainBackground-568h.png"; sourceTree = "<group>"; };
+		B82D1DB618BFC69D002EE367 /* mainBackground-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainBackground-568h@2x.png"; sourceTree = "<group>"; };
+		B82D1DB918BFC730002EE367 /* mainBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainBackground.png; sourceTree = "<group>"; };
 		B879D39618BEB36400F27590 /* CustomPFLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPFLoginViewController.h; sourceTree = "<group>"; };
 		B879D39718BEB36400F27590 /* CustomPFLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPFLoginViewController.m; sourceTree = "<group>"; };
 		B879D39918BED88E00F27590 /* LoginFieldBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoginFieldBG.png; sourceTree = "<group>"; };
@@ -142,6 +167,12 @@
 		B895790B18B848A40062EB8F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		B895790D18B848B10062EB8F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B895790F18B848EC0062EB8F /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		B8BDF7B418BFE11F0008C0A5 /* allItemsTab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = allItemsTab.png; sourceTree = "<group>"; };
+		B8BDF7B518BFE11F0008C0A5 /* recentTab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recentTab.png; sourceTree = "<group>"; };
+		B8BDF7B618BFE11F0008C0A5 /* settingsTab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsTab.png; sourceTree = "<group>"; };
+		B8BDF7BA18BFE3710008C0A5 /* allItemsTab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "allItemsTab@2x.png"; sourceTree = "<group>"; };
+		B8BDF7BB18BFE3710008C0A5 /* recentTab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recentTab@2x.png"; sourceTree = "<group>"; };
+		B8BDF7BC18BFE3710008C0A5 /* settingsTab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsTab@2x.png"; sourceTree = "<group>"; };
 		B8F4BBBA18BF02A60081C36A /* loginBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBackground.png; sourceTree = "<group>"; };
 		B8F4BBBE18BF03580081C36A /* loginBackground-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBackground-568h.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -254,6 +285,8 @@
 				B89578F918B8477D0062EB8F /* ImageViewController.m */,
 				B879D39618BEB36400F27590 /* CustomPFLoginViewController.h */,
 				B879D39718BEB36400F27590 /* CustomPFLoginViewController.m */,
+				B82D1DA618BFB212002EE367 /* CustomPFSignUpViewController.h */,
+				B82D1DA718BFB212002EE367 /* CustomPFSignUpViewController.m */,
 			);
 			path = "My Treasure Vault";
 			sourceTree = "<group>";
@@ -290,11 +323,10 @@
 		B89578D818B847020062EB8F /* images */ = {
 			isa = PBXGroup;
 			children = (
-				B8F4BBBE18BF03580081C36A /* loginBackground-568h.png */,
-				B8F4BBBA18BF02A60081C36A /* loginBackground.png */,
-				B879D39F18BEF36D00F27590 /* loginBackground~iPad.png */,
-				B879D39D18BEEA0200F27590 /* logo.png */,
-				B879D39918BED88E00F27590 /* LoginFieldBG.png */,
+				B8BDF7BA18BFE3710008C0A5 /* allItemsTab@2x.png */,
+				B8BDF7BB18BFE3710008C0A5 /* recentTab@2x.png */,
+				B8BDF7BC18BFE3710008C0A5 /* settingsTab@2x.png */,
+				B8BDF7B418BFE11F0008C0A5 /* allItemsTab.png */,
 				B89578D918B847020062EB8F /* camera-button-highlighted.png */,
 				B89578DA18B847020062EB8F /* camera-button.png */,
 				B89578DB18B847020062EB8F /* Default-568h@2x.png */,
@@ -307,8 +339,23 @@
 				B89578E218B847020062EB8F /* Icon-76@2x.png */,
 				B89578E318B847020062EB8F /* Icon.png */,
 				B89578E418B847020062EB8F /* Icon@2x.png */,
+				B8F4BBBE18BF03580081C36A /* loginBackground-568h.png */,
+				B82D1DB318BFC514002EE367 /* loginBackground-568h@2x.png */,
+				B8F4BBBA18BF02A60081C36A /* loginBackground.png */,
+				B879D39F18BEF36D00F27590 /* loginBackground~iPad.png */,
+				B82D1DB118BFBF65002EE367 /* loginBackground~iPad@2x.png */,
+				B879D39918BED88E00F27590 /* LoginFieldBG.png */,
+				B879D39D18BEEA0200F27590 /* logo.png */,
+				B82D1DB518BFC69D002EE367 /* mainBackground-568h.png */,
+				B82D1DB618BFC69D002EE367 /* mainBackground-568h@2x.png */,
+				B82D1DB918BFC730002EE367 /* mainBackground.png */,
+				B82D1DAF18BFBD45002EE367 /* mainBackground~iPad.png */,
+				B82D1DAB18BFB95A002EE367 /* mainBackground~iPad@2x.png */,
+				B8BDF7B518BFE11F0008C0A5 /* recentTab.png */,
+				B8BDF7B618BFE11F0008C0A5 /* settingsTab.png */,
 				B89578E518B847020062EB8F /* signin-button-highlighted.png */,
 				B89578E618B847020062EB8F /* signin-button.png */,
+				B82D1DA918BFB6A5002EE367 /* SignUpFieldBG.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -388,24 +435,38 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B82D1DB818BFC69D002EE367 /* mainBackground-568h@2x.png in Resources */,
 				B89578EB18B847020062EB8F /* Default-Portrait@2x~iPad.png in Resources */,
 				B89578F218B847020062EB8F /* Icon@2x.png in Resources */,
 				B89578EF18B847020062EB8F /* Icon-76.png in Resources */,
+				B82D1DAC18BFB95A002EE367 /* mainBackground~iPad@2x.png in Resources */,
 				B89578E818B847020062EB8F /* camera-button.png in Resources */,
+				B82D1DB418BFC514002EE367 /* loginBackground-568h@2x.png in Resources */,
 				B89578E718B847020062EB8F /* camera-button-highlighted.png in Resources */,
 				B89578F418B847020062EB8F /* signin-button.png in Resources */,
+				B8BDF7BE18BFE3710008C0A5 /* recentTab@2x.png in Resources */,
+				B8BDF7B818BFE11F0008C0A5 /* recentTab.png in Resources */,
+				B8BDF7BF18BFE3710008C0A5 /* settingsTab@2x.png in Resources */,
 				B89578F018B847020062EB8F /* Icon-76@2x.png in Resources */,
 				B8F4BBBB18BF02A60081C36A /* loginBackground.png in Resources */,
 				B828F95A18B842E0002CE947 /* InfoPlist.strings in Resources */,
+				B82D1DB718BFC69D002EE367 /* mainBackground-568h.png in Resources */,
 				B89578EA18B847020062EB8F /* Default-Landscape@2x~iPad.png in Resources */,
 				B89578ED18B847020062EB8F /* Default@2x.png in Resources */,
 				B828F98518B84342002CE947 /* Main_iPad.storyboard in Resources */,
+				B82D1DB018BFBD45002EE367 /* mainBackground~iPad.png in Resources */,
 				B879D39E18BEEA0200F27590 /* logo.png in Resources */,
 				B89578EE18B847020062EB8F /* defaultImage.png in Resources */,
 				B89578F318B847020062EB8F /* signin-button-highlighted.png in Resources */,
+				B8BDF7B718BFE11F0008C0A5 /* allItemsTab.png in Resources */,
+				B8BDF7B918BFE11F0008C0A5 /* settingsTab.png in Resources */,
+				B82D1DAA18BFB6A5002EE367 /* SignUpFieldBG.png in Resources */,
 				B828F96518B842E0002CE947 /* Images.xcassets in Resources */,
+				B8BDF7BD18BFE3710008C0A5 /* allItemsTab@2x.png in Resources */,
 				B89578EC18B847020062EB8F /* Default-Portrait~iPad.png in Resources */,
 				B879D39A18BED88E00F27590 /* LoginFieldBG.png in Resources */,
+				B82D1DB218BFBF65002EE367 /* loginBackground~iPad@2x.png in Resources */,
+				B82D1DBA18BFC730002EE367 /* mainBackground.png in Resources */,
 				B89578F118B847020062EB8F /* Icon.png in Resources */,
 				B89578E918B847020062EB8F /* Default-568h@2x.png in Resources */,
 				B828F98318B84329002CE947 /* Main_iPhone.storyboard in Resources */,
@@ -434,6 +495,7 @@
 				B828F96018B842E0002CE947 /* AppDelegate.m in Sources */,
 				B89578D118B844960062EB8F /* AddItemViewController.m in Sources */,
 				B89578FA18B8477D0062EB8F /* ImageViewController.m in Sources */,
+				B82D1DA818BFB212002EE367 /* CustomPFSignUpViewController.m in Sources */,
 				B89578F718B847460062EB8F /* CustomCell.m in Sources */,
 				B89578C818B843BD0062EB8F /* RecentViewController.m in Sources */,
 				B89578CE18B844670062EB8F /* SettingsViewController.m in Sources */,

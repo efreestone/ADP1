@@ -1,3 +1,9 @@
+// Elijah Freestone
+// ADP1 1402
+// Week 4
+// My Treasure Vault Final
+// February 21st, 2014
+
 //
 //  CustomPFLoginViewController.m
 //  My Treasure Vault
@@ -29,32 +35,14 @@
 
 - (void)viewDidLoad
 {
+    //Check device type and set background accordingly
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         [self.logInView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"loginBackground-568h.png"]]];
-        //[self.logInView setBackgroundColor:[UIColor blueColor]];
-        NSLog(@"is iPhone");
+        //NSLog(@"is iPhone");
         [self.logInView setLogo:nil];
-        //[self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo.png"]]];
-    
-        // Set buttons appearance
-        /*[self.logInView.logInButton setImage:nil forState:UIControlStateNormal];
-         [self.logInView.logInButton setImage:nil forState:UIControlStateHighlighted];
-         [self.logInView.logInButton setBackgroundImage:[UIImage imageNamed:@"signin-button.png"] forState:UIControlStateNormal];
-         [self.logInView.logInButton setBackgroundImage:[UIImage imageNamed:@"signin-button-highlighted.png"] forState:UIControlStateHighlighted];
-         [self.logInView.logInButton setTitle:@"" forState:UIControlStateNormal];
-         [self.logInView.logInButton setTitle:@"" forState:UIControlStateHighlighted];*/
     } else {
-        //[self.logInView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"loginBackground~iPad.png"]]];
+        [self.logInView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"loginBackground~iPad.png"]]];
         [self.logInView setLogo:nil];
-        //[self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo.png"]]];
-        
-        // Set buttons appearance
-        /*[self.logInView.logInButton setImage:nil forState:UIControlStateNormal];
-         [self.logInView.logInButton setImage:nil forState:UIControlStateHighlighted];
-         [self.logInView.logInButton setBackgroundImage:[UIImage imageNamed:@"signin-button.png"] forState:UIControlStateNormal];
-         [self.logInView.logInButton setBackgroundImage:[UIImage imageNamed:@"signin-button-highlighted.png"] forState:UIControlStateHighlighted];
-         [self.logInView.logInButton setTitle:@"" forState:UIControlStateNormal];
-         [self.logInView.logInButton setTitle:@"" forState:UIControlStateHighlighted];*/
     }
     
     // Add login field background
@@ -83,12 +71,7 @@
     [super viewDidLayoutSubviews];
     //Check device type
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        // Set frame for elements in iPhone
-        //[self.logInView.dismissButton setFrame:CGRectMake(10.0f, 10.0f, 87.5f, 45.5f)];
-        //[self.logInView.logo setFrame:CGRectMake(66.5f, 70.0f, 187.0f, 58.5f)];
-        //[self.logInView.facebookButton setFrame:CGRectMake(35.0f, 287.0f, 120.0f, 40.0f)];
-        //[self.logInView.twitterButton setFrame:CGRectMake(35.0f+130.0f, 287.0f, 120.0f, 40.0f)];
-        //[self.logInView.signUpButton setFrame:CGRectMake(35.0f, 385.0f, 250.0f, 40.0f)];
+        //Set frame for elements in iPhone
         [self.logInView.usernameField setFrame:CGRectMake(35.0f, 100.0f, 250.0f, 50.0f)];
         [self.logInView.passwordField setFrame:CGRectMake(35.0f, 150.0f, 250.0f, 50.0f)];
         [self.fieldsBackground setFrame:CGRectMake(35.0f, 100.0f, 250.0f, 100.0f)];
@@ -97,18 +80,11 @@
         [self.logInView.signUpLabel setFrame:CGRectMake(35.0f, 265.0f, 250.0f, 40.0f)];
         [self.logInView.signUpButton setFrame:CGRectMake(35.0f, 300.0f, 250.0f, 40.0f)];
     } else {
-        //[self.logInView.dismissButton setFrame:CGRectMake(10.0f, 10.0f, 87.5f, 45.5f)];
-        //[self.logInView.logo setFrame:CGRectMake(66.5f, 70.0f, 187.0f, 58.5f)];
-        //[self.logInView.facebookButton setFrame:CGRectMake(35.0f, 287.0f, 120.0f, 40.0f)];
-        //[self.logInView.twitterButton setFrame:CGRectMake(35.0f+130.0f, 287.0f, 120.0f, 40.0f)];
-        //[self.logInView.signUpButton setFrame:CGRectMake(35.0f, 385.0f, 250.0f, 40.0f)];
+        //Set frame for iPad elements. Some elements are left in the default location
         [self.logInView.usernameField setFrame:CGRectMake(260.0f, 412.0f, 250.0f, 50.0f)];
         [self.logInView.passwordField setFrame:CGRectMake(260.0f, 460.0f, 250.0f, 50.0f)];
         [self.fieldsBackground setFrame:CGRectMake(258.0f, 410.0f, 250.0f, 100.0f)];
-        //[self.logInView.logInButton setFrame:CGRectMake(258.0f, 515.0f, 250.0f, 45.0f)];
         [self.logInView.passwordForgottenButton setFrame:CGRectMake(240.0f, 435.0f, 20.0f, 50.0f)];
-        //[self.logInView.signUpLabel setFrame:CGRectMake(258.0f, 450.0f, 250.0f, 45.0f)];
-        //[self.logInView.signUpButton setFrame:CGRectMake(35.0f, 300.0f, 250.0f, 40.0f)];
     }
 }
 

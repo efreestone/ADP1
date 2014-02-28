@@ -36,6 +36,7 @@
     UIImage *editedImage;
     NSData *imageData;
     UIImage *scaledImage;
+    //Declare managed item object
     Items *newItem;
 }
 
@@ -52,8 +53,17 @@
 
 - (void)viewDidLoad
 {
+    //Check device type and apply background accordingly
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"mainBackground-568h.png"]]];
+    } else {
+        [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"mainBackground~iPad.png"]]];
+    }
+    
+    //Allocate image view controller
     imageViewController = [[ImageViewController alloc] init];
     
+    //If coming from detail view edit button, set text fields to passed values
     if (passedManagedObject != nil) {
         makeTextField.text = [passedManagedObject valueForKey:@"make"];
         modelTextField.text = [passedManagedObject valueForKey:@"model"];
@@ -93,8 +103,6 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     //Grab managed object context on app delegate
     NSManagedObjectContext *objectContext = [appDelegate managedObjectContext];
-    //Create new item object
-    //Items *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Items" inManagedObjectContext:objectContext];
     //Set default image string
     NSString *defaultImageString = @"defaultImage.png";
     
@@ -124,8 +132,9 @@
             [passedManagedObject setValue: costTextField.text forKey:@"cost"];
             [passedManagedObject setValue: currentDate forKey:@"dateAdded"];
             [passedManagedObject setValue: formattedDate forKey:@"formattedDate"];
-            //[passedManagedObject setValue: imageData forKey:@"imageData"];
-            if (scaledImage != nil) { //[[passedManagedObject valueForKey:@"image"] isEqualToString:@"defaultImage.png"] &&
+            //Check if scaled image exists. If it does, an image was taken with the camera
+            if (scaledImage != nil) {
+                //Set imageData with scaled image.
                 imageData = UIImageJPEGRepresentation(scaledImage, 0.5);
                 [passedManagedObject setValue: imageData forKey:@"imageData"];
                 [passedManagedObject setValue: @"" forKey:@"image"];
@@ -161,7 +170,6 @@
             
         }
         
-    
         //If sync item is switched to yes, sync single item to server
         if (syncSwitch.isOn) {
             //Create new object to upload to Parse
@@ -174,7 +182,6 @@
             newPFObject[@"cost"] = costTextField.text;
             newPFObject[@"dateAdded"] = currentDate;
             newPFObject[@"formattedDate"] = formattedDate;
-            //newPFObject[@"imageData"] = imageData;
         
             //Create string for use in naming images
             NSString *imageName;// = [NSString stringWithFormat:@"%@.png", makeTextField.text];
@@ -210,10 +217,8 @@
             //Log out error
             NSLog(@"Save failed: %@", [error localizedDescription]);
         } else {
-            //Create and show save success alert
-            UIAlertView *savedAlert = [[UIAlertView alloc] initWithTitle: @"Item Saved" message: @"Your item was saved successfully!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [savedAlert show];
-            //[objectContext save:&error];
+            //Show save success alert
+            [self savedAlertView];
             //NSLog(@"%@", newItem.description);
         }
         //Dismiss view controller
@@ -247,17 +252,12 @@
             [self noCameraAlertView];
             //NSLog(@"Camera not available");
         }
-        //[self.navigationController pushViewController:imageViewController animated:true];
-        //[self presentViewController:imageViewController animated:true completion:nil];
     }
 }
 
 //Built in method to capture media selection
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    //Initialize/allocate image view controller
-    //ImageViewController *imageViewController = [[ImageViewController alloc] init];
-    
     NSLog(@"%@", [info description]);
     
     selectedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
@@ -292,8 +292,8 @@
                 NSLog(@"url %@", imageURL);
                 //Pass image URL
                 passedImageURL = imageURL;
+                //Show image saved alert
                 [self imageSavedAlertView];
-                //[self dismissViewControllerAnimated:true completion:nil];
             }
         }];
     }
@@ -331,6 +331,15 @@
 }
 
 #pragma mark - Alerts
+
+//Create and show item saved alert
+-(void)savedAlertView
+{
+    //Create alert
+    UIAlertView *savedAlert = [[UIAlertView alloc] initWithTitle: @"Item Saved" message: @"Your item was saved successfully!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    //Show alert
+    [savedAlert show];
+}
 
 //Create and show no camera alert
 -(void)noCameraAlertView

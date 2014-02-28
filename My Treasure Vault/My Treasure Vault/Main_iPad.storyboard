@@ -28,7 +28,7 @@
         <scene sceneID="5Oz-rF-PPo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sYu-An-jZs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recent" id="xMC-Xl-mZW"/>
+                    <tabBarItem key="tabBarItem" title="Recent" image="recentTab.png" id="xMC-Xl-mZW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ore-FK-Bzw">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -47,7 +47,7 @@
         <scene sceneID="X6n-3A-McQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0vS-yh-j8p" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="All Items" id="rXw-jQ-LYc"/>
+                    <tabBarItem key="tabBarItem" title="All Items" image="allItemsTab.png" id="rXw-jQ-LYc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="d6f-T5-jCS">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -66,7 +66,7 @@
         <scene sceneID="Xqz-eI-gjM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DHF-3R-hXn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="vgG-Mp-7qc"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settingsTab.png" id="vgG-Mp-7qc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zI6-S1-cff">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -74,7 +74,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="tnR-Wd-UaK" kind="relationship" relationship="rootViewController" id="0Xb-3Y-fGi"/>
+                        <segue destination="tnR-Wd-UaK" kind="relationship" relationship="rootViewController" id="cPv-Uj-B8G"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vGt-Kh-jQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -229,14 +229,15 @@
         <scene sceneID="Ruq-bI-k7m">
             <objects>
                 <tableViewController id="tnR-Wd-UaK" customClass="SettingsViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yrm-6w-Kf5">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yrm-6w-Kf5">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection id="IZ6-gp-QiU">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="847" id="SlA-KG-kVE">
+                                    <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="847" id="SlA-KG-kVE">
                                         <rect key="frame" x="0.0" y="64" width="768" height="847"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SlA-KG-kVE" id="z2O-Xf-7SG">
@@ -296,7 +297,9 @@
                                                     </connections>
                                                 </switch>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -307,7 +310,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="ksR-Ir-NZ9">
-                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="0Ym-A9-9lB"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="0Ym-A9-9lB">
+                            <connections>
+                                <action selector="onSave:" destination="tnR-Wd-UaK" id="nt9-rq-3v5"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Jq-Sk-hIL">
                             <connections>
                                 <segue destination="dZL-jZ-Pma" kind="modal" id="kmf-71-XxM"/>
@@ -315,6 +322,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="saveButton" destination="0Ym-A9-9lB" id="fuZ-zG-RYa"/>
                         <outlet property="syncAllSwitch" destination="pB7-rN-3Sg" id="3jg-g1-HlG"/>
                         <outlet property="syncImageSwitch" destination="ovF-6l-1wV" id="6Nd-aj-8Ow"/>
                     </connections>
@@ -614,8 +622,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="allItemsTab.png" width="30" height="30"/>
         <image name="camera-button-highlighted.png" width="288" height="88"/>
         <image name="camera-button.png" width="288" height="88"/>
+        <image name="recentTab.png" width="30" height="30"/>
+        <image name="settingsTab.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="lightContent"/>
@@ -623,7 +634,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="mZL-Ca-tK5"/>
-        <segue reference="kmf-71-XxM"/>
+        <segue reference="PUu-Zw-Wgp"/>
+        <segue reference="e5m-nO-2Vw"/>
     </inferredMetricsTieBreakers>
 </document>
